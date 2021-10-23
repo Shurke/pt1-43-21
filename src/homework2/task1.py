@@ -14,7 +14,7 @@ while not n.isnumeric() or int(n) > 99:
 else:
     print('Thanks!')
 
-print('Cost of one item is - ' + str(m) + ' rubles ' + str(n) + ' copecks')
+print('Cost of one item is - ' + m + ' rubles ' + n + ' copecks')
 
 s = input('Enter the quantity - ')
 while not s.isnumeric():
