@@ -1,5 +1,5 @@
-#65 - 90 - BIG
-#97 - 122 - small
+#65 - 90 - BIG in ASCII
+#97 - 122 - small in ASCII
 
 st = input('Enter some text: ')
 
