@@ -17,8 +17,9 @@ def main():
     except ValueError:
         print("Это не число!")
         return
-    Sum_Rub = m * k + n * k // 100
-    Sum_K = n * k % 100
-    print("стоимость товара: ", Sum_Rub, "р.", Sum_K, "к.")
+    sum_rub = m * k + n * k // 100
+    sum_k = n * k % 100
+    print("стоимость товара: ", sum_rub, "р.", sum_k, "к.")
+
 
 main()
