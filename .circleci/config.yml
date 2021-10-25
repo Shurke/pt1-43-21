@@ -3,24 +3,32 @@ workflows:
   version: 2
   test:
     jobs:
-      - test-flake8
-      - check-tasks
+      - python/flake8
+      - tests
+      - python/pylint
 jobs:
   build:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.9
     steps:
       - checkout
-  test-flake8:
+  python/flake8:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run: sudo pip install tox
       - run: tox -eflake8
-  check-tasks:
+  python/pylint:
     docker:
-      - image: circleci/python:3.7
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run: sudo pip install tox
+      - run: tox -epylint
+  tests:
+    docker:
+      - image: circleci/python:3.9
     steps:
       - checkout
       - run:
