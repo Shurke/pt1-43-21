@@ -6,7 +6,7 @@ a = 'somed task,sdsdss klon! kul'
 b = ""
 for i in a:
     if i not in string.punctuation:
-        b = b+i
+        b = b + i
     else:
         b = b + " "
 c = b.replace("  ", " ")

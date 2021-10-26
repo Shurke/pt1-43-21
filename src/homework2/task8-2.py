@@ -8,7 +8,8 @@ a = int(input('a = '))
 i = 0
 while a > 0 and a % 10 == 0:
     i = i + 1
-    a = a //10
+    a = a // 10
 print('кол-во 0 в конце:', i)
+
 
 
