@@ -17,3 +17,4 @@ else:
         prev1 = prev2
         prev2 = cur
 print(cur)
+
