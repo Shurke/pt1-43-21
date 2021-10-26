@@ -3,11 +3,11 @@
 # If the word's length is even, return the middle 2 characters.
 
 def get_middle(s):
-    slen = len(s)
-    number = slen // 2
-    if slen % 2 == 0:
+    s_len = len(s)
+    number = s_len // 2
+    if s_len % 2 == 0:
         number = number - 1
-    return s[number:(slen - number)]
+    return s[number:(s_len - number)]
 
 
 print(get_middle(input("Введите строку: ")))
