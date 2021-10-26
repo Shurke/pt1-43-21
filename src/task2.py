@@ -11,3 +11,4 @@ for v in str1:
         # max_word_len = len(v) 
         max_word = v
 print('Самое длинное слово в предложении: ', max_word)
+
