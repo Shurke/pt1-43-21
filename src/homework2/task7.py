@@ -26,7 +26,7 @@ def main():
     if a < 0 or b < 0 or c < 0:
         print("Стороны не должны быть отрицательными")
         return
-    if a+b <= c or a+c <= b or c+b <= a:
+    if a + b <= c or a + c <= b or c + b <= a:
         print("Это не треугольник")
     else:
         p = (a + b + c) / 2
