@@ -9,8 +9,7 @@
 # (1, 1) --> 1 (1 since both are same)
 # (-1, 0) --> -1 (-1 + 0 = -1)
 # (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
-
-def get_sum(a,b):
+def get_sum(a, b):
     if a == b:
         return a
     elif a < b:

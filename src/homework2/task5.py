@@ -23,7 +23,7 @@ def main():
             fib_old = fib
             fib = fib + prefib
             prefib = fib_old
-            i = i+1
+            i = i + 1
         print(fib)
 
 

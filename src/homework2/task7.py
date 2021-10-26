@@ -29,8 +29,8 @@ def main():
     if a+b <= c or a+c <= b or c+b <= a:
         print("Это не треугольник")
     else:
-        p = (a+b+c)/2
-        s = (p*(p-a)*(p-b)*(p-c))**(1/2)
+        p = (a + b + c) / 2
+        s = (p * (p - a) * (p - b) * (p - c)) ** (1 / 2)
         print("площадь", s)
 
 
