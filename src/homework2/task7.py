@@ -6,10 +6,12 @@ if side1 > 0 and side2 > 0 and side3 > 0:
     if side1 >= side2 and side1 >= side3:
         if side1 < side2 + side3:
             print("Существует!")
-            S = (p * (p - side1)*(p - side2) * (p - side3)) ** 0.5
+            S = (p * (p - side1) * (p - side2) * (p - side3)) ** 0.5
             print(f"Площадь: {S}")
         else:
-            print("Не существует!")
+            print("Существует!")
+            S = (p * (p - side1) * (p - side2) * (p - side3)) ** 0.5
+            print(f"Площадь: {S}")
     elif side2 >= side1 and side2 >= side3:
         if side2 < side1 + side3:
             print("Существует!")
