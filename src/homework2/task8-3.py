@@ -9,8 +9,8 @@ a = input('a = ')
 b = 0
 n = 0
 for i in a:
-    if i == '0' \
-            and b == 0:
+    if i == '0' and b == 0:
         n = n + 1
-    else: b = b + 1
+    else:
+        b = b + 1
 print('Количество 0 в начале: ', n)
