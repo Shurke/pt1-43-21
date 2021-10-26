@@ -13,10 +13,8 @@ c = b.replace("  ", " ")
 d = c.split(" ")
 f = 0
 for i_ in d:
-    if len(i_)>f:
+    if len(i_) > f:
         f = len(i_)
 for i__ in d:
     if len(i__) == f:
         print(i__)
-
-
