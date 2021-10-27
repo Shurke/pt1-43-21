@@ -9,9 +9,9 @@ def main():
     x = int(input("Введите 1 сторону треугольника"))
     y = int(input("Введите 2 сторону треугольника"))
     z = int(input("Введите 3 сторону треугольника"))
-    if x+y > z and x+z > y and y+z > x:
-        p = (x+y+z)/2
-        print(math.sqrt(p*(p-x)*(p-y)*(p-z)))
+    if x + y > z and x + z > y and y + z > x:
+        p = (x + y + z) / 2
+        print(math.sqrt(p * (p - x) * (p - y) * (p - z)))
     else:
         print("Error, Wrong input data format, please try again")
 
