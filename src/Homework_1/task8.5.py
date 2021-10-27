@@ -16,7 +16,8 @@ Your code must return true or false (not 'true' and 'false') depending upon whet
 is a Narcissistic number in base 10. This may be True and False in your language, e.g. PHP.
 
 Error checking for text strings or other invalid inputs is not required, only valid positive
-non-zero integers will be passed into the function."""
+non-zero integers will be passed into the function.
+https://www.codewars.com/kata/5287e858c6b5a9678200083c"""
 
 
 def narcissistic(value):
