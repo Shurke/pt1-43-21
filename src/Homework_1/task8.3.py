@@ -6,10 +6,13 @@ It’s guaranteed that array contains at least 3 numbers.
 
 The tests contain some very huge arrays, so think about performance."""
 
+
 def find_uniq(arr):
     set_num = set(arr)
     for i in set_num:
         if arr.count(i) == 1:
             break
     return i
-print(find_uniq([ 1, 1, 1, 2, 1, 1 ]))
+
+
+print(find_uniq([1, 1, 1, 2, 1, 1]))

@@ -1,4 +1,5 @@
-"""Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+"""Given an array (arr) as an argument complete the function countSmileys that should return
+the total number of smiling faces.
 
 Rules for a smiling face:
 
@@ -13,7 +14,6 @@ Valid smiley face examples: :)
 Invalid smiley faces: ;(
  :> :} :]
 
-
 Example
 countSmileys([':)
 ', ';(
@@ -24,7 +24,10 @@ countSmileys([';D', ':-(
 countSmileys([';]', ':[', ';*', ':$
 ', ';-D']); // should return 1;
 Note
-In case of an empty array return 0. You will not be tested with invalid input (input will always be an array). Order of the face (eyes, nose, mouth) elements will always be the same."""
+In case of an empty array return 0. You will not be tested with invalid input
+(input will always be an array). Order of the face (eyes, nose, mouth) elements
+will always be the same."""
+
 
 def count_smileys(arr):
     count = 0
@@ -34,9 +37,10 @@ def count_smileys(arr):
         elif i[-1] not in ')D':
             continue
         elif len(i) == 3 and i[1] not in '-~':
-                continue
+            continue
         else:
             count += 1
     return count
+
 
 print(count_smileys([';D', ':-(', ':-)', ';~)']))
