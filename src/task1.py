@@ -9,4 +9,4 @@ def main():
     print("Сумма равняется: ", price * qty)
     
 if __name__ == "__main__":
-     main()
+    main()
