@@ -4,7 +4,7 @@
 
 import string
 
-a = 'somed task,sdsdss klon! kul'
+a = 'somedaa task,sdsdss klon! kul'
 b = ""
 for i in a:
     if i not in string.punctuation:
@@ -13,7 +13,5 @@ for i in a:
         b = b + " "
 c = b.replace("  ", " ")
 d = c.split(" ")
-f = 0
-for i__ in d:
-    if len(i__) == max(len(d)):
-        print(i__)
+print(max(d, key=len))
+
