@@ -14,4 +14,3 @@ for i in a:
 c = b.replace("  ", " ")
 d = c.split(" ")
 print(max(d, key=len))
-
