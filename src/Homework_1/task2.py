@@ -1,5 +1,3 @@
-import string
-
 """2. Найти самое длинное слово в введенном предложении. Учтите что в предложении
 есть знаки препинания.
 Подсказки:
@@ -7,12 +5,15 @@ import string
 - len(list) - количество элементов в списке
 Задачу поместите в файл task2.py в папке src/homework2."""
 
-str = input("Введите строку: ")
+import string
+
+sentence = (input("Введите строку: ")).split()
 word, max_len = '', 0
 
-for i in str.split():
-    if len(i.strip(string.punctuation)) > max_len:
-        max_len = len(i.strip(string.punctuation))
-        word = i.strip(string.punctuation)
+for i in sentence:
+    value = i.strip(string.punctuation)
+    if len(value) > max_len:
+        max_len = len(value)
+        word = value
 
 print(f"Самое длинное слово - '{word}'")
