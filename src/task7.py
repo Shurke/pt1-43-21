@@ -14,8 +14,10 @@ def main():
     if side1 < (side2 + side3) and side2 < (side1 + side3) and side3 < (side1 + side2):
         semi_perimeter = (side1 + side2 + side3) / 2   # полупериметр
         # площадь треугольника по формуле Герона
-        square = ((semi_perimeter * (semi_perimeter - side1) * (semi_perimeter - side2) * 
-                   (semi_perimeter - side3)) ** 0.5)
+        dif1 = semi_perimeter - side1
+        dif2 = semi_perimeter - side2
+        dif3 = semi_perimeter - side3
+        square = (semi_perimeter * dif1 * dif2 * dif3) ** 0.5
         print("Площадь треугольника равняется (см2)", square)
     else:
         print("Неверные данные")
