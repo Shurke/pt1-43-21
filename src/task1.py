@@ -10,5 +10,6 @@ def main():
     qty = int(input("Введите количество товара:  "))
     print("Сумма равняется: ", price * qty)
 
+
 if __name__ == "__main__":
     main()
