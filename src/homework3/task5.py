@@ -5,10 +5,6 @@
 
 list_sample = [1, 1, 2, 3, 4, 3, 5, 5, 6]
 
-list_unique = []
-
 for i in list_sample:
     if list_sample.count(i) == 1:
-        list_unique.append(i)
-
-print(list_unique)
+        print(i)
