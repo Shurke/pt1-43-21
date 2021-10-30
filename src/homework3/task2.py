@@ -11,6 +11,7 @@ List practice
 lst_from1 = [(first_list + second_list) for first_list in ['a', 'b']
              for second_list in ['b', 'c', 'd']]
 print(lst_from1)
+
 print(lst_from1[::2])
 
 lst_from3 = [digit + word for digit in ['1', '2', '3', '4'] for word in 'a']
