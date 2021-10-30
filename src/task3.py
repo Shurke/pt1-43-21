@@ -1,16 +1,19 @@
+"""Task3"""
+
+
 def main():
     """Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы.
 
     Например, если было введено "abc cde def", то должно быть выведено "abcdef".
     """
-    s = input('Введите предложение: ')
-    s = s.replace(' ', '')
-    s = list(s)
-    new_s = ''
-    for n in s:
-        if new_s.find(n) == -1:
-            new_s = new_s + n
-    print(new_s)
+    st = input('Введите предложение: ')
+    st = st.replace(' ', '')
+    st = list(st)
+    new_st = ''
+    for letter in st:
+        if new_st.find(letter) == -1:
+            new_st += letter
+    print(new_st)
 
 
 if __name__ == "__main__":
