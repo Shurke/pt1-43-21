@@ -9,6 +9,4 @@ list_unique = []
 
 for i in list_sample:
     if list_sample.count(i) == 1:
-        list_unique.append(i)
-
-print(list_unique)
+        print(i)
