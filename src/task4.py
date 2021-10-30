@@ -6,13 +6,13 @@ def main():
 
     Учитывать только английские буквы.
     """
-    st = input("Введите любую строку: ")
-    st = st.replace(' ', '')
-    st = list(st)
+    str_ = input("Введите любую строку: ")
+    str_ = str_.replace(' ', '')
+    str_ = list(str_)
     sum_l = 0
     sum_u = 0
     english_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    for letter in st:
+    for letter in str_:
         if english_letters.find(letter) != -1:
             if letter == letter.lower():
                 sum_l += 1
