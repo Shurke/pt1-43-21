@@ -15,9 +15,9 @@ def iq_test(numbers):
     odd = []
     for i in range(len(numb)):
         if numb[i] % 2 == 0:
-            evn.append(i+1)
+            evn.append(i + 1)
         else:
-            odd.append(i+1)
+            odd.append(i + 1)
     if len(evn) > 1:
         return odd[0]
     else:
