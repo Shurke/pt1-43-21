@@ -11,8 +11,8 @@ def main():
     max_word_len = 0
     for v in str1:
         if len(v) > max_word_len:
-        # max_word_len = len(v) 
-        max_word = v
+            # max_word_len = len(v)
+            max_word = v
     print('Самое длинное слово в предложении: ', max_word)
 
 
