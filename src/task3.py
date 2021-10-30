@@ -6,11 +6,11 @@ def main():
 
     Например, если было введено "abc cde def", то должно быть выведено "abcdef".
     """
-    st = input('Введите предложение: ')
-    st = st.replace(' ', '')
-    st = list(st)
+    str_ = input('Введите предложение: ')
+    str_ = str_.replace(' ', '')
+    str_ = list(str_)
     new_st = ''
-    for letter in st:
+    for letter in str_:
         if new_st.find(letter) == -1:
             new_st += letter
     print(new_st)
