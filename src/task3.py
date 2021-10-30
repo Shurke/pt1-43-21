@@ -11,6 +11,5 @@ def main():
         if new_s.find(n) == -1:
             new_s = new_s + n
     print(new_s)
-    
     if __name__ == "__main__":
     main()
