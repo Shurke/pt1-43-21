@@ -1,12 +1,14 @@
-# 3. Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы.
-# Например, если было введено "abc cde def", то должно быть выведено "abcdef".
+''' 3. Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы.
 
-st1 = input('Enter "abrakadabra"')
-st = st1.replace(' ', '')
+Например, если было введено "abc cde def", то должно быть выведено "abcdef".
+'''
 
-a = st[0]
-for i in st:
-    if i not in a:
-        a = a + i
+entered_string = input('Enter "abrakadabra"')
+str_no_space = entered_string.replace(' ', '')
 
-print(a)
+unique_string = str_no_space[0]
+for letter in str_no_space:
+    if letter not in unique_string:
+        unique_string += letter
+
+print(unique_string)

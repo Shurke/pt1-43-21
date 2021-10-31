@@ -1,19 +1,18 @@
-# 4. Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке.
-# Учитывать только английские буквы.
+''' 4. Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке.
 
-# 65 - 90 - BIG in ASCII
-# 97 - 122 - small in ASCII
+Учитывать только английские буквы.
+'''
 
-st = input('Enter some text: ')
+entered_symbols = input('Enter some text: ')
 
-a = 0
-b = 0
+lowercased_words = 0
+uppercase_words = 0
 
-for i in st:
-    if (65 <= ord(i) <= 90):
-        a += 1
-    elif (97 <= ord(i) <= 122):
-        b += 1
+for symbol in entered_symbols:
+    if symbol.isupper():
+        uppercase_words += 1
+    elif symbol.islower():
+        lowercased_words += 1
 
-print('Quantity of lowercase English letters is ' + str(b))
-print('Quantity of uppercase English letters is ' + str(a))
+print('Quantity of lowercase English letters is ' + str(lowercased_words))
+print('Quantity of uppercase English letters is ' + str(uppercase_words))

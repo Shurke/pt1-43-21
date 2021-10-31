@@ -1,20 +1,20 @@
-# 2. Найти самое длинное слово в введенном предложении.
-# Учтите что в предложении есть знаки препинания.
+''' 2. Найти самое длинное слово в введенном предложении.
+
+Учтите что в предложении есть знаки препинания.
+'''
 
 import string
 
-st1 = input('Enter text, please - ')
-st = st1.replace('9', ' ')
-stripped = st.translate(str.maketrans('', '', string.punctuation))
-st1 = stripped.split(' ')
+entered_text = input('Enter text, please - ')
 
-# print(st1)
+stripped = entered_text.translate(str.maketrans('', '', string.punctuation))
+entered_text = stripped.split(' ')
 
-b = 0
-result = 0
-for i in st1:
-    if len(i) > b:
-        b = len(i)
-        result = i
+max_lenght = 0
+longest_word = ''
+for word in entered_text:
+    if len(word) > max_lenght:
+        max_lenght = len(word)
+        longest_word = word
 
-print(result)
+print(longest_word)

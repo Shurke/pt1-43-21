@@ -1,16 +1,18 @@
-# 5. Выведите n-ое число Фибоначчи, используя только временные переменные,
-# циклические операторы и условные операторы.
-# n - вводится
-m = int(input('Enter a number: '))
-n = m - 1
+'''
+5. Выведите n-ое число Фибоначчи, используя только временные переменные,
+циклические операторы и условные операторы.
+n - вводится
+'''
+
+number_in_fib = int(input('Enter a number: '))
+n = number_in_fib - 1
 a = 1
-fib = [0, 1]
-x = fib[1]
+fib_sequence = [0, 1]
+fib_element = fib_sequence[1]
 
-for a in range(m - a):
-    if a < m - 1:
-        x = x + fib[a]
-        fib.append(x)
-        a += 1
+for a in range(number_in_fib - a):
+    if a < number_in_fib - 1:
+        fib_element += fib_sequence[a]
+        fib_sequence.append(fib_element)
 
-print(str(m) + 'th Fibonacci number is - ' + str(fib[n]))
+print(str(number_in_fib) + 'th Fibonacci number is - ' + str(fib_sequence[n]))
