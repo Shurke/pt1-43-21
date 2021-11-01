@@ -9,7 +9,7 @@ def main():
     """
     price = float(input("Введите цену товара: "))
     qty = int(input("Введите количество товара:  "))
-    print("Сумма равняется: ", price * qty)
+    print("Общая цена за", qty, "товаров равняется: ", price * qty)
 
 
 if __name__ == "__main__":
