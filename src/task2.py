@@ -12,9 +12,9 @@ def main():
     max_word_len = 0
     for word in str1:
         if len(word) > max_word_len:
-            # max_word_len = len(word)
+            max_word_len = len(word)
             max_word = word
-    print('Самое длинное слово в предложении: ', max_word)
+     print('Самое длинное слово в предложении:', max_word, '. Его длина', max_word_len, 'символов.')
 
 
 if __name__ == "__main__":
