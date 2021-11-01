@@ -11,7 +11,7 @@ def main():
     str_ = list(str_)
     new_st = ''
     for letter in str_:
-        if new_st.find(letter) == -1:
+        if letter not in new_st:
             new_st += letter
     print(new_st)
 
