@@ -14,7 +14,7 @@ def main():
         if len(word) > max_word_len:
             max_word_len = len(word)
             max_word = word
-     print('Самое длинное слово в предложении:', max_word, '. Его длина', max_word_len, 'символов.')
+    print('Самое длинное слово в предложении:', max_word, '. Его длина', max_word_len, 'символов.')
 
 
 if __name__ == "__main__":
