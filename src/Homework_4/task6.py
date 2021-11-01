@@ -12,7 +12,6 @@ list_of_num = [1, 0, 0, 4, 0, 4, 0, 6]
 for i in list_of_num:
     if i == 0:
         list_of_num.remove(i)
-        list_of_num.append(0)
+        list_of_num.append(i)
 
 print(list_of_num)
-
