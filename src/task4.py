@@ -14,9 +14,9 @@ def main():
     sum_u = 0
     for letter in str_:
         if string.ascii_letters.find(letter) != -1:
-            if letter == letter.lower():
+            if letter.islower():
                 sum_l += 1
-            if letter == letter.upper():
+            if letter.isupper():
                 sum_u += 1
     print("Общее количество строчных(маленьких)букв равняется", sum_l)
     print("Общее количество прописных(больших)букв равняется", sum_u)
