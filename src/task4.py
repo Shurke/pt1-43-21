@@ -1,4 +1,5 @@
 """Task4"""
+import string
 
 
 def main():
@@ -11,9 +12,8 @@ def main():
     str_ = list(str_)
     sum_l = 0
     sum_u = 0
-    english_letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     for letter in str_:
-        if english_letters.find(letter) != -1:
+        if string.ascii_letters.find(letter) != -1:
             if letter == letter.lower():
                 sum_l += 1
             if letter == letter.upper():
