@@ -15,3 +15,4 @@ for i in list_of_num:
         list_of_num.append(0)
 
 print(list_of_num)
+
