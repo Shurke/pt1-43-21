@@ -1,6 +1,7 @@
 # Найти самое длинное слово в введенном предложении. Учтите что в предложении
 # есть знаки препинания.
 import string
+
 my_string = input()
 for x in my_string:
     if x in string.punctuation:
