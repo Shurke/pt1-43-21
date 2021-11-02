@@ -1,18 +1,20 @@
-# Выведите n-ое число Фибоначчи
+""" Выведите n-ое число Фибоначчи """
+
+
 def main():
-    n = int(input("Введите n-ое число Фибоначчи "))
-    if n == 0:
+    num = int(input("Введите n-ое число Фибоначчи "))
+    if num == 0:
         print('0')
         exit()
-    x = 0
-    y = 1
+    prev1 = 0
+    prev2 = 1
     ans = 1
-    n -= 1
-    while n:
-        n -= 1
-        ans = x + y
-        x = y
-        y = ans
+    num -= 2
+    while num:
+        num -= 1
+        ans = prev1 + prev2
+        prev1 = prev2
+        prev2 = ans
     print(ans)
 
 

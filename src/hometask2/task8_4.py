@@ -1,5 +1,9 @@
-# codewars problem ---- Vowel Count
-# Return the number (count) of vowels in the given string.
+"""
+ codewars problem ---- Vowel Count
+ Return the number (count) of vowels in the given string.
+"""
+
+
 def main():
     s = input("Введите строку ")
     ans = 0
@@ -8,7 +12,7 @@ def main():
     ans += s.count('i')
     ans += s.count('o')
     ans += s.count('u')
-    print(ans)
+    print('Количество гласных', ans)
 
 
 main()

@@ -1,19 +1,19 @@
-#  Найти самое длинное слово в введенном предложении.
+"""  Найти самое длинное слово в введенном предложении. """
 import string
 
 
 def main():
-    s = input("Введите строку")
+    str1 = input("Введите строку ")
     result_string = ''
-    for i in range(len(s)):
-        if s[i] not in string.punctuation:
-            result_string += s[i]
+    for i in str1:
+        if i not in string.punctuation:
+            result_string += i
         else:
             result_string += ' '
-    a = result_string.split()
+    str2 = result_string.split()
     max_len = 0
     ans = ''
-    for i in a:
+    for i in str2:
         if len(i) > max_len:
             max_len = len(i)
             ans = i

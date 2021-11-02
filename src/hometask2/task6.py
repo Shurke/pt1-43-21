@@ -1,12 +1,14 @@
-# Определите, является ли число палиндромом
+""" Определите, является ли число палиндромом """
+
+
 def main():
-    n = int(input("Введите ваше число"))
-    a = 0
-    h = n
-    while h > 0:
-        a = a * 10 + h % 10
-        h = h // 10
-    if a == n:
+    num = int(input("Введите ваше число "))
+    reverse_num = 0
+    num1 = num
+    while num1 > 0:
+        reverse_num = reverse_num * 10 + num1 % 10
+        num1 = num1 // 10
+    if reverse_num == num:
         print("YES")
     else:
         print("NO")
