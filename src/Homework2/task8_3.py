@@ -7,11 +7,10 @@ def printer_error(s):
     # a rational whose numerator is the number of errors and the denominator
     # the length of the control string. Don't reduce this fraction to a simpler expression.
     # Examples:
-    #     s="aaabbbbhaijjjm"
-    #     printer_error(s) => "0/14"
-    #
-    #     s="aaaxbbbbyyhwawiwjjjwwm"
-    #     printer_error(s) => "8/22"
+    # s="aaabbbbhaijjjm"
+    # printer_error(s) => "0/14"
+    # s="aaaxbbbbyyhwawiwjjjwwm"
+    # printer_error(s) => "8/22"
 
     k = 0
     for i in s:
