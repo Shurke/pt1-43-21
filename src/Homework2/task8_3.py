@@ -1,4 +1,4 @@
-def printer_error(print_string):
+def printer_error(s):
     # Sometimes there are problems: lack of colors, technical malfunction and
     # a "bad" control string is produced e.g. aaaxbbbbyyhwawiwjjjwwm
     # with letters not from a to m.
@@ -13,13 +13,12 @@ def printer_error(print_string):
     #     s="aaaxbbbbyyhwawiwjjjwwm"
     #     printer_error(s) => "8/22"
 
-    error_letter = 0
-    i = ''
-    for i in print_string:
+    k = 0
+    for i in s:
         if i > 'm':
-            error_letter += 1
-    return str(error_letter) + '/' + str(len(print_string))
+            k += 1
+    return str(k) + '/' + str(len(s))
 
 
-str_inp = input('Введите строку печати принтера: ')
-print('Количество ошибок/длина строки', printer_error(str_inp))
+str_inp = input()
+print(printer_error(str_inp))
