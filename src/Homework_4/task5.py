@@ -5,6 +5,7 @@
 Задачу поместите в файл task5.py в папке src/homework3.
 """
 
+
 list_of_elements = [1, 8, 2, 3, 1, 1, 2, 2, 3, 4, 5, 15]
 
 for i in list_of_elements:

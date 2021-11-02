@@ -8,6 +8,7 @@
 Важно: 1 1 1 - это 3 пары, 1 1 1 1 - это 6 пар
 """
 
+
 list_of_num = input().split()
 counter = 0
 

@@ -1,4 +1,5 @@
-"""A Narcissistic Number is a positive number which is the sum of its own digits, each raised
+"""
+A Narcissistic Number is a positive number which is the sum of its own digits, each raised
 to the power of the number of digits in a given base. In this Kata, we will restrict ourselves
 to decimal (base 10).
 
@@ -17,7 +18,8 @@ is a Narcissistic number in base 10. This may be True and False in your language
 
 Error checking for text strings or other invalid inputs is not required, only valid positive
 non-zero integers will be passed into the function.
-https://www.codewars.com/kata/5287e858c6b5a9678200083c"""
+https://www.codewars.com/kata/5287e858c6b5a9678200083c
+"""
 
 
 def narcissistic(value):

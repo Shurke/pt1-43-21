@@ -7,6 +7,7 @@
 Задачу поместите в файл task6.py в папке src/homework3.
 """
 
+
 list_of_num = [1, 0, 0, 4, 0, 4, 0, 6]
 
 for i in list_of_num:

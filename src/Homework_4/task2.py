@@ -8,6 +8,7 @@
 не было.
 """
 
+
 from copy import copy
 
 lst = [i + j for i in 'ab' for j in 'bcd']

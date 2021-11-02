@@ -1,4 +1,5 @@
-"""Given an array (arr) as an argument complete the function countSmileys that should return
+"""
+Given an array (arr) as an argument complete the function countSmileys that should return
 the total number of smiling faces.
 
 Rules for a smiling face:
@@ -27,7 +28,8 @@ Note
 In case of an empty array return 0. You will not be tested with invalid input
 (input will always be an array). Order of the face (eyes, nose, mouth) elements
 will always be the same.
-https://www.codewars.com/kata/583203e6eb35d7980400002a"""
+https://www.codewars.com/kata/583203e6eb35d7980400002a
+"""
 
 
 def count_smileys(arr):
