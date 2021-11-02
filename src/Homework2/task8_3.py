@@ -6,7 +6,6 @@ def printer_error(print_string):
     # will return the error rate of the printer as a string representing
     # a rational whose numerator is the number of errors and the denominator
     # the length of the control string. Don't reduce this fraction to a simpler expression.
-    #
     # Examples:
     #     s="aaabbbbhaijjjm"
     #     printer_error(s) => "0/14"
