@@ -10,9 +10,9 @@
 
 list_of_num = [1, 0, 0, 4, 0, 4, 0, 6]
 
-for i in list_of_num:
-    if i == 0:
-        list_of_num.remove(i)
-        list_of_num.append(i)
+for num in list_of_num:
+    if num == 0:
+        list_of_num.remove(num)
+        list_of_num.append(num)
 
 print(list_of_num)

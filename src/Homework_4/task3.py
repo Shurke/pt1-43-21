@@ -8,7 +8,7 @@ Tuple practice
 lst = [1, 2, 3]
 tup = (lst,)
 
-for i in tup:
-    for j in i:
-        print(j)
-print(len(tup))
+for elem in tup:
+    for char in elem:
+        print(char)
+print("len(tup) = ", len(tup))

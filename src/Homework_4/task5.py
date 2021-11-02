@@ -8,6 +8,7 @@
 
 list_of_elements = [1, 8, 2, 3, 1, 1, 2, 2, 3, 4, 5, 15]
 
-for i in list_of_elements:
-    if list_of_elements.count(i) == 1:
-        print(i, end=' ')
+for elem in list_of_elements:
+    if list_of_elements.count(elem) == 1:
+        print(elem, end=' ')
+

@@ -9,11 +9,12 @@
 """
 
 
-list_of_num = input().split()
+list_of_num = input()
+list_of_num = list_of_num.split()
 counter = 0
 
-for n, i in enumerate(list_of_num):
-    for j in list_of_num[:n]:
-        if i == j:
+for enum, num in enumerate(list_of_num):
+    for num_next in list_of_num[:enum]:
+        if num == num_next:
             counter += 1
 print(f'Количесвто пар: {counter}')

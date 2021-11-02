@@ -5,16 +5,12 @@
  """
 
 
-lst = [i for i in range(1, 101)]
-lst_res = []
-
-for i in lst:
+for i in range(1, 101):
     if i % 3 == 0 and i % 5 == 0:
-        lst_res.append('FizzBuzz')
+        print('FizzBuzz', end=' ')
     elif i % 3 == 0:
-        lst_res.append('Fizz')
+        print('Fizz', end=' ')
     elif i % 5 == 0:
-        lst_res.append('Buzz')
+        print('Buzz', end=' ')
     else:
-        lst_res.append(i)
-print(lst_res)
+        print(i, end=' ')
