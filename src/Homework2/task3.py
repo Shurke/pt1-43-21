@@ -6,6 +6,6 @@
 my_string = input('Введите строку: ')
 my_string_out = ''
 for i in my_string:
-    if  i not in my_string_out and i != ' ':
+    if i not in my_string_out and i != ' ':
         my_string_out += i
 print(my_string_out)
