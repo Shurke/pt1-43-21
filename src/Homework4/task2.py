@@ -12,7 +12,7 @@ List practice
 list_gener = [i + j for i in ['a', 'b'] for j in ['b', 'c', 'd']]
 print(list_gener)
 print(list_gener[::2])
-list_gener = [str(i+1) + 'a' for i in range(4)]
+list_gener = [str(i + 1) + 'a' for i in range(4)]
 print(list_gener)
 list_gener.remove('2a')
 print(list_gener)
