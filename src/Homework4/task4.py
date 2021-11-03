@@ -13,7 +13,7 @@ new_list = list(input('Введите строку из чисел, раздел
 couple_number = 0
 for i in range(len(new_list)):
     if i - 1 < len(new_list):
-        for j in range(i+1, len(new_list)):
+        for j in range(i + 1, len(new_list)):
             if new_list[i] == new_list[j]:
                 couple_number += 1
 print('Количество пар: ', couple_number)
