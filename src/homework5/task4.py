@@ -5,7 +5,7 @@
 
 list1 = [1, 3, 5, 11]
 list2 = [7, 5, 1]
-so = set(list1+list2)
+so = set(list1 + list2)
 s1 = so - set(list1)
 print('Различных чисел во втором множестве: ', len(s1))
 s2 = so - set(list2)
