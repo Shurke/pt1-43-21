@@ -25,14 +25,16 @@ Russia
 """
 
 
-n = int(input('Введите количество стран: '))
-c = {}
-for i in range(n):
+n = int(input())
+d = {}
+s = set()
+for item1 in range(n):
     country, *cities = input().split()
     for city in cities:
-        c[city] = country
-m = int(input('Введите количество городов: '))
-for item in range(m):
-    print(c[input()])
+        d[city] = country
+m = int(input())
+s = [input() for j in range(m)]
+for i in s:
+    print(d[i])
 
 # Смотрел в гугле, как я должен был догадаться до такого просто из головы, понятия не имею
