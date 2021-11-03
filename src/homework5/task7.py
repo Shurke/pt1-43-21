@@ -10,9 +10,9 @@ m = int(input())
 list1 = [m, n]
 list1.sort(reverse=True)
 i = 0
-while list1[i] % list1[i+1] != 0:
-    list1.append(list1[i] % list1[i+1])
+while list1[i] % list1[i + 1] != 0:
+    list1.append(list1[i] % list1[i + 1])
     print(list1)
     list1.sort(reverse=True)
     i += 1
-print(list1[i+1])
+print(list1[i + 1])
