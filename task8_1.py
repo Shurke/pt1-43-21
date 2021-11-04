@@ -1,3 +1,3 @@
-def mult_two(a , b): 
+def mult_two(a, b): 
 
     return a * b

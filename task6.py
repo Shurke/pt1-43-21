@@ -11,4 +11,4 @@ while a1 > 0:
 if a == pol:
     print('полиндром')
 else:
-    print('не полиндром') 
+    print('не полиндром')
