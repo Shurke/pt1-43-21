@@ -1,5 +1,5 @@
-a = input('введите предложение' )
-b = a.replace(' ','')
+a = input('введите предложение')
+b = a.replace(' ' , '')
 n = ''
 
 for i in b:
