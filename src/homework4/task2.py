@@ -10,6 +10,7 @@
 def main():
     list1 = [i + q for i in "ab" for q in "bcd"]
     list2 = list1[::2]
+    print(list2)
     list3 = [str(i) + "a" for i in range(1, 5)]
     print(list3.pop(1))
     list4 = list3.copy()
