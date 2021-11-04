@@ -6,6 +6,8 @@
 элемента не было."""
 
 
+import copy
+
 lst1 = [a + b for a in 'ab' for b in 'bcd']
 
 print(lst1)
@@ -16,7 +18,7 @@ lst3 = [str(i) + 'a' for i in range(1, 5)]
 
 print(lst3)
 print(lst3.pop(1))
-import copy
+
 lst4 = copy.deepcopy(lst3)
 lst5 = ['2a']
 
