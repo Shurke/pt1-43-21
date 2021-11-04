@@ -4,5 +4,5 @@
 b = ([1, 2, 3], )
 c = list(b)
 
-print (b[0])
-print (len(c))
+print(b[0])
+print(len(c))
