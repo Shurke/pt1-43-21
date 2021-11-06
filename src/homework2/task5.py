@@ -5,14 +5,15 @@ n - вводится
 '''
 
 number_in_fib = int(input('Enter a number: '))
-n = number_in_fib - 1
-a = 1
-fib_sequence = [0, 1]
-fib_element = fib_sequence[1]
 
-for a in range(number_in_fib - a):
-    if a < number_in_fib - 1:
-        fib_element += fib_sequence[a]
-        fib_sequence.append(fib_element)
+if 2 <= number_in_fib <= 3:
+    fib_element = 1
+elif number_in_fib == 1:
+    fib_element = 0
+else:
+    fib_element = 2
+    fib_element_left = 1
+    for element in range(3, number_in_fib):
+        fib_element_left, fib_element = fib_element, fib_element_left + fib_element
 
-print(str(number_in_fib) + 'th Fibonacci number is - ' + str(fib_sequence[n]))
+print(str(number_in_fib) + 'th Fibonacci number is - ' + str(fib_element))
