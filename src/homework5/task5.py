@@ -38,7 +38,8 @@ def get_languages():
     list_of_schoolchildren = list()
     for i in range(quantity_of_schoolchildren):
         try:
-            quantity_of_languages = int(input("Введите количество языков, которые знает школьник: "))
+            quantity_of_languages = int(input("Введите количество языков,"
+                                              " которые знает школьник: "))
         except ValueError:
             print("Это не число")
             return
@@ -50,5 +51,6 @@ def get_languages():
     known_by_somebody = set.union(*list_of_schoolchildren)
     print(len(known_by_everybody), *known_by_everybody, sep="\n")
     print(len(known_by_somebody), *known_by_somebody, sep="\n")
+
 
 get_languages()

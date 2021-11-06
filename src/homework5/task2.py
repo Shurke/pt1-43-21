@@ -28,6 +28,7 @@ Russia
 Russia
 """
 
+
 def get_input_dictionary_city_country():
     """функция возвращает словарь городов и стран"""
     try:
@@ -45,6 +46,7 @@ def get_input_dictionary_city_country():
         for city in list_country_and_cities[1:]:
             dict1[city] = country
     return dict1
+
 
 def find_country():
     """функция возвращает страну по городу"""
