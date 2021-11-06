@@ -10,9 +10,9 @@ def main():
     lower_count = 0
     upper_count = 0
     for i in str1:
-        if i.isupper() and i in string.ascii_uppercase:
+        if i in string.ascii_uppercase:
             upper_count += 1
-        if i.islower() and i in string.ascii_lowercase:
+        if i in string.ascii_lowercase:
             lower_count += 1
     print('lower', lower_count, '\n', 'upper', upper_count)
 
