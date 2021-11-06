@@ -5,19 +5,15 @@
 '''
 
 entered_number = int(input('Try to enter a polindrome! '))
+reversed_number = 0
+counter = entered_number
 
-list_a = []
-list_b = []
+while counter > 0:
+    last_number = counter % 10
+    reversed_number = 10 * reversed_number + last_number
+    counter //= 10
 
-while entered_number > 0:
-    last_figure = (entered_number % 10)
-    list_a.append(last_figure)
-    entered_number //= 10
-
-for i in reversed(list_a):
-    list_b.append(i)
-
-if list_a == list_b:
+if entered_number == reversed_number:
     print('It is polindrome!')
 else:
     print('It is not polindrome(')
