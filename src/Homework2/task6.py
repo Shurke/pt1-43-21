@@ -6,13 +6,13 @@
 еще)
 """
 
-A = int(input('Введите число: '))
-Inv_A = 0
-Ost = A
-while Ost > 0:
-    Inv_A = Inv_A * 10 + Ost % 10
-    Ost = Ost // 10
-if A == Inv_A:
-    print('Число', A, 'палиндром')
+my_number = int(input('Введите число: '))
+invert_my_number = 0
+reminder = my_number
+while reminder > 0:
+    invert_my_number = invert_my_number * 10 + reminder % 10
+    reminder = reminder // 10
+if my_number == invert_my_number:
+    print('Число', my_number, 'палиндром')
 else:
-    print('Число', A, 'не палиндром')
+    print('Число', my_number, 'не палиндром')

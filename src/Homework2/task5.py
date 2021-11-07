@@ -3,19 +3,19 @@
 циклические операторы и условные операторы. n - вводится
 """
 
-Fib = int(input('Введите номер числа Фибоначчи: '))
-Prev = 0
-Curr = 1
-Tmp = 0
+number_fib = int(input('Введите номер числа Фибоначчи: '))
+previous_number = 0
+current_number = 1
+temp_number = 0
 i = 3
-while i <= Fib:
-    Tmp = Curr
-    Curr = Curr + Prev
-    Prev = Tmp
+while i <= number_fib:
+    temp_number = current_number
+    current_number = current_number + previous_number
+    previous_number = temp_number
     i += 1
-if Fib == 0:
+if number_fib == 0:
     print('Неверно введен номер числа')
-elif Fib == 1:
-    print(Fib, '-ое число Фибоначчи: 0', sep='')
+elif number_fib == 1:
+    print(number_fib, '-ое число Фибоначчи: 0', sep='')
 else:
-    print(Fib, '-ое число Фибоначчи: ', Curr, sep='')
+    print(number_fib, '-ое число Фибоначчи: ', current_number, sep='')
