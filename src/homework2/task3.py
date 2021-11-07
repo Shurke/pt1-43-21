@@ -8,7 +8,6 @@ def main():
     """
     str_ = input('Введите предложение: ')
     str_ = str_.replace(' ', '')
-    str_ = list(str_)
     new_st = ''
     for letter in str_:
         if letter not in new_st:

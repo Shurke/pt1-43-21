@@ -13,7 +13,7 @@ def main():
     sum_l = 0
     sum_u = 0
     for letter in str_:
-        if string.ascii_letters.find(letter) != -1:
+        if letter in string.ascii_letters:
             if letter.islower():
                 sum_l += 1
             if letter.isupper():

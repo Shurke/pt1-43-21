@@ -5,11 +5,15 @@
 
 
 def main():
-    a = [int(i) for i in input().split()]
-    for i in range(len(a)):
-        s = a.count(a[i])
-        if s == 1:
-            print(a[i])
+
+    lst = [1, 1, 4, 4, 12, 5, 6, 0, 6, 3]
+    lst2 = []
+    for element in lst:
+        if element not in lst2:
+            count_el = lst.count(element)
+            lst2.append(element)
+            if count_el == 1:
+                print(element, end=' ')
 
 
 if __name__ == "__main__":

@@ -7,6 +7,9 @@ def main():
     Учтите что в предложении есть знаки препинания.
     """
     str1 = input("Введите любое предложение: ")
+    str1 = str1.replace(',', '')
+    str1 = str1.replace('.', '')
+    str1 = str1.replace(':', '')
     str1 = str1.split()
     max_word = ""
     max_word_len = 0

@@ -9,13 +9,13 @@
 def main():
     for x in range(1, 101):
         if x % 3 == 0 and x % 5 == 0:
-            print("FizzBuzz", end=' ')
+            print("FizzBuzz")
         elif x % 3 == 0:
-            print("Fizz", end=' ')
+            print("Fizz")
         elif x % 5 == 0:
-            print("Buzz", end=' ')
+            print("Buzz")
         else:
-            print(x, end=' ')
+            print(x)
 
 
 if __name__ == "__main__":
