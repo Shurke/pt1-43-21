@@ -25,4 +25,4 @@ for item in number_input:
 
         counted_numbers.append(item)  # Убираем числа, для которых пары посчитаны
 
-print(pair_counter)
+print(pair_counter)  # Количество пар элементов равных друг другу
