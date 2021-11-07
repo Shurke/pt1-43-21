@@ -4,10 +4,7 @@
 
 
 a = ['a', 'b', 'b', 'c', 'd', 'e', 'a']
-b = []
 
 for n in a:
     if a.count(n) == 1:
-        b = b + [n]
-
-print(b)
+        print(n)

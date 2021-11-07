@@ -4,13 +4,9 @@
 Распечатайте полученный список."""
 
 a = [1, 2, 0, 3, 0, 4, 6]
-c = []
-b = []
 
-for n in a:
-    if n != 0:
-        b = b + [n]
-    else:
-        c = c + [n]
+for n in range(len(a)):
+    if a[n] == 0:
+        a.append(a.pop(n))
 
-print(b + c)
+print(a)

@@ -7,7 +7,7 @@
 """
 
 
-a = input().split()
+a = input('Введите числа через пробел').split()
 c = 0
 
 for n in a:
@@ -15,4 +15,4 @@ for n in a:
 
 b = c / 2
 
-print(int(b))
+print('Колл.пар элементов равных друг другу', int(b))
