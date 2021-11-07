@@ -7,9 +7,9 @@
 
 def main():
     tuple1 = ((1, 2, 3), )
-    print('Размер кортежа -', len(tuple1))
-    for i in tuple1:
-        print(i)
+    print('Размер кортежа -', len(tuple1), '\nСодержимое 1 элемента -', end=' ')
+    for i in tuple1[0]:
+        print(i, end=' ')
 
 
 main()
