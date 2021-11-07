@@ -1,9 +1,9 @@
-a = str(input())
+a = str(input('Введите предложение', ))
 am = 0
 ab = 0
 
 for i in a:
-    if 'a' <= i <= 'z':
+    if i.islower():
         am += 1
     else:
         ab += 1
