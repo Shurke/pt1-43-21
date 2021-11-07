@@ -4,15 +4,13 @@
 а вместо чисел одновременно кратных и 3 и 5 - FizzBuzz
 """
 
-a = list(range(1, 101))
-b = []
-for i in a:
+
+for i in range(1, 101):
     if i % 3 == 0 and i % 5 == 0:
-        b.append('FizzBuzz')
+        print('FizzBuzz')
     elif i % 3 == 0:
-        b.append('Fizz')
+        print('Fizz')
     elif i % 5 == 0:
-        b.append('Buzz')
+        print('Buzz')
     else:
-        b.append(i)
-print(b)
+        print(i)

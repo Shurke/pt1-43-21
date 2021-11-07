@@ -10,8 +10,6 @@ list1 = [1, 5, 0, 9, 0, 1, 3]
 n = 0
 for i in range(len(list1)):
     if list1[i] != 0:
-        print('i = ', i)
-        print('n = ', n)
         list1[i], list1[n] = list1[n], list1[i]
         n = n + 1
 print(list1)
