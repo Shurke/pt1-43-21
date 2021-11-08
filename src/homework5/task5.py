@@ -19,10 +19,12 @@ def main():
     langs = []
     count_students = int(input('Введите количество школьников: '))
     for idx in range(count_students):
-        count_lang = int(input('Введите количество языков, которое знает школьник №' + str(idx + 1) + ': '))
+        count_lang = int(input(('Введите количество языков, '
+                                'которое знает школьник №' + str(idx + 1) + ': ')))
         langs.append(set())
         for n in range(count_lang):
-            lang = input('Введите язык №' + str(n + 1) + ', который знает школьник №' + str(idx + 1) + ': ')
+            lang = input(('Введите язык №'
+                          + str(n + 1) + ', который знает школьник №' + str(idx + 1) + ': '))
             langs[idx].add(lang)
     if count_students > 1:
         cross = langs[0] & langs[1]
