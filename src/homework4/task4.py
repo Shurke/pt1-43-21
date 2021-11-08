@@ -23,4 +23,4 @@ while i < len(li):
         j += 1
     j = i + 1
     i += 1
-print(counter)
+print(f"Количество пар: {counter}")

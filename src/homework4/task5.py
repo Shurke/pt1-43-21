@@ -7,7 +7,6 @@
 sting = input("Введите список чисел через пробел:\n")
 print("Задача находит элементы, которые встречаются в списке только один раз")
 li = sting.split()
-for i in li:
-    element = i
+for element in li:
     if li.count(element) == 1:
         print(element, end=" ")

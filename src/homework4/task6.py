@@ -8,7 +8,6 @@
 
 string = input("Ведите чисела через пробел:\n")
 li = string.split()
-i = 0
 last_index = len(li)
 while last_index > 0:
     if '0' in li:

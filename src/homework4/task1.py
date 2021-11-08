@@ -6,13 +6,13 @@
 
 
 print("Для визуальной понятности в левом столбике выводятся чила, а в правом выполняется задача")
-for i in range(100):
-    print(i + 1, end=" - ")
-    if (i + 1) % 3 == 0 and (i + 1) % 5 != 0:
+for i in range(1, 101):
+    print(i, end=" - ")
+    if i % 3 == 0 and i % 5 != 0:
         print("Fizz")
-    elif (i + 1) % 5 == 0 and (i + 1) % 3 != 0:
+    elif i % 5 == 0 and i % 3 != 0:
         print("Buzz")
-    elif (i + 1) % 3 == 0 and (i + 1) % 5 == 0:
+    elif i % 3 == 0 and i % 5 == 0:
         print("FizzBuzz")
     else:
-        print(i + 1)
+        print(i)
