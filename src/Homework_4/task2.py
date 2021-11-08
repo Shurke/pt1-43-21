@@ -11,14 +11,14 @@
 
 from copy import copy
 
-lst = [i + j for i in 'ab' for j in 'bcd']
 # step#1
-lst_slice = lst[::2]
+lst = [i + j for i in 'ab' for j in 'bcd']
 # step#2
-lst_num = [str(i) + 'a' for i in range(1, 5)]
+lst_slice = lst[::2]
 # step#3
-print(lst_num.pop(1))
+lst_num = [str(i) + 'a' for i in range(1, 5)]
 # step#4
+print(lst_num.pop(1))
+# step#5
 lst_copy = (copy(lst_num))
 lst_copy.append('2a')
-# step#5
