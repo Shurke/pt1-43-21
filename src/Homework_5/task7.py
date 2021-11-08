@@ -5,8 +5,9 @@
 """
 
 
-num_1 = 8
-num_2 = 12
+# O(N)
+num_1 = int(input("Enter first number: "))
+num_2 = int(input("Enter second number: "))
 NOD = 0
 
 while num_1 != 0:

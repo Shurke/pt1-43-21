@@ -26,10 +26,9 @@ French
 """
 
 
-num_of_scholar = 3
-#int(input())
+# O(N^2)
+num_of_scholar = int(input("Enter the number of students: "))
 list_of_lang = []
-#[{'English', 'Russian'}, {'Belarusian', 'English', 'Russian'}, {'French', 'Italian', 'Russian'}]
 all_know = set()
 one_know = set()
 
@@ -45,7 +44,7 @@ for lang in list_of_lang:
 for lang in list_of_lang:
     one_know ^= lang
 
-print(len(all_know))
-print(list(all_know))
-print(len(one_know))
-print(list(one_know))
+print(f'Students know everything {len(all_know)} languages.')
+print("It's: ", *list(all_know), sep='\n')
+print(f"At least one knows {len(one_know)} languages.")
+print("It's: ", *list(one_know), sep='\n')

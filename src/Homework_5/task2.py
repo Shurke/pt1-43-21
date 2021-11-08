@@ -27,13 +27,15 @@ Russia
 Russia
 """
 
-
-num_of_country = int(input('How much countries would you like input: ')) #2
-list_of_countries = [input('Input countries and cities through a "Space": ') for _ in range(num_of_country)]
-#['Russia Moscow Petersburg Novgorod Kaluga', 'Ukraine Kiev Donetsk Odessa']
-num_of_req = int(input('How much requests would you like input: ')) #3
-list_of_request_cities = [input('Enter the city + "Enter": ') for _ in range(num_of_req)]
-#['Odessa', 'Moscow', 'Novgorod']
+# Крайняя конструкция (начиная с 44 строки):
+# перебор списка O(N)
+# перебор ключей словаря O(N)
+# проверка вхождения O(N)
+# в итоге O(N)*O(N)*O(N) = O(N^3)
+num_of_country = int(input('How much countries would you like input: '))
+list_of_countries = [input('Input countries and cities+"Space": ') for _ in range(num_of_country)]
+num_of_req = int(input('How much requests would you like input: '))
+list_of_request_cities = [input('Enter cities + "Enter": ') for _ in range(num_of_req)]
 total_list = []
 dict_of_countries = {}
 
