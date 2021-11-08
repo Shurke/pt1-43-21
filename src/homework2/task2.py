@@ -6,10 +6,10 @@ def main():
 
     Учтите что в предложении есть знаки препинания.
     """
+    import string
     str1 = input("Введите любое предложение: ")
-    str1 = str1.replace(',', '')
-    str1 = str1.replace('.', '')
-    str1 = str1.replace(':', '')
+    for punct in string.punctuation:
+        str1 = str1.replace(punct, '')
     str1 = str1.split()
     max_word = ""
     max_word_len = 0
