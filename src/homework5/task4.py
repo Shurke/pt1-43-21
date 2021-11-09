@@ -14,4 +14,5 @@ def main():
     print('List1:', l1, 'List2:', l2, 'Result1:', l_res1, 'Len1:', len(l_res1), sep='\n')
     print('Result2:', l_res2, 'Len2:', len(l_res2), sep='\n')
 
+
 main()
