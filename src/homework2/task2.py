@@ -1,11 +1,17 @@
-# 2. Найти самое длинное слово в введенном предложении.
-# Учтите что в предложении есть знаки препинания.
-# Подсказки:
-# - my_string.split([chars]) возвращает список строк.
-# - len(list) - количество элементов в списке
+""" 2. Найти самое длинное слово в введенном предложении.
+
+ Учтите что в предложении есть знаки препинания.
+ Подсказки:
+ - my_string.split([chars]) возвращает список строк.
+ - len(list) - количество элементов в списке
+"""
+
+
+import string
+
 
 def main():
-    import string
+    """Функция находит  самое длинное слово в введенном предложении."""
     our_string = input("Введите предложение: ")
     list_punct = string.punctuation
     our_string_clean = ""
@@ -15,7 +21,7 @@ def main():
     list_of_words = our_string_clean.split()
     len_of_list_of_words = len(list_of_words)
     if len_of_list_of_words == 0:
-        print("Вы ничего не ввели")
+        print("В вашем предложении нет слов")
     elif len_of_list_of_words == 1:
         print(list_of_words[0])
     else:
