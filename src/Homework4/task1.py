@@ -6,13 +6,12 @@ FizzBuzz
 одновременно кратных и 3 и 5 - FizzBuzz
 """
 
-for i in range(100):
-    p = i + 1
-    if p % 3 == 0 and p % 5 == 0:
+for item in range(1, 101):
+    if item % 3 == 0 and item % 5 == 0:
         print('FizzBuzz')
-    elif p % 3 == 0:
+    elif item % 3 == 0:
         print('Fizz')
-    elif p % 5 == 0:
+    elif item % 5 == 0:
         print('Buzz')
     else:
-        print(p)
+        print(item)
