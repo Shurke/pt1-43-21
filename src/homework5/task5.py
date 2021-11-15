@@ -35,9 +35,11 @@ def main():
     all_students_dct = {}
     one_lang = set()
     # input processing
-    for ind1 in range(int(input('Введите количество школьников:'))):
+    in_num_of_stud = int(input('Введите количество школьников:'))
+    for ind1 in range(in_num_of_stud):
         languages_lst = []
-        for ind2 in range(int(input('Введите количество языков:'))):
+        in_num_of_lang = int(input('Введите количество языков:'))
+        for ind2 in range(in_num_of_lang):
             languages_lst.append(input('Введите язык:'))
         one_lang = one_lang | set(languages_lst)
         all_students_dct[ind1] = languages_lst
@@ -49,7 +51,7 @@ def main():
         tmp_set = set(all_students_dct.get(ind1))
         common_lang = common_lang & tmp_set
 
-    print('Кол-во общих языков:', len(common_lang), 'Языки:')
+    print('Кол-во общих языков:', len(common_lang))
     print('Языки:')
     for ind1 in common_lang:
         print(ind1)
