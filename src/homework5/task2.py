@@ -35,14 +35,16 @@ def main():
     main_dict = {}
     output_lst = []
     # input processing
-    for ind in range(int(input('Введите количество записей:'))):
+    in_num_of_rec = int(input('Введите количество записей:'))
+    for ind in range(in_num_of_rec):
         country, *cities = input('Введите запись:').split()
         for city in cities:
             # key should be unique
             main_dict[city] = country
 
     # output processing
-    for ind in range(int(input('Введите количество городов:'))):
+    out_num_of_rec = int(input('Введите количество городов:'))
+    for ind in range(out_num_of_rec):
         output_lst.append(str(input('Введите город:')))
 
     print('Result')
