@@ -33,7 +33,6 @@ s2 = set()
 for item1 in range(n):
     m = int(input('Введите количество языков школьника ' + str(item1 + 1) + ' :'))
     s = {input() for j in range(m)}
-    print(s)
     s1.update(s)
     if item1 == 0:
         s2 = s
