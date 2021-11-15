@@ -4,10 +4,10 @@
 Учитывать только английские буквы.
 '''
 
+import string
+
 
 def main():
-
-    import string
 
     print('Введите произвольную строку')
     msg = input()
