@@ -9,12 +9,11 @@
 
 
 def main(input_lst, bad_num):
-    print('Input:', input_lst)
-    lst_len = len(input_lst)
-    for ind in range(lst_len):
+
+    for ind in range(len(input_lst)):
         if input_lst[ind] != bad_num:
             continue
-        input_lst.insert(lst_len, bad_num)
+        input_lst.append(bad_num)
         input_lst.remove(bad_num)
 
     print('Result:', input_lst)
