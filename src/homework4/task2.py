@@ -24,11 +24,10 @@ def main():
 
     # 4
     lst3.remove('2a')
-    lst4 = lst3
-    print('List4:', lst4)
+    print('List4:', lst3)
 
     # 5
-    lst5 = copy.deepcopy(lst4)
+    lst5 = copy.deepcopy(lst3)
     lst5.insert(1, '2a')
     print('List5:', lst5)
 
