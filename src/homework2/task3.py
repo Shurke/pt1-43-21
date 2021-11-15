@@ -13,8 +13,6 @@ def main():
     for i in msg:
         if i not in result:
             result = result + i
-        else:
-            pass
 
     print('Результат:', result)
 
