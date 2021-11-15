@@ -7,12 +7,12 @@
 """
 
 
-a = input('Введите числа через пробел').split()
-c = 0
+list_int = input('Введите числа через пробел').split()
+all_repeat = 0
 
-for n in a:
-    c = c + a.count(n) - 1
+for n in list_int:
+    all_repeat = all_repeat + list_int.count(n) - 1
 
-b = c / 2
+couples_elem = all_repeat / 2
 
-print('Колл.пар элементов равных друг другу', int(b))
+print('Колл.пар элементов равных друг другу', int(couples_elem))

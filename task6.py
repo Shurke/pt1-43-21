@@ -3,10 +3,10 @@
 дополнительный список использовать нельзя, задачу нужно выполнить за один проход по списку.
 Распечатайте полученный список."""
 
-a = [1, 2, 0, 3, 0, 4, 6]
+list_int = [1, 2, 0, 3, 0, 4, 6]
 
-for n in range(len(a)):
-    if a[n] == 0:
-        a.append(a.pop(n))
+for elem_list in range(len(list_int)):
+    if list_int[elem_list] == 0:
+        list_int.append(list_int.pop(elem_list))
 
-print(a)
+print(list_int)

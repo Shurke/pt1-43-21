@@ -3,8 +3,8 @@
 в котором они встречаются в списке."""
 
 
-a = ['a', 'b', 'b', 'c', 'd', 'e', 'a']
+list1 = ['a', 'b', 'b', 'c', 'd', 'e', 'a']
 
-for n in a:
-    if a.count(n) == 1:
-        print(n)
+for elem_list1 in list1:
+    if list1.count(elem_list1) == 1:
+        print(elem_list1)
