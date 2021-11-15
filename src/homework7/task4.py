@@ -20,6 +20,8 @@ func(1, 4)   -->  1111010
 
 
 def decimal_to_binary(number):
+    if number == 0:
+        return 0
     binary = ""
     while number > 0:
         binary = str(number % 2) + binary
@@ -35,9 +37,12 @@ def binary_pyramid(m, n):
 
 
 try:
-    m = int(input("Введите первое число: "))
-    n = int(input("Введите второе число: "))
+    m = int(input("Введите первое неотрицательное число: "))
+    n = int(input("Введите второе неотрицательное число больше первого: "))
 except ValueError:
     exit("Это не чило.")
-result = binary_pyramid(m, n)
-print("Итого: ", result)
+if 0 <= m <= n:
+    result = binary_pyramid(m, n)
+    print("Итого: ", result)
+else:
+    print("Введенные числа не соответствуют условиям задачи.")
