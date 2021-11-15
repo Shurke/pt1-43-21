@@ -14,4 +14,5 @@ def stepen(n):
             n_max = n_next
     print(n_max)
 
+
 stepen(12)

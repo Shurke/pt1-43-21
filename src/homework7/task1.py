@@ -6,3 +6,9 @@ b.	runner(‘func_name’) – вызывается только функцию 
 c.	runner(‘func’, ‘func1’...) - вызывает все переданные функции
 """
 
+
+def func(a, b):
+    print(a + b)
+
+
+func(5, 10)
