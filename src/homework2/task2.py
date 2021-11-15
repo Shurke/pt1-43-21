@@ -6,10 +6,10 @@
 - len(list) - количество элементов в списке
 """
 
+import string
+
 
 def main():
-
-    import string
 
     print('Введите произвольное предложение')
     msg = input()
