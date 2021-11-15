@@ -8,9 +8,9 @@
 
 
 def main():
-    tup = (123, )
+    tup = ('123', )
     print('Tuple len:', len(tup))
-    for i in str(tup[0]):
+    for i in tup[0]:
         print(i)
 
 
