@@ -10,6 +10,7 @@ years.txt – гистограмма годов.
 import os
 
 path = 'ratings.list'
+ratings = dict()
 if os.path.exists(path):
     fh = open(path, 'r', encoding="ISO-8859-1")
     data = fh.readlines()
@@ -24,12 +25,13 @@ if os.path.exists(path):
         ftitle.close()
         rank = a[2]
         frank = open('ratings.txt', 'a')
-        frank.write(rank + '\n')
+        frank.write('{}: {}\n'.format(title, rank))
         frank.close()
-        year = a[-1]
+        year = a[-1].replace('(', '').replace(')', '')
         fyear = open('years.txt', 'a')
-        fyear.write(year + '\n')
+        fyear.write('{}: {}\n'.format(title, year))
         fyear.close()
     fh.close()
+    print(type(ratings))
 else:
     print('Error')
