@@ -13,4 +13,5 @@ for symbol in my_string:
     if symbol in string.punctuation:
         my_string = my_string.replace(symbol, "")
 my_list = my_string.split()
-print(f"Всего слов: {len(my_list)}")
+set_of_words = set(my_list)
+print(f"Всего различных слов: {len(set_of_words)}")

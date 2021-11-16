@@ -26,10 +26,8 @@ country = ""
 while i < number_of_cities:
     city_for_search = input(f"Введите город №{i + 1}: ")
     for country in dict_of_names:
-        for city in dict_of_names.get(country):
-            if city == city_for_search:
-                list_of_counties.append(country)
-                break
+        if city_for_search in dict_of_names.get(country):
+            list_of_counties.append(country)
     i += 1
 num = 0
 for country in list_of_counties:
