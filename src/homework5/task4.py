@@ -9,4 +9,5 @@ list1 = input("Введите первый список чисел: ").split()
 list2 = input("Введите второй список чисел: ").split()
 set1 = set(list1)
 set2 = set(list2)
-print(len(set1 ^ set2))
+print(f"{len(set1 ^ set2)} различных чисел входит только в один из списков")
+

@@ -15,4 +15,5 @@ while number1 != 0 and number2 != 0:
         number1 = number1 % number2
     else:
         number2 = number2 % number1
-print(number1) if number1 != 0 else print(number2)
+
+print("Наибольший общий делитель:", max(number1, number2))
