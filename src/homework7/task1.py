@@ -10,5 +10,3 @@ c.	runner(‘func’, ‘func1’...) - вызывает все переданн
 def func(a, b):
     print(a + b)
 
-
-func(5, 10)
