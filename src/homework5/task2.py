@@ -57,7 +57,7 @@ def find_country():
         return
     list_of_cities = list()
     for i in range(quantity_of_cities):
-        list_of_cities.append(input("Введите город: "))
+        list_of_cities.append(input("Введите города: "))
     for city in list_of_cities:
         print(dict_city_country.get(city))
 
