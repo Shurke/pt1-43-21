@@ -8,9 +8,9 @@
 
 
 def main():
-    str1 = input('Введите ваш текст ')
-    new_set = set(str1.split())
-    print('Количество различных слов в тексте -', len(new_set))
+    input_text = input('Введите ваш текст ')
+    answer_set = set(input_text.split())
+    print('Количество различных слов в тексте -', len(answer_set))
 
 
 main()

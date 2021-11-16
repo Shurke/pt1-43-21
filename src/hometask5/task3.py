@@ -6,10 +6,10 @@
 
 
 def main():
-    list1 = [1, 2, 3, 4, 6, 8, 10]
-    list2 = [2, 3, 7, 4, 10, 6, 7]
-    set1 = set(list1) & set(list2)
-    print('Количество чисел, содержащихся как в 1 списке, так и во 2 -', len(set1))
+    input_list1 = [1, 2, 3, 4, 6, 8, 10]
+    input_list2 = [2, 3, 7, 4, 10, 6, 7]
+    ans_set = set(input_list1) & set(input_list2)
+    print('Количество чисел, содержащихся как в 1 списке, так и во 2 -', len(ans_set))
 
 
 main()

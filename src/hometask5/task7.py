@@ -7,18 +7,18 @@
 
 
 def main():
-    n = int(input('Введите первое число: '))
-    m = int(input('Введите второе число: '))
-    if n > m:
-        n, m = m, n
-    prev1 = n
-    prev2 = m
-    c = prev1
-    while prev1 % prev2 > 0:
-        prev1 = prev2
-        prev2 = c % prev2
-        c = prev1
-    print('НОД равен -', prev2)
+    number1 = int(input('Введите первое число: '))
+    number2 = int(input('Введите второе число: '))
+    if number1 > number2:
+        number1, number2 = number2, number1
+    prev_number1 = number1
+    prev_number2 = number2
+    help_number = prev_number1
+    while prev_number1 % prev_number2 > 0:
+        prev_number1 = prev_number2
+        prev_number2 = help_number % prev_number2
+        help_number = prev_number1
+    print('НОД равен -', prev_number2)
 
 
 main()

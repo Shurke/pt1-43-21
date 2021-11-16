@@ -25,13 +25,14 @@ Russia
 
 
 def main():
-    new_dict = {}
-    for i in range(int(input('Введите количество стран: '))):
-        str_ = input().split()
-        new_dict.update({element: str_[0] for element in str_[1:]})
-    requests = [input() for _ in range(int(input('Введите количество запросов: ')))]
-    for i in requests:
-        print(new_dict[i])
+    cities_dictionary = {}
+    for _ in range(int(input('Введите количество стран: '))):
+        str_ = input('Введите страну и ее города: ').split()
+        cities_dictionary.update({element: str_[0] for element in str_[1:]})
+    number_of_requests = int(input('Введите количество запросов: '))
+    requests = [input('Введите запрос: ') for _ in range(number_of_requests)]
+    for element in requests:
+        print(cities_dictionary[element])
 
 
 main()
