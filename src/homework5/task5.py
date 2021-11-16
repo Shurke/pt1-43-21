@@ -49,8 +49,10 @@ def get_languages():
         list_of_schoolchildren.append(set_i)
     known_by_everybody = set.intersection(*list_of_schoolchildren)
     known_by_somebody = set.union(*list_of_schoolchildren)
-    print(f"языки, котрые знают все школьники: {len(known_by_everybody)}", *known_by_everybody, sep="\n")
-    print(f"языки, котрые знает хотя бы один школьник: {len(known_by_somebody)}", *known_by_somebody, sep="\n")
+    print(f"языки, котрые знают все школьники: {len(known_by_everybody)}",
+          *known_by_everybody, sep="\n")
+    print(f"языки, котрые знает хотя бы один школьник: {len(known_by_somebody)}",
+          *known_by_somebody, sep="\n")
 
 
 get_languages()
