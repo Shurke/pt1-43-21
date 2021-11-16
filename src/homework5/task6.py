@@ -15,4 +15,4 @@ for word in text_input:
     if word != '':
         set_words.add(word)
 
-print(len(set_words))
+print(f'Количество различных слов в данном тексте - {len(set_words)}')

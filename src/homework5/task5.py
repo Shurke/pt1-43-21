@@ -27,14 +27,14 @@ French
 '''
 
 
-N = int(input('Введите количество школьников: '))
+number_of_pupils = int(input('Введите количество школьников: '))
 language_pool = set()
 list_lang = list()
 
-for i in range(N):
-    M = int(input('Введите количество языков, которые знает школьник: '))
+for i in range(number_of_pupils):
+    number_of_languages = int(input('Введите количество языков, которые знает школьник: '))
     language = ''
-    for i in range(M):
+    for i in range(number_of_languages):
         language = input('Введи язык: ')
         list_lang.append(language)
 
@@ -42,10 +42,10 @@ language_pool = set(list_lang)  # Языки, которые знает хотя
 common_languages = list()
 
 for lang in list_lang:
-    if list_lang.count(lang) == N and lang not in common_languages:
+    if list_lang.count(lang) == number_of_pupils and lang not in common_languages:
         common_languages.append(lang)  # Создаем список общих языков для всех
 
-print(len(common_languages))
-print('\n'.join(common_languages))  # Выводим общие языки с новой строки
-print(len(language_pool))
-print('\n'.join(language_pool))  # Выводим все известные языки с новой строки
+print(f'Количество языков, которые знают все школьники - {len(common_languages)}')
+print('Список языков, которые знают все школьники:\n' + '\n'.join(common_languages))
+print(f'Количество всех языков, известных школьникам - {len(language_pool)}')
+print('Список всех языков, известных школьникам:\n' + '\n'.join(language_pool))

@@ -12,4 +12,4 @@ while first_num % second_num > 0:
     great_comm_divisor = first_num % second_num
     first_num, second_num = second_num, great_comm_divisor
 
-print(great_comm_divisor)
+print(f'Greater common divisor of entered numbers is {great_comm_divisor}')

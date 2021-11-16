@@ -28,22 +28,22 @@ Russia
 '''
 
 
-N = int(input('Введите количество стран: '))
+number_of_countries = int(input('Введите количество стран: '))
 current_dict = {}
 countries_all = {}
 
-for i in range(N):
+for i in range(number_of_countries):
     country_input = input('Введите строку страны: ')
     country_list = country_input.split(' ')
     country_name = country_list.pop(0)
     current_dict = current_dict.fromkeys(country_list, country_name)
     countries_all.update(current_dict)
 
-M = int(input('Кол-во запросов: '))
+number_of_requests = int(input('Кол-во запросов: '))
 countries_res = str()
 
-for i in range(M):
+for i in range(number_of_requests):
     town_input = input('Город: ')
     countries_res = countries_res + countries_all[town_input] + '\n'
 
-print(countries_res)
+print(f'Список стран, соответствующих вашим запросам:\n{countries_res}')

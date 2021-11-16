@@ -10,4 +10,4 @@ list_2 = [3, 4, 5, 6, 3]
 set_difference = set(list_1) | set(list_2)
 set_1_diff = set_difference - set(list_2)
 
-print(len(set_1_diff))
+print(f'Количество различных чисел, входящих только в первый список - {len(set_1_diff)}')

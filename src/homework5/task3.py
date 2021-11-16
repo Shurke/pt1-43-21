@@ -10,4 +10,4 @@ list_2 = [3, 4, 5, 6, 7]
 
 set_difference = set(list_2) ^ set(list_1)
 
-print(len(set_difference))
+print(f'Количество различных чисел в двух списках - {len(set_difference)}')
