@@ -36,7 +36,7 @@ def get_input_dictionary_city_country():
     except ValueError:
         print("Это не число")
         return
-    dict1 = dict()
+    dict_city_country = dict()
     for i in range(quantity_of_countries):
         country_and_cities = input("Введите страну и ее города: ")
         list_country_and_cities = country_and_cities.split()
@@ -44,11 +44,11 @@ def get_input_dictionary_city_country():
             continue
         country = list_country_and_cities[0]
         for city in list_country_and_cities[1:]:
-            dict1[city] = country
-    return dict1
+            dict_city_country[city] = country
+    return dict_city_country
 
 
-def find_country():
+def find_country(dict_city_country):
     """функция возвращает страну по городу"""
     try:
         quantity_of_cities = int(input("Введите количество городов: "))
@@ -62,6 +62,6 @@ def find_country():
         print(dict_city_country.get(city))
 
 
-dict_city_country = get_input_dictionary_city_country()
-if dict_city_country:
-    find_country()
+dict_city_country_g = get_input_dictionary_city_country()
+if dict_city_country_g:
+    find_country(dict_city_country_g)
