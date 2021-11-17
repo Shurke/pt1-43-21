@@ -7,4 +7,4 @@ lst2 = [2, 3, 4, 5]
 lst3 = set(lst1) & set(lst2)
 lst4 = set(lst1) ^ set(lst1)
 
-print(len(set(lst3) | set(lst4)))
+print('колличество различных чисел одного списка:', len(set(lst3) | set(lst4)))

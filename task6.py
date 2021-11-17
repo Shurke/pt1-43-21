@@ -5,5 +5,7 @@
 
 str1 = str(input('введите текст'))
 str2 = str1.replace('\n', ' ').split(' ')
+str3 = ()
+str4 = (set(str2) | set(str3))
 
-print(len(str2))
+print('колличество различных слов:', len(str4))

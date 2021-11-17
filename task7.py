@@ -12,4 +12,4 @@ while int1 != 0 and int2 != 0:
     else:
         int2 = int2 % int1
 
-print(int1 + int2)
+print('наибольший общий делитель:', (int1 + int2))

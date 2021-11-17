@@ -5,4 +5,4 @@
 lst1 = [1, 2, 3, 4]
 lst2 = [2, 3, 4, 5]
 
-print(len(set(lst1) | set(lst2)))
+print('колличество разных чисел списков: ', len(set(lst1) | set(lst2)))

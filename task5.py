@@ -8,19 +8,19 @@
 union = set()
 all = set()
 
-for i in range(int(input())):
-    m = int(input())
-    a = {input() for j in range(m)}
+for i in range(int(input('введите колличество школьников:', ))):
+    m = int(input('введите колличество языков школьников:', ))
+    a = {input('введите название языков школьника:', ) for j in range(m)}
     all.update(a)
-    if i == 1:
+    if i != 1:
         union.update(a)
     else:
         union &= a
 
-print(len(union))
+print('колличество языков которые знают все школьники:', len(union))
 print('\n'.join(sorted(union)))
-print(len(all))
+print('колличество языков которое знает хотя бы один школьник:', len(all))
 print('\n'.join(sorted(all)))
 
 
-""""Эта тоже очень сложно пока"""
+

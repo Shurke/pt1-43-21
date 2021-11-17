@@ -13,12 +13,11 @@
 
 states = {}
 
-for _ in range(int(input())):
-    state, *cities = input().split()
+for _ in range(int(input('введите колличество стран', ))):
+    state, *cities = input('вветите название страны затем названия городов этой строны', ).split()
     for city in cities:
         states[city] = state
 
-print(*(states[input()] for _ in range(int(input()))), sep="\n")
+print(*(states[input()] for _ in range(int(input('введите какое колличество стран хотите запросить и их название', )))), sep="\n")
 
 
-"""Тут совсем тяжело. Пока не понимаю про распаковку"""
