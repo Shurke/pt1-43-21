@@ -17,5 +17,5 @@ for _ in range(int(input('введите колличество стран', )))
     for city in cities:
         states[city] = state
 
-print(*(states[input()] for _ in range(int(input('введите какое колличество стран хотите запросить и их название', )))),
-      sep="\n")
+print(*(states[input()] for _ in range(int(input\
+                                               ('введите какое колличество стран хотите запросить и их название', )))),sep="\n")

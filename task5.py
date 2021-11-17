@@ -21,6 +21,3 @@ print('колличество языков которые знают все шк
 print('\n'.join(sorted(union)))
 print('колличество языков которое знает хотя бы один школьник:', len(all))
 print('\n'.join(sorted(all)))
-
-
-
