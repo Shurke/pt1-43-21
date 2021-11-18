@@ -5,11 +5,23 @@
 """
 
 
-number = int(input("Введите число: "))
-pow_2 = 1
-while pow_2 < number:
-    pow_2 *= 2
-if pow_2 - number > number - pow_2 / 2:
-    print(f"Ближайшая степень двойки: {int(pow_2 / 2)}")
-else:
-    print(f"Ближайшая степень двойки: {pow_2}")
+def nearest_pow_2():
+    """Возвращает ближайшую сткпень двойки к введенному числу"""
+    try:
+        number = int(input("Введите число больше либо равное 1: "))
+    except ValueError:
+        print("Это ничисло")
+        return
+    if number < 1:
+        print("Слишком маленькое число.")
+        return
+    pow_2 = 1
+    while pow_2 < number:
+        pow_2 *= 2
+    if pow_2 - number > number - pow_2 / 2:
+        print(f"Ближайшая степень двойки: {int(pow_2 / 2)}")
+    else:
+        print(f"Ближайшая степень двойки: {pow_2}")
+
+
+nearest_pow_2()
