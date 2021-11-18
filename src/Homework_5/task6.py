@@ -5,16 +5,15 @@
 """
 
 
-# O(N^3)
-string = input('Enter text: ')
-string = string.lower()
-words = string.split()
+def task6(str_):
+    for char in str_:
+        if (not char.isalpha()) and char != ' ':
+            str_ = str_.replace(char, "")
+    str_ = set(str_.lower().split())
+    return f'The text contains {len(str_)} different words'
 
-for num, word in enumerate(words):
-    for char in word:
-        if not char.isalpha():
-            word = word.replace(char, "")
-            words[num] = word
 
-set_of_words = set([word for word in words if word])
-print(f'The text contains {len(set_of_words)} different words')
+if __name__ == "__main__":
+    print(task6(
+        str_='Trump hit back, 11 repeated \n    '
+             'again hit 222    false \n 11 claim that the \n election was stolen'))

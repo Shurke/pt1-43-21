@@ -27,25 +27,16 @@ Russia
 Russia
 """
 
-# Крайняя конструкция (начиная с 44 строки):
-# перебор списка O(N)
-# перебор ключей словаря O(N)
-# проверка вхождения O(N)
-# в итоге O(N)*O(N)*O(N) = O(N^3)
-num_of_country = int(input('How much countries would you like input: '))
-list_of_countries = [input('Input countries and cities+"Space": ') for _ in range(num_of_country)]
-num_of_req = int(input('How much requests would you like input: '))
-list_of_request_cities = [input('Enter cities + "Enter": ') for _ in range(num_of_req)]
-total_list = []
-dict_of_countries = {}
 
-for char in list_of_countries:
-    total_list.append(char.split())
+def task2(tup_of_req, dict_of_cities):
+    for request in tup_of_req:
+        for cities in dict_of_cities.values():
+            if request in cities:
+                print(cities[0])
+                break
 
-for i in range(num_of_country):
-    dict_of_countries[total_list[i][0]] = total_list[i][1:]
 
-for city in list_of_request_cities:
-    for country in dict_of_countries:
-        if city in dict_of_countries[country]:
-            print(country)
+if __name__ == "__main__":
+    task2(tup_of_req=('Odessa', 'Moscow', 'Novgorod'),
+          dict_of_cities={1: 'Russia Moscow Petersburg Novgorod Kaluga'.split(),
+                          2: 'Ukraine Kiev Donetsk Odessa'.split()})
