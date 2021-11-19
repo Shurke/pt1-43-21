@@ -6,6 +6,7 @@
 
 def dec(fun):
     num = 0
+
     def wrapper(*args, **kwargs):
         nonlocal num
         print('Call num:')
@@ -16,7 +17,7 @@ def dec(fun):
 
 @dec
 def func():
-  return 1
+    return 1
 
 
 print(func())
