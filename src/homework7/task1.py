@@ -18,6 +18,19 @@ import t8_1_home
 import t8_2_home
 import t8_3_home
 import t8_4_home
+import t3_1_home
+import t3_2_home
+import t3_3_home
+import t3_4_home
+import t3_5_home
+import t3_6_home
+import t5_1_home
+import t5_2_home
+import t5_3_home
+import t5_4_home
+import t5_5_home
+import t5_6_home
+import t5_7_home
 
 
 def runner():
@@ -33,6 +46,19 @@ def runner():
     t8_2_home.func()
     t8_3_home.func()
     t8_4_home.func()
+    t3_1_home.func()
+    t3_2_home.func()
+    t3_3_home.func()
+    t3_4_home.func()
+    t3_5_home.func()
+    t3_6_home.func()
+    t5_1_home.func()
+    t5_2_home.func()
+    t5_3_home.func()
+    t5_4_home.func()
+    t5_5_home.func()
+    t5_6_home.func()
+    t5_7_home.func()
 
 
 runner()
