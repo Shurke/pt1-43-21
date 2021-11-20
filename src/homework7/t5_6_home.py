@@ -13,7 +13,6 @@ import string
 def func():
     str_ = str(input('Введите текст: '))
     str__ = str_ + ' '
-    s1 = set()
     a = ''
     n = 0
     for i in str__:
