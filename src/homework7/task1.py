@@ -17,7 +17,6 @@ import t8_1_home
 import t8_2_home
 import t8_3_home
 import t8_4_home
-import t8_home
 import t3_1_home
 import t3_2_home
 import t3_3_home
@@ -31,6 +30,7 @@ import t5_4_home
 import t5_5_home
 import t5_6_home
 import t5_7_home
+import t8_home
 
 
 def runner():
