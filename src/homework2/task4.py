@@ -12,7 +12,7 @@ def main():
     list_of_letters = list(processed_str)
     sum_l = 0
     sum_u = 0
-    for letter in processed_str:
+    for letter in list_of_letters:
         if letter in string.ascii_letters:
             if letter.islower():
                 sum_l += 1
