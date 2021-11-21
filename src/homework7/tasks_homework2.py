@@ -223,7 +223,7 @@ def task8_2_2():
 
 
 def task8_3_3():
-    """ Задача 8.3
+    """Задача 8.3
 
     Given two integers a and b, which can be positive or negative,
     find the sum of all the integers between and including them and return it.
@@ -296,11 +296,3 @@ def task8_5_5():
         return print(str(numb))
     else:
         return print(str(-numb))
-
-
-
-
-
-
-
-
