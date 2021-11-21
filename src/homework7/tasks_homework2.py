@@ -25,14 +25,7 @@ def task1_2():
 
 
 def task2_2():
-    """ 2. Найти самое длинное слово в введенном предложении.
-
-    Учтите что в предложении есть знаки препинания.
-    Подсказки:
-    - my_string.split([chars]) возвращает список строк.
-    - len(list) - количество элементов в списке
-
-    """
+    """ 2. Найти самое длинное слово в введенном предложении."""
     our_string = input("Введите предложение: ")
     list_punct = __string.punctuation
     our_string_clean = ""
@@ -164,6 +157,7 @@ def task7():
     Если нет, вывести сообщение о неверных данных.
 
     """
+
     try:
         a = float(input("введите строну a: "))
         b = float(input("введите строну b: "))
@@ -197,6 +191,7 @@ def task8_1_2():
     Output string must be two numbers separated by a single space, and highest number is first.
 
     """
+
     numbers = input("Введите строку из чисел: ")
     list_of_numbers = numbers.split()
     lowest = int(list_of_numbers[0])
@@ -218,6 +213,7 @@ def task8_2_2():
     If the word's length is even, return the middle 2 characters.
 
     """
+
     s = input("Введите строку: ")
     s_len = len(s)
     number = s_len // 2
@@ -227,7 +223,7 @@ def task8_2_2():
 
 
 def task8_3_3():
-    """
+    """ Задача 8.3
 
     Given two integers a and b, which can be positive or negative,
     find the sum of all the integers between and including them and return it.
@@ -242,6 +238,7 @@ def task8_3_3():
     (-1, 2) --> 2 (-1 + 0 + 1 + 2 = 2)
 
     """
+
     a = int(input("Введите a: "))
     b = int(input("Введите b: "))
     if a == b:

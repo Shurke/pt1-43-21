@@ -27,7 +27,10 @@
 
 def get_combinations_of_parameters(number_of_parameters):
     """Возвращает список всех комбинаций таблицы истинности
-     для заданнаого колочества параметров"""
+
+     для заданнаого колочества параметров
+
+     """
     list_of_combinations = [[0], [1]]
     for i in range(1, number_of_parameters):
         list_of_combinations = list([*x, y] for x in list_of_combinations for y in [0, 1])
@@ -59,7 +62,7 @@ def logic_func(function_name):
 
     def logic_imply(*args):
         """Импликация"""
-        for i in range(len(args)-1):
+        for i in range(len(args) - 1):
             if args[i] == 1 and args[i+1] == 0:
                 return 0
         return 1
@@ -116,12 +119,13 @@ def get_truth_table(function_name, *args):
         return
 
     list_of_combinations = get_combinations_of_parameters(number_of_parameters)
-    string_of_result = " ".join(args) + "\t" + "\t" + function_name\
-                       + "(" + ",".join(args) + ")" + "\n" + "\n"
+    string_of_result = " ".join(args) + "\t" + "\t" + function_name
+    string_of_result = string_of_result + "(" + ",".join(args) + ")" + "\n" + "\n"
+
     for item in list_of_combinations:
         logical_result = lf(*item)
-        string_of_result = string_of_result + " ".join(map(str, item)) \
-                           + "\t" + "\t" + str(logical_result) + "\n"
+        string_of_result = string_of_result + " ".join(map(str, item)) + "\t"
+        string_of_result = string_of_result + "\t" + str(logical_result) + "\n"
     print(string_of_result)
 
 
@@ -132,7 +136,7 @@ get_truth_table("XOR", "A", "B", "C")
 get_truth_table("IMPLY", "A", "B", "C")
 get_truth_table("IMPLY", "A", "B")
 get_truth_table("NAND", "A", "B")
-get_truth_table("NAND", "A", "B",  "C")
-get_truth_table("AND", "A", "B",  "C")
+get_truth_table("NAND", "A", "B", "C")
+get_truth_table("AND", "A", "B", "C")
 get_truth_table("NOR", "A", "B")
 get_truth_table("XNOR", "A", "B")
