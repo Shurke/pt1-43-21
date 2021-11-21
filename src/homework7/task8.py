@@ -63,7 +63,7 @@ def logic_func(function_name):
     def logic_imply(*args):
         """Импликация"""
         for i in range(len(args) - 1):
-            if args[i] == 1 and args[i+1] == 0:
+            if args[i] == 1 and args[i + 1] == 0:
                 return 0
         return 1
 

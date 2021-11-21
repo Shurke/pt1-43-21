@@ -25,7 +25,7 @@ def task1_2():
 
 
 def task2_2():
-    """ 2. Найти самое длинное слово в введенном предложении."""
+    """2. Найти самое длинное слово в введенном предложении."""
     our_string = input("Введите предложение: ")
     list_punct = __string.punctuation
     our_string_clean = ""
@@ -149,7 +149,7 @@ def task6_2():
 
 
 def task7():
-    """ Задача 7
+    """Задача 7
 
     Даны: три стороны треугольника. Требуется: проверить,
     действительно ли это стороны треугольника. Если стороны
@@ -177,7 +177,7 @@ def task7():
 
 
 def task8_1_2():
-    """
+    """Возвращает самое большое и самое маленькое число
 
     In this little assignment you are given a string of space
     separated numbers, and have to return the highest and lowest number.
@@ -206,7 +206,7 @@ def task8_1_2():
 
 
 def task8_2_2():
-    """
+    """Возвращает символы в середине строки
 
     You are going to be given a word. Your job is to return the middle
     character of the word. If the word's length is odd, return the middle character.
@@ -259,7 +259,7 @@ def task8_3_3():
 
 
 def task8_4_3():
-    """
+    """Возвращает количество х и о
 
     Check to see if a string has the same amount of 'x's and 'o's.
     The method must return a boolean and be case insensitive.
@@ -278,7 +278,7 @@ def task8_4_3():
 
 
 def task8_5_5():
-    """
+    """Возвращает отрицательное число
 
     In this simple assignment you are given a number and
     have to make it negative. But maybe the number is already negative?

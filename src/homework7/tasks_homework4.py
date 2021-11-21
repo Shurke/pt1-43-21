@@ -33,6 +33,7 @@ def task2_4():
 
     list1 = [i + j for i in "ab" for j in "bcd"]
     list2 = list1[::2]
+    print(list2)
     list3 = [str(i) + "a" for i in range(1, 5)]
     print(list3.pop(1))
     list4 = list3.copy()

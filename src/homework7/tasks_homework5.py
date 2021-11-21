@@ -201,4 +201,3 @@ def task7_5():
             number2 = number2 % number1
 
     print("Наибольший общий делитель:", max(number1, number2))
-
