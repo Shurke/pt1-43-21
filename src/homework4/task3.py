@@ -10,7 +10,7 @@ def main():
     for i in tuple1:
         for q in i:
             print(q)
-    print(len(tuple1))
+    print('Результат:', len(tuple1))
 
 
 if __name__ == "__main__":
