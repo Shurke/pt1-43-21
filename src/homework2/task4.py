@@ -9,7 +9,9 @@ def main():
     """
     str_ = input("Введите любую строку: ")
     str_ = str_.replace(' ', '')
-    str_ = list(str_)
+    input_str = input("Введите любую строку: ")
+    processed_str = input_str.replace(' ', '')
+    list_of_letters = list(processed_str)
     sum_l = 0
     sum_u = 0
     for letter in str_:
