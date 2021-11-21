@@ -3,6 +3,7 @@ def task1_5():
 
     Создайте словарь с помощью генератора словарей, так чтобы его ключами
     были числа от 1 до 20, а значениями кубы этих чисел.
+
     """
 
     dict1 = {x: x ** 3 for x in range(1, 21)}
@@ -23,22 +24,19 @@ def task2_5():
     Выходные данные
     Для каждого из запроса выведите название страны, в котором находится данный город.
     Примеры
-
     Входные данные
     2
     Russia Moscow Petersburg Novgorod Kaluga
     Ukraine Kiev Donetsk Odessa
-
-
     3
     Odessa
     Moscow
     Novgorod
-
     Выходные данные
     Ukraine
     Russia
     Russia
+
     """
     dict_city_country_g = __get_input_dictionary_city_country()
     if dict_city_country_g:
@@ -132,8 +130,6 @@ def task5_5():
     Russian
     Italian
     French
-
-
     Выходные данные
     В первой строке выведите количество языков, которые знают все школьники.
     Начиная со второй строки - список таких языков.

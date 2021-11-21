@@ -34,8 +34,12 @@ def read_file():
 
 
 def get_rate(list_of_strings):
-    """Функция из списка строк с фильмами и рейтингами создает список
-     кортежей с рейтингом, годом и названием фильма"""
+    """Получает рейтинг
+
+    Функция из списка строк с фильмами и рейтингами создает список
+    кортежей с рейтингом, годом и названием фильма
+
+    """
     list_of_rate = list()
     for item in list_of_strings:
         list_of_words = item.split()
@@ -70,10 +74,13 @@ def create_bar_chart(list_of_items, file_name):
     print(f"Создан файл {file_name}")
 
 
-
 def imbd_ratings():
-    """Функция создает 3 файла  top250_movies.txt – названия файлов, ratings.txt
-– гистограмма рейтингов, years.txt – гистограмма годов."""
+    """Функция создает 3 файла
+
+    top250_movies.txt – названия файлов, ratings.txt
+    – гистограмма рейтингов, years.txt – гистограмма годов.
+
+    """
     list_of_strings = read_file()
     list_of_rate = get_rate(list_of_strings)
     create_file_top250(list_of_rate)

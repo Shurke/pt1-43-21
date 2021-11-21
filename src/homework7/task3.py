@@ -37,6 +37,7 @@ def get_ranges(list_of_number):
     string_of_ranges = add_range(string_of_ranges, first_number, middle_number)
     print("Свернутый список:", string_of_ranges)
 
+
 numbers = input("Введите список чисел: ").strip()
 if not numbers:
     exit("Список пуст")

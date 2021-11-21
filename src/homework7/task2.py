@@ -6,6 +6,7 @@
 """
 from datetime import datetime
 
+
 def total_recall(my_func):
 
     def wrapper(*args):
@@ -18,6 +19,7 @@ def total_recall(my_func):
         return result
 
     return wrapper
+
 
 @total_recall
 def my_func(a, b):

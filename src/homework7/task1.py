@@ -13,14 +13,14 @@ import tasks_homework4
 import tasks_homework5
 
 
-def run_function(func_name, module = None):
-    if module == None:
+def run_function(func_name, module=None):
+    if module is None:
         f = getattr(tasks_homework2, func_name, None)
-        if f == None:
+        if f is None:
             f = getattr(tasks_homework4, func_name, None)
-            if f == None:
+            if f is None:
                 f = getattr(tasks_homework5, func_name, None)
-                if f == None:
+                if f is None:
                     print(f"Функция {func_name} не найдена")
                     return
         print(f)
