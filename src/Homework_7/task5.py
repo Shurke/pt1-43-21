@@ -7,8 +7,9 @@
 гистограмма рейтингов, years.txt – гистограмма годов.
 """
 
-import json
+
 import codecs
+import json
 import matplotlib.pyplot as plt
 
 
