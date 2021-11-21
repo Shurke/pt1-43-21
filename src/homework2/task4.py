@@ -7,14 +7,12 @@ def main():
 
     Учитывать только английские буквы.
     """
-    str_ = input("Введите любую строку: ")
-    str_ = str_.replace(' ', '')
     input_str = input("Введите любую строку: ")
     processed_str = input_str.replace(' ', '')
     list_of_letters = list(processed_str)
     sum_l = 0
     sum_u = 0
-    for letter in str_:
+    for letter in processed_str:
         if letter in string.ascii_letters:
             if letter.islower():
                 sum_l += 1
