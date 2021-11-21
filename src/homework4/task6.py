@@ -13,7 +13,7 @@ def main():
         if element == 0:
             lst.append(element)
             lst.remove(element)
-    print(lst)
+    print('Результат:', lst)
 
 
 if __name__ == "__main__":
