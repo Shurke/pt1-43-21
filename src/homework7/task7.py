@@ -8,7 +8,7 @@ def max_div_2():
     try:
         number = int(input("Введите число больше либо равное 2: "))
     except ValueError:
-        print("Это ничисло")
+        print("Это не число")
         return
     if number < 2:
         print("Слишком маленькое число.")

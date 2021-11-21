@@ -10,7 +10,7 @@ def nearest_pow_2():
     try:
         number = int(input("Введите число больше либо равное 1: "))
     except ValueError:
-        print("Это ничисло")
+        print("Это не число")
         return
     if number < 1:
         print("Слишком маленькое число.")
