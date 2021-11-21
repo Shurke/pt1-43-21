@@ -20,7 +20,7 @@ def main():
             index = index + 1
             prev1 = prev2
             prev2 = cur
-    print(cur)
+    print('Результат:', cur)
 
 
 if __name__ == "__main__":
