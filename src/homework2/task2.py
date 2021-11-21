@@ -6,7 +6,7 @@
 import string
 
 
- def main():
+def main():
     str1 = input("Введите любое предложение: ")
     for punct in string.punctuation:
         str1 = str1.replace(punct, '')
