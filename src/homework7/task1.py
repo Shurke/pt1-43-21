@@ -8,21 +8,14 @@ c.	runner(‘func’, ‘func1’...) - вызывает все переданн
 
 import t1_home
 import t2_home
-import t3_home
-import t4_home
-import t5_home
-import t6_home
-import t7_home
-import t8_1_home
-import t8_2_home
-import t8_3_home
-import t8_4_home
 import t3_1_home
 import t3_2_home
 import t3_3_home
 import t3_4_home
 import t3_5_home
 import t3_6_home
+import t3_home
+import t4_home
 import t5_1_home
 import t5_2_home
 import t5_3_home
@@ -30,6 +23,13 @@ import t5_4_home
 import t5_5_home
 import t5_6_home
 import t5_7_home
+import t5_home
+import t6_home
+import t7_home
+import t8_1_home
+import t8_2_home
+import t8_3_home
+import t8_4_home
 import t8_home
 
 
