@@ -8,7 +8,7 @@ def main():
     lst1 = [1, 2, 2, 3, 3, 4, 5]
     lst2 = [2, 2, 3, 3, 4, 4, 5, 6, 6]
     diff = set(lst1) ^ set(lst2)
-    print(len(diff))
+    print("Количество различных чисел, входящих только в один из списков: ", len(diff))
 
 
 if __name__ == "__main__":

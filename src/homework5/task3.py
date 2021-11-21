@@ -10,7 +10,7 @@ def main():
     lst1 = [1, 2, 2, 3, 3, 4, 5]
     lst2 = [2, 2, 3, 3, 4, 4, 5, 6, 6]
     cross = set(lst1) & set(lst2)
-    print(len(cross))
+    print("Результат содержания различных чисел в первом и втором списке: ", len(cross))
 
 
 if __name__ == "__main__":

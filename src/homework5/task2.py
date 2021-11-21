@@ -17,7 +17,6 @@
 def main():
 
     count_countries = int(input('Введите количество стран: '))
-    print(count_countries)
     city_country = {}
     for idx in range(count_countries):
         data_line = input('Введите название страны и несколько ее городов через пробел: ')
@@ -26,7 +25,6 @@ def main():
         for city in data_lst:
             city_country[city] = country
     count_req = int(input('Введите число количества запросов городов: '))
-    print(count_req)
     countries = []
     for idx in range(count_req):
         city_name = input('Введите название города из вышеуказанных вариантов: ')

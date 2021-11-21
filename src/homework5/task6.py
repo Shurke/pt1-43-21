@@ -16,7 +16,7 @@ def main():
         for part in parts:
             words.append(part)
     set_ = set(words)
-    print(len(set_))
+    print("Количество различных слов в тексте: ", len(set_))
 
 
 if __name__ == "__main__":
