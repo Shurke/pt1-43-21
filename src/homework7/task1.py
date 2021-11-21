@@ -452,14 +452,92 @@ def sort_zeroes_right(list_sample=[1, 0, 2, 3, 0, 4, 5, 0, 0, 7, 6, 0, 8, 0, 0, 
     return print(list_sample)
 
 
-sort_zeroes_right()
-
 '''
 1. Dict comprehensions
 Создайте словарь с помощью генератора словарей, так
 чтобы его ключами были числа от 1 до 20, а значениями кубы этих чисел.
 '''
 
-def 
-dict_w_cubes = {key: key ** 3 for key in range(1, 21)}
-print(dict_w_cubes)
+
+def dict_keys_in_cube(start=1, stop=21):
+    '''Создает словарь с ключами от start до stop
+       и значениями равными значению ключа в кубе'''
+    dict_w_cubes = {key: key ** 3 for key in range(start, stop)}
+    print(f'Словарь со значениями равными ключу в кубе - {dict_w_cubes}')
+
+
+'''
+2. Города
+Дан список стран и городов каждой страны. Затем даны названия городов.
+Для каждого города укажите, в какой стране он находится.
+Входные данные
+Программа получает на вход количество стран N. Далее идет N строк,
+каждая строка начинается с названия страны, затем идут названия городов
+этой страны. В следующей строке записано число M, далее идут
+M запросов — названия каких-то M городов, перечисленных выше.
+Выходные данные
+Для каждого из запроса выведите название страны, в котором находится данный город.
+Примеры
+Входные данные
+2
+Russia Moscow Petersburg Novgorod Kaluga
+Ukraine Kiev Donetsk Odessa
+3
+Odessa
+Moscow
+Novgorod
+Выходные данные
+Ukraine
+Russia
+Russia
+'''
+
+
+def countries_finder(number_of_countries=1, country_input='Russia Moscow Petersburg Novgorod Kaluga'):
+    ''''''
+
+    number_of_countries = int(input('Введите количество стран: '))
+    current_dict = {}
+    countries_all = {}
+
+    for i in range(number_of_countries):
+        country_input = input('Введите строку страны: ')
+        country_list = country_input.split(' ')
+        country_name = country_list.pop(0)
+        current_dict = current_dict.fromkeys(country_list, country_name)
+        countries_all.update(current_dict)
+
+    number_of_requests = int(input('Кол-во запросов: '))
+    countries_res = str()
+
+    for i in range(number_of_requests):
+        town_input = input('Город: ')
+        countries_res = countries_res + countries_all[town_input] + '\n'
+
+    print(f'Список стран, соответствующих вашим запросам:\n{countries_res}')
+
+
+func_collection = []
+func_collection = [dict_keys_in_cube, unique_element_in_list, longest_word]
+
+
+def runner(a=func_collection, *args):
+
+    if a in func_collection:
+        a()
+        for i in args:
+            i()
+    else:
+        for i in dir():
+            i()
+
+
+def runner(a=func_collection, *args):
+    for func in dir():
+        if func[0] == '_':
+            print(func)
+        else:
+            return(func + '()')
+
+
+runner()
