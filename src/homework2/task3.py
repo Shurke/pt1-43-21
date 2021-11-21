@@ -12,7 +12,7 @@ def main():
     for letter in str_:
         if letter not in new_st:
             new_st += letter
-    print(new_st)
+    print('Результат:', new_st)
 
 
 if __name__ == "__main__":
