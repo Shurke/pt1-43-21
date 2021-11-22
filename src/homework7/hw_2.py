@@ -158,4 +158,3 @@ def task_2_10():
             return False
     else:
         return False
-
