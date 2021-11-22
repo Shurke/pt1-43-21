@@ -33,12 +33,13 @@ import t8_4_home
 import t8_home
 
 f = [t1_home.func, getattr(t2_home, 'func'), getattr(t3_home, 'func'), getattr(t4_home, 'func'),
-     getattr(t5_home, 'func'), getattr(t6_home, 'func'), getattr(t7_home, 'func'), getattr(t8_home, 'func'),
-     getattr(t8_1_home, 'func'), getattr(t8_2_home, 'func'), getattr(t8_3_home, 'func'), getattr(t8_4_home, 'func'),
-     getattr(t3_1_home, 'func'), getattr(t3_2_home, 'func'), getattr(t3_3_home, 'func'), getattr(t3_4_home, 'func'),
-     getattr(t3_5_home, 'func'), getattr(t3_6_home, 'func'), getattr(t5_1_home, 'func'), getattr(t5_2_home, 'func'),
-     getattr(t5_3_home, 'func'), getattr(t5_4_home, 'func'), getattr(t5_5_home, 'func'), getattr(t5_6_home, 'func'),
-     getattr(t5_7_home, 'func')]
+     getattr(t5_home, 'func'), getattr(t6_home, 'func'), getattr(t7_home, 'func'),
+     getattr(t8_home, 'func'), getattr(t8_1_home, 'func'), getattr(t8_2_home, 'func'),
+     getattr(t8_3_home, 'func'), getattr(t8_4_home, 'func'), getattr(t3_1_home, 'func'),
+     getattr(t3_2_home, 'func'), getattr(t3_3_home, 'func'), getattr(t3_4_home, 'func'),
+     getattr(t3_5_home, 'func'), getattr(t3_6_home, 'func'), getattr(t5_1_home, 'func'),
+     getattr(t5_2_home, 'func'), getattr(t5_3_home, 'func'), getattr(t5_4_home, 'func'),
+     getattr(t5_5_home, 'func'), getattr(t5_6_home, 'func'), getattr(t5_7_home, 'func')]
 
 
 def runner(*args):
