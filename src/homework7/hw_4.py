@@ -81,5 +81,3 @@ def task_4_6():
         input_lst.remove(bad_num)
 
     print('Result:', input_lst)
-
-
