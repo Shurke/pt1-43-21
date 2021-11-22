@@ -96,5 +96,3 @@ def task_5_7():
             else:
                 n2 = n2 - n1
         print('НОД = ', n1)
-
-
