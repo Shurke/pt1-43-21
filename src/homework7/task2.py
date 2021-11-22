@@ -19,7 +19,7 @@ def dec(fun):
 
 @dec
 def func(a, b):
-  return a + b
+    return a + b
 
 
 print(func(1, 2))
