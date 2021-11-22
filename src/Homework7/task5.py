@@ -50,14 +50,14 @@ try:
     movie_rating = open('ratings.txt', 'w')
     movie_rating.write('Рейтинг фильма ' + 'Количество фильмов' + '\n')
     for item1, item2 in sort_rating_list:
-        movie_rating.write(' ' * 11 + str(item1)
-                           + ' ' * 16 + str(item2).rjust(3) + '\n')
+        movie_rating.write(' ' * 11 + str(item1) +
+                           ' ' * 16 + str(item2).rjust(3) + '\n')
     movie_rating.close()
     movie_year = open('years.txt', 'w')
     movie_year.write('Год выпуска фильма ' + 'Количество фильмов' + '\n')
     for item1, item2 in sort_year_list:
-        movie_year.write(' ' * 14 + str(item1)
-                         + ' ' * 16 + str(item2).rjust(3) + '\n')
+        movie_year.write(' ' * 14 + str(item1) +
+                         ' ' * 16 + str(item2).rjust(3) + '\n')
     movie_year.close()
 
 except FileNotFoundError:

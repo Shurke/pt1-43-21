@@ -144,7 +144,9 @@ def task2_8_2():
     """Перемножение цифр числа."""
 
     def persistence(my_digit):
-        """Write a function, persistence, that takes in a positive parameter num
+
+        """
+        Write a function, persistence, that takes in a positive parameter num
         and returns its multiplicative persistence, which
         is the number of times you must multiply the digits
         in num until you reach a single digit
@@ -181,6 +183,7 @@ def task2_8_3():
     """Подсчет ошибок принтера."""
 
     def printer_error(printer_string):
+
         """
         Примеры:
         s="aaabbbbhaijjjm"
@@ -204,6 +207,7 @@ def task2_8_4():
     """Поиск числа, которое отличается по четности от остальных."""
 
     def iq_test(numbers):
+
         """
         Examples:
         iq_test("2 4 7 8 10") => 3 # Third number is odd, while the rest of the numbers are even
@@ -232,6 +236,7 @@ def task2_8_5():
     """Проверка правильности и длины PIN кода."""
 
     def validate_pin(pin):
+
         """
         ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain
         anything but exactly 4 digits or exactly 6 digits.
