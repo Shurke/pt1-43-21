@@ -56,7 +56,8 @@ for i in range(len(language_dict.values())):
     all_language = all_language & set(language_dict.get(i))
     least_one_language = least_one_language | set(language_dict.get(i))
 print('Количество языков, которые знают все школьники: ', len(all_language))
-[print(i) for i in all_language]
-print('Количество языков, которые знает хотя бы один школьник: ',
-      len(least_one_language))
-[print(i) for i in least_one_language]
+print(*all_language, sep='\n')
+print('Количество языков, которые знает хотя бы один школьник: ', end='')
+print(len(least_one_language))
+# [print(i) for i in least_one_language]
+print(*least_one_language, sep='\n')

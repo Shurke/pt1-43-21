@@ -8,6 +8,6 @@
     слов содержится в этом тексте.
 """
 
-my_set = set()
-[my_set.add(i) for i in input('Введите строку: ').split()]
+my_string = input('Введите строку: ')
+my_set = set(my_string.split())
 print('Количество различных слов в строке: ', len(my_set))

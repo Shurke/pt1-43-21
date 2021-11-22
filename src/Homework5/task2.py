@@ -38,15 +38,18 @@
     Russia
 """
 
-number_country = int(input())
+number_country = int(input('Введите количество стран: '))
 geogr_dict = {}
 for i in range(number_country):
-    country_list = list(input().split())
+    country_list = list(input('Введите страну и ее города через пробел: ').split())
     geogr_dict[country_list[0]] = country_list[1:]
-number_request = int(input())
+number_request = int(input('Введите количество запрашиваемых городов: '))
 country_list = []
+print('Введите города через ввод: ')
 for i in range(number_request):
     city_input = input()
-    country_list.append([country for (country, city) in geogr_dict.items()
-                         if city_input in city])
-[print(*country) for country in country_list]
+    for country, city in geogr_dict.items():
+        if city_input in city:
+            country_list.append(country)
+print('Страны, в которых находятся введенные города: ')
+print(*country_list, sep='\n')
