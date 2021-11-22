@@ -2,8 +2,8 @@
 Homework 2 tasks
 '''
 
-import string
 import math
+import string
 
 
 def task_2_1():
@@ -158,5 +158,4 @@ def task_2_10():
             return False
     else:
         return False
-
 
