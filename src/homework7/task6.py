@@ -5,7 +5,7 @@
 import math
 
 
-def closer_2(num):
+def closer_2_power(num):
     '''Находит ближайшую степень двойки к числу'''
 
     power = -1
@@ -21,7 +21,7 @@ def closer_2(num):
         return print(f'Ближайшая степень двойки к {num} - это {2**(power + 1)}')
 
 
-closer_2(10)
-closer_2(20)
-closer_2(1)
-closer_2(13)
+closer_2_power(10)
+closer_2_power(20)
+closer_2_power(1)
+closer_2_power(13)
