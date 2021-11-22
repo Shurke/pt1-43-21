@@ -145,7 +145,8 @@ def task2_8_2():
 
     def persistence(my_digit):
 
-        """
+        """Multiplicative persistence.
+
         Write a function, persistence, that takes in a positive parameter num
         and returns its multiplicative persistence, which
         is the number of times you must multiply the digits
@@ -157,6 +158,7 @@ def task2_8_2():
             persistence(999) === 4 // because 9*9*9 = 729, 7*2*9 = 126,
                             // 1*2*6 = 12, and finally 1*2 = 2
             persistence(4) === 0 // because 4 is already a one-digit number
+
         """
 
         def get_digit(dgt):
@@ -184,12 +186,14 @@ def task2_8_3():
 
     def printer_error(printer_string):
 
-        """
+        """Подсчет ошибок принтера.
+
         Примеры:
         s="aaabbbbhaijjjm"
         printer_error(s) => "0/14"
         s="aaaxbbbbyyhwawiwjjjwwm"
         printer_error(s) => "8/22"
+
         """
 
         error_number = 0
@@ -208,10 +212,12 @@ def task2_8_4():
 
     def iq_test(numbers):
 
-        """
+        """Поиск числа, которое отличается по четности от остальных.
+
         Examples:
         iq_test("2 4 7 8 10") => 3 # Third number is odd, while the rest of the numbers are even
         iq_test("1 2 1 1") => 2 # Second number is even, while the rest of the numbers are odd
+
         """
 
         numb = [int(i) for i in numbers.split()]
@@ -237,10 +243,12 @@ def task2_8_5():
 
     def validate_pin(pin):
 
-        """
+        """Проверка правильности и длины PIN кода.
+
         ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain
         anything but exactly 4 digits or exactly 6 digits.
         If the function is passed a valid PIN string, return true, else return false.
+
         """
 
         if pin.isdigit() and (len(pin) == 4 or len(pin) == 6):
