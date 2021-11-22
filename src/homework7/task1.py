@@ -45,7 +45,7 @@ f = [t1_home.func, getattr(t2_home, 'func'), getattr(t3_home, 'func'), getattr(t
 def runner(*args):
     if len(args) == 0:
         for function in f:
-            print(function.__name__)
+            function()
     else:
         for name in args:
             for function_ in f:
