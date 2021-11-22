@@ -71,7 +71,8 @@ if __name__ == "__main__":
     print(task5())
 
 
-def task6(str_: str = 'Trump hit back, 11 repeated \n again hit 222    false \n 11 claim that the '):
+def task6(str_: str = 'Trump hit back, 11 repeated '
+                      '\n again hit 222    false \n 11 claim that the '):
     for char in str_:
         if (not char.isalpha()) and char != ' ':
             str_ = str_.replace(char, "")

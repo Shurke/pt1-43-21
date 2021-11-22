@@ -10,7 +10,7 @@ runner(‘func’, ‘func1’...) - вызывает все переданны�
 import HW1_tasks
 import HW4_tasks
 import HW5_tasks
-import inspect
+
 
 HW_funcs = {
     HW1_tasks: [HW1_tasks.task1(),
@@ -37,8 +37,7 @@ HW_funcs = {
                 HW5_tasks.task4(),
                 HW5_tasks.task5(),
                 HW5_tasks.task6(),
-                HW5_tasks.task7()]
-    }
+                HW5_tasks.task7()]}
 
 
 def runner(*args):
