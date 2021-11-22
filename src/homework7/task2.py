@@ -2,26 +2,25 @@
 '''Создайте декоратор, который хранит результаты вызовов функции
 (за все время вызовов, не только текущий запуск программы)
 '''
-counter = 1
 
 
-def dec_counter(fun):
+def dec_counter(sum_func):
 
     def wrapper(*args, **kwargs):
-        global counter
-        res = fun(*args, **kwargs)
-        print(f"function called {counter} times yet")
-        counter += 1
+        res = sum_func(*args, **kwargs)
+        with open('dec_counter_call_history.txt', 'a') as fh:  # Открываем файл на дозапись
+            fh.write(f'Function result - {res}.\n')
+        fh.close()
         return res
-
     return wrapper
 
 
-@dec_counter  # декорирование функции
-def func(a, b):
-    print(a + b)
+@dec_counter
+def sum_func(a, b):
+    '''Суммирует числа a и b'''
+    return a + b
 
 
-func(1, 5)
-func(1, 5)
-func(1, 5)
+sum_func(1, 5)
+sum_func(3, 5)
+sum_func(1, 4)
