@@ -429,7 +429,7 @@ def unique_element_in_list(list_sample=[1, 1, 2, 3, 4, 3, 5, 5, 6]):
 
     for i in list_sample:
         if list_sample.count(i) == 1:
-            print(i)
+            print(f'Уникальный элемент в списке - {i}')
 
 
 '''
@@ -523,21 +523,20 @@ func_collection = [dict_keys_in_cube, unique_element_in_list, longest_word]
 
 def runner(a=func_collection, *args):
 
-    if a in func_collection:
-        a()
-        for i in args:
+    if a == func_collection:
+        for i in a:
             i()
     else:
-        for i in dir():
-            i()
+        a()
 
 
-def runner(a=func_collection, *args):
+runner()
+print('-----------------------------')
+runner(fizz_buzz_printer)
+
+'''def runner(a=func_collection, *args):
     for func in dir():
         if func[0] == '_':
             print(func)
         else:
-            return(func + '()')
-
-
-runner()
+            return(func + '()')'''
