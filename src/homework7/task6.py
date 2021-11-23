@@ -12,5 +12,9 @@ def search(num):
     return power
 
 
-number = int(input("Введите число: ", ))
-print(f"Ближайшая степень двойки к числу {number}: {search(number)}")
+def search_number():
+    number = int(input("Введите число: ", ))
+    print(f"Ближайшая степень двойки к числу {number}: {search(number)}")
+
+
+search_number()
