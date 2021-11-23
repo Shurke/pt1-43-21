@@ -6,10 +6,11 @@ all of hometask2's functions
 
 
 def total_price():
-    """
-    task2.1
+    """task2.1
+
     Вводится M рублей и N копеек цена, а также количество S товара
     Посчитайте общую цену в рублях и копейках за L товаров.
+
     """
 
     ruble = int(input("стоимость товара (рубли) "))
@@ -21,9 +22,10 @@ def total_price():
 
 
 def the_longest_word():
-    """
-    task2.2
+    """task2.2
+
     Найти самое длинное слово в введенном предложении.
+
     """
 
     import string
@@ -40,9 +42,10 @@ def the_longest_word():
 
 
 def replace_spaces_and_not_unique_symbols():
-    """
-    task2.3
+    """task2.3
+
     Вводится строка. Требуется удалить из нее повторяющиеся символы и все пробелы.
+
     """
 
     input_str = input("Введите строку ").replace(' ', '')
@@ -54,10 +57,11 @@ def replace_spaces_and_not_unique_symbols():
 
 
 def counting_upper_and_lower():
-    """
-    task2.4
+    """task2.4
+
     Посчитать количество строчных (маленьких) и прописных (больших) букв в введенной строке.
     Учитывать только английские буквы.
+
     """
     import string
 
@@ -73,9 +77,10 @@ def counting_upper_and_lower():
 
 
 def fib():
-    """
-    task2.5
+    """task2.5
+
     Выведите n-ое число Фибоначчи
+
     """
 
     num = int(input("Введите n-ое число Фибоначчи "))
@@ -95,9 +100,10 @@ def fib():
 
 
 def is_palindrome():
-    """
-    task2.6
+    """task2.6
+
     Определите, является ли число палиндромом
+
     """
 
     num = int(input("Введите ваше число "))
@@ -113,12 +119,13 @@ def is_palindrome():
 
 
 def is_a_triangle():
-    """
-     task2.7
+    """task2.7
+
      Даны: три стороны треугольника.
      Требуется: проверить, действительно ли это стороны треугольника.
      Если стороны определяют треугольник, найти его площадь.
      Если нет, вывести сообщение о неверных данных.
+
     """
 
     import math
@@ -134,10 +141,11 @@ def is_a_triangle():
 
 
 def the_longest_zero_sequence():
-    """
-     task8.1
+    """task8.1
+
      acmp.ru problem № 43
      Требуется найти самую длинную непрерывную цепочку нулей в последовательности нулей и единиц.
+
     """
 
     input_string = input("Введите строку из 0 и 1 ")
@@ -154,12 +162,13 @@ def the_longest_zero_sequence():
 
 
 def total_price_calc():
-    """
-     task8.2
+    """task8.2
+
      codewars problem ---- Transportation on vacation
      Every day you rent the car costs $40. If you rent the car for 7 or more days,
      you get $50 off your total. Alternatively,
      if you rent the car for 3 or more days, you get $20 off your total.
+
     """
 
     days = int(input("Введите продолжительность отпуска в днях "))
@@ -172,12 +181,13 @@ def total_price_calc():
 
 
 def number_of_particular_words():
-    """
-    task8.3
+    """task8.3
+
       codewars problem ---- Sum of a Beach
       Beaches are filled with sand, water, fish, and sun. Given a string,
       calculate how many times the words "Sand", "Water",
       "Fish", and "Sun" appear without overlapping (regardless of the case).
+
     """
 
     beach = input("Введите строку ")
@@ -190,10 +200,11 @@ def number_of_particular_words():
 
 
 def vowel_count():
-    """
-     task8.4
+    """task8.4
+
      codewars problem ---- Vowel Count
      Return the number (count) of vowels in the given string.
+
     """
 
     input_string = input("Введите строку ")
@@ -207,13 +218,14 @@ def vowel_count():
 
 
 def text_encryption():
-    """
-     task8.5
+    """task8.5
+
      codewars problem ---- Simple Pig Latin
      Move the first letter of each word to the end of it,
      then add "ay" to the end of the word. Leave punctuation marks untouched.
      pigIt('Pig latin is cool'); // igPay atinlay siay oolcay
      pigIt('Hello world !');     // elloHay orldway !
+
     """
 
     import string

@@ -6,9 +6,7 @@
 
 
 def nearest_binary_power(num):
-    """
-    searches nearest_binary_power to number
-    """
+    """searches nearest_binary_power to number"""
 
     num_pow = 0
     num_for_while = num

@@ -10,9 +10,7 @@ get_ranges([2, 3, 8, 9]) // '2-3,8-9'
 
 
 def get_ranges(input_list):
-    """
-    returns ranges of numbers in given list
-    """
+    """returns ranges of numbers in given list"""
 
     ans_list = []
     start_num = input_list[0]

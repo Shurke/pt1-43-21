@@ -7,10 +7,7 @@
 
 
 def decorator(func):
-    """
-    decorator of functions, that saves cache
-    of outputs
-    """
+    """decorator of functions, that saves cache of outputs"""
 
     def wrapper(*args):
         result = func(*args)
@@ -24,9 +21,7 @@ def decorator(func):
 
 @decorator
 def function_pow(number1, number2):
-    """
-    returns number1 power number2
-    """
+    """returns number1 power number2"""
 
     return number1 ** number2
 

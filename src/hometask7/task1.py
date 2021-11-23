@@ -7,9 +7,9 @@
 getattr и setattr)
 runner() - все фукнции вызываются по очереди
 runner('func_name') –
-вызывается только функцию func_name. 
-runner('func', 'func1'...) - 
-вызывает все переданные функции 
+вызывается только функцию func_name.
+runner('func', 'func1'...) -
+вызывает все переданные функции
 """
 
 
@@ -19,10 +19,7 @@ import hometasks5_functions
 
 
 def call_function(functions_to_be_called):
-    """
-    calls all the functions, that are listed
-    from module - 2, 4, 5
-    """
+    """calls all the functions, that are listed in modules"""
 
     for function in functions_to_be_called:
         if function in dir(hometasks2_functions):
@@ -34,9 +31,7 @@ def call_function(functions_to_be_called):
 
 
 def all_functions_call():
-    """
-    calls all functions from modules - 2, 4, 5
-    """
+    """calls all functions from modules - 2, 4, 5"""
 
     for functions in dir(hometasks2_functions):
         if functions[:2] != '__':
@@ -52,9 +47,7 @@ def all_functions_call():
 
 
 def runner(*args):
-    """
-    runs all functions that are called
-    """
+    """runs all functions that are called"""
 
     if len(args) == 0:
         all_functions_call()

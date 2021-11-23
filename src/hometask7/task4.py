@@ -11,9 +11,10 @@
 
 
 def binary_pyramid(left_border_num, right_border_num):
-    """
-    returns the result of some binary operations
+    """returns the result of some binary operations
+
     (sum_of_the_binary_numbers)
+
     """
 
     list_of_binary_numbers = []

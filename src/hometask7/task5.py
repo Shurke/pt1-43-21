@@ -12,9 +12,7 @@ ratings.txt – гистограмма рейтингов, years.txt – гис�
 
 
 def read_file():
-    """
-    returns list of file lines
-    """
+    """returns list of file lines"""
 
     try:
         with open('ratings.list', 'r') as ratings_list_file:
@@ -25,12 +23,13 @@ def read_file():
 
 
 def processing_file(input_file):
-    """
-    function processes input file with rates
+    """function processes input file with rates
+
     creates 3 new files:
     top250_movies.txt
     ratings.txt
     years.txt
+
     """
 
     titles = []

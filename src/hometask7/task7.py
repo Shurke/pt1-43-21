@@ -5,9 +5,7 @@
 
 
 def max_divisor_of_power_of_two(input_number):
-    """
-    searches max_divisor_of_power_of_two to number
-    """
+    """searches max_divisor_of_power_of_two to number"""
 
     power_of_two = 1
     answer_number = 1
