@@ -12,12 +12,12 @@ from hw5 import HW5
 
 
 def runner(*args):
-    method_list_hw2 = ([func for func in dir(HW2) if callable(getattr(HW2, func))
-                       and not func.startswith("__")])
-    method_list_hw4 = ([func for func in dir(HW4) if callable(getattr(HW4, func))
-                       and not func.startswith("__")])
-    method_list_hw5 = ([func for func in dir(HW5) if callable(getattr(HW5, func))
-                       and not func.startswith("__")])
+    method_list_hw2 = ([func for func in dir(HW2)
+                        if callable(getattr(HW2, func)) and not func.startswith("__")])
+    method_list_hw4 = ([func for func in dir(HW4)
+                        if callable(getattr(HW4, func)) and not func.startswith("__")])
+    method_list_hw5 = ([func for func in dir(HW5)
+                        if callable(getattr(HW5, func)) and not func.startswith("__")])
     function_mappings = {
         'hw2_task1': HW2.hw2_task1,
         'hw2_task2': HW2.hw2_task2,
