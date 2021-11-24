@@ -34,6 +34,7 @@ def writing_in_the_file(file_name, given_dict):
     plt.xticks(rotation=90)
     plt.savefig(file_name)
     # plt.show()
+    print(f'Файл {file_name} создан')
 
 
 def write_top250txt(titles):
@@ -42,6 +43,7 @@ def write_top250txt(titles):
     with open('top250_movies.txt', 'w') as top250:
         for title in titles:
             top250.write(title + '\n')
+    print('Файл top250_movies.txt создан')
 
 
 def processing_file(input_file):
