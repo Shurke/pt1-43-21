@@ -7,9 +7,6 @@ from copy import copy
 
 
 def hw4_task1():
-    """
-    Func task1 from HW1
-    """
     result = ''
     for i in range(1, 101):
         if i % 3 == 0 and i % 5 == 0:
@@ -24,9 +21,6 @@ def hw4_task1():
 
 
 def hw4_task2():
-    """
-    Func task2 from HW1
-    """
     lst = [i + j for i in 'ab' for j in 'bcd']
     lst_slice = lst[::2]
     lst_num = [str(i) + 'a' for i in range(1, 5)]
@@ -36,9 +30,6 @@ def hw4_task2():
 
 
 def hw4_task3(lst=None):
-    """
-    Func task3 from HW1
-    """
     if lst is None:
         lst = [1, 2, 3]
     tup = (lst,)
@@ -50,9 +41,6 @@ def hw4_task3(lst=None):
 
 
 def hw4_task4(list_of_num=None):
-    """
-    Func task4 from HW1
-    """
     if list_of_num is None:
         list_of_num = '1 1 1 1'
     list_of_num = list_of_num.split()
@@ -65,9 +53,6 @@ def hw4_task4(list_of_num=None):
 
 
 def hw4_task5():
-    """
-    Func task5 from HW1
-    """
     list_of_elements = [1, 8, 2, 3, 1, 1, 2, 2, 3, 4, 5, 15]
     result = []
     for elem in list_of_elements:
@@ -77,9 +62,6 @@ def hw4_task5():
 
 
 def hw4_task6():
-    """
-    Func task6 from HW1
-    """
     list_of_num = [1, 0, 0, 4, 0, 4, 0, 6]
     for num in list_of_num:
         if num == 0:
