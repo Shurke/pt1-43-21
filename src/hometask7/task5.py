@@ -58,7 +58,9 @@ def processing_file(input_file):
         str_element = element.strip()
         list_of_data = str_element.split('  ')
         titles.append(list_of_data[-1][:-7])   # appends title
-        years.append(list_of_data[-1][-5:-1])  # appends years
+        year_in_brackets = list_of_data[-1].split()[-1]
+        # value of year in ()
+        years.append(year_in_brackets[1:5])    # appends years
         rates.append(list_of_data[-2][1:])     # appends rates
     for year in years:
         if year not in dict_years.keys():
