@@ -14,6 +14,7 @@ def func(int1):
         int1 = int1 // 2
     return int2[::-1]
 
+
 m = int(input('введите число m:', ))
 n = int(input('введите число n больше чтсла m:', ))
 m1 = m
@@ -26,6 +27,3 @@ while m1 <= n1:
     sum1 = sum1 + m1
     m1 += 1
 print('сумма чисел от m до n =', sum1, 'в двоичном виде: ', func(sum1))
-
-
-

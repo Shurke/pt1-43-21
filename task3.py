@@ -41,5 +41,3 @@ print(get_ranges([2, 3, 8, 9]))
 
 
 
-
-
