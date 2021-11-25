@@ -30,11 +30,7 @@ except FileNotFoundError:
 
 
 def rating_generation(strings):
-    """
-    Функция преобразует список строк в кортеж, с которым удобнее работать
-    :param strings: Список из строк
-    :return:
-    """
+    """Функция преобразует список строк в кортеж, с которым удобнее работать"""
     list_of_rate = list()
     for string in strings:
         list_of_words = string.split()
@@ -46,7 +42,7 @@ def rating_generation(strings):
 
 
 def writing_file_top(rate):
-    """ Функция создает файл с названием "top250_movies.txt" """
+    """Функция создает файл с названием 'top250_movies.txt'"""
     file_top_250 = open("data/top250_movies.txt", "w")
     for inform in rate:
         file_top_250.write(inform[2] + '\n')
@@ -71,6 +67,7 @@ def bar_generation(list_of_items, file_name):
 
 def imbd_ratings():
     """Функция создает 3 файла
+
     top250_movies.txt – названия файлов,
     ratings.txt – гистограмма рейтингов,
     years.txt – гистограмма годов.
@@ -84,4 +81,3 @@ def imbd_ratings():
 
 
 imbd_ratings()
-
