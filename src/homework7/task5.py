@@ -7,31 +7,48 @@ c.	Программа создает 3 файла  top250_movies.txt – наз�
 ratings.txt – гистограмма рейтингов,
 years.txt – гистограмма годов.
 """
-import os
 
+import os
 path = 'ratings.list'
-ratings = dict()
-if os.path.exists(path):
-    fh = open(path, 'r', encoding="ISO-8859-1")
-    data = fh.readlines()
-    list_ = data[28:278]
-    for item1 in list_:
-        n = 0
-        a = item1.split()
-        title = a[3:-1:]
-        title = ' '.join(title)
-        ftitle = open('top250_movies.txt', 'a')
-        ftitle.write(title + '\n')
-        ftitle.close()
-        rank = a[2]
-        frank = open('ratings.txt', 'a')
-        frank.write('{}: {}\n'.format(title, rank))
-        frank.close()
-        year = a[-1].replace('(', '').replace(')', '')
-        fyear = open('years.txt', 'a')
-        fyear.write('{}: {}\n'.format(title, year))
-        fyear.close()
-    fh.close()
-    print(type(ratings))
-else:
+if not os.path.exists(path):
     print('Error')
+
+else:
+    def choose_lines():
+        with open(path, "r", encoding="ISO-8859-1") as f:
+            list_lines = list()
+            k = 0
+            data = f.readlines()
+            line_start = 'New  Distribution  Votes  Rank  Title'
+            for line in data:
+                if line.strip() == line_start or line.strip() == '' and k > 0:
+                    k += 1
+                elif k == 1:
+                    list_lines.append(line.strip())
+                elif k == 2:
+                    break
+                else:
+                    pass
+        return list_lines
+
+    def films_list():
+        list_films = {}
+        for item in choose_lines():
+            title = ' '.join(item.split()[3:-1])
+            year = item.split()[-1].replace('(', '').replace(')', '')
+            rank = item.split()[2]
+            list_films[title] = [year, rank]
+        return list_films
+
+    def print_films():
+        with open('top250_movies.txt', 'a') as f:
+            for film in films_list().keys():
+                f.write(film + '\n')
+        with open('ratings.txt', 'a') as f:
+            for item in films_list().items():
+                f.write('{}: {}\n'.format(item[0], item[1][1]))
+        with open('years.txt', 'a') as f:
+            for item in films_list().items():
+                f.write('{}: {}\n'.format(item[0], item[1][0]))
+
+    print_films()
