@@ -50,7 +50,8 @@ try:
     movie_rating = open('ratings.txt', 'w')
     movie_rating.write('Рейтинг фильма ' + 'Количество фильмов' + '\n')
     for rating, movie_rating_amount in sort_rating_list:
-        movie_rating.write(' ' * 11 + str(rating) + ' ' * 16 + str(movie_rating_amount).rjust(3) + '\n')
+        movie_rating.write(' ' * 11 + str(rating) + ' ' * 16 +
+                           str(movie_rating_amount).rjust(3) + '\n')
     movie_rating.close()
     movie_year = open('years.txt', 'w')
     movie_year.write('Год выпуска фильма ' + 'Количество фильмов' + '\n')
