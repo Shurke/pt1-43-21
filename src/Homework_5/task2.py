@@ -41,6 +41,6 @@ def task2(tup_of_req=None, dict_of_cities=None):
                 break
 
 
-task2(tup_of_req=('Odessa', 'Moscow', 'Novgorod'),
-      dict_of_cities={1: 'Russia Moscow Petersburg Novgorod Kaluga'.split(),
-                      2: 'Ukraine Kiev Donetsk Odessa'.split()})
+task2(('Odessa', 'Moscow', 'Novgorod'),
+      {1: 'Russia Moscow Petersburg Novgorod Kaluga'.split(),
+       2: 'Ukraine Kiev Donetsk Odessa'.split()})
