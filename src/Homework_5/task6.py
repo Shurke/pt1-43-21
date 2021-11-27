@@ -5,15 +5,14 @@
 """
 
 
-def task6(str_):
-    for char in str_:
-        if (not char.isalpha()) and char != ' ':
-            str_ = str_.replace(char, "")
-    str_ = set(str_.lower().split())
-    return f'The text contains {len(str_)} different words'
+def task6(input_str=None):
+    if input_str is None:
+        input_str = 'Trump hit back, 11 repeated \n again hit false \n 11 claim that the election'
+    for char in input_str:
+        if not char.isalpha() and char != ' ':
+            input_str = input_str.replace(char, "")
+    input_str = set(input_str.lower().split())
+    return f'The text contains {len(input_str)} different words'
 
 
-if __name__ == "__main__":
-    print(task6(
-        str_='Trump hit back, 11 repeated \n    '
-             'again hit 222    false \n 11 claim that the \n election was stolen'))
+print(task6())
