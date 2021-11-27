@@ -28,7 +28,11 @@ Russia
 """
 
 
-def task2(tup_of_req, dict_of_cities):
+def task2(tup_of_req=None, dict_of_cities=None):
+    if tup_of_req is None and dict_of_cities is None:
+        dict_of_cities = {i: input('Enter country and cities per space: ').split()
+                          for i in range(int(input('Enter num of country: ')))}
+        tup_of_req = tuple(input('Enter requests city + "Enter": ') for _ in range(int(input('Enter num of req: '))))
     for request in tup_of_req:
         for cities in dict_of_cities.values():
             if request in cities:
@@ -36,7 +40,6 @@ def task2(tup_of_req, dict_of_cities):
                 break
 
 
-if __name__ == "__main__":
-    task2(tup_of_req=('Odessa', 'Moscow', 'Novgorod'),
-          dict_of_cities={1: 'Russia Moscow Petersburg Novgorod Kaluga'.split(),
-                          2: 'Ukraine Kiev Donetsk Odessa'.split()})
+task2(tup_of_req=('Odessa', 'Moscow', 'Novgorod'),
+      dict_of_cities={1: 'Russia Moscow Petersburg Novgorod Kaluga'.split(),
+                      2: 'Ukraine Kiev Donetsk Odessa'.split()})

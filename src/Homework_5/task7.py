@@ -6,8 +6,8 @@
 
 
 # O(N)
-num_1 = int(input("Enter first number: "))
-num_2 = int(input("Enter second number: "))
+num_1 = int(input("Введите первое число: "))
+num_2 = int(input("Введите второе число: "))
 NOD = 0
 
 while num_1 != 0:
@@ -19,4 +19,4 @@ while num_1 != 0:
     else:
         num_2 %= num_1
 
-print(NOD)
+print(f"Наибольший общий делитель равен: {NOD}")
