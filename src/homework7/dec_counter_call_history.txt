@@ -1,3 +1,6 @@
 Function result - 6.
 Function result - 8.
 Function result - 5.
+Function result - 6.
+Function result - 8.
+Function result - 5.
