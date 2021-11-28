@@ -42,8 +42,8 @@ def total_value_of_goods(cost_rubles=1, cost_copecks=10, quantity=1):
     value_copecks = (cost_rubles * 100 + cost_copecks) * quantity
     rubles_part = value_copecks // 100  # Total value, rubles
     copecks_part = value_copecks % 100  # Total value, copecks
-    result = print('Total value: ' + str(rubles_part) +
-                   ' rubles ' + str(copecks_part) + ' copecks.')
+    result = print('Total value: ' + str(rubles_part) + ' rubles ' +
+                   str(copecks_part) + ' copecks.')
     return result
 
 
@@ -524,7 +524,6 @@ def countries_finder(number_of_countries=1,
     этой страны. В следующей строке записано число M, далее идут
     M запросов — названия каких-то M городов, перечисленных выше.
 
-    Выходные данные
     Для каждого из запроса выведите название страны, в котором находится данный город.
     '''
 
