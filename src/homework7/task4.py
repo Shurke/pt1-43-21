@@ -19,8 +19,11 @@ func(1, 4)   -->  1111010
 
 def bin_func(first_num=int, second_num=int) -> str:
     '''Функция переводит числа от first_num до second_num (включительно) в двоичные числа,
+
     Складывает полученные двоичные числа по основанию 10,
-    Переводит результат сложения в двоичное число.'''
+    Переводит результат сложения в двоичное число.
+    '''
+
     print(f'Первое число - {first_num}, Второе число - {second_num}')
     summ_binaries = 0
     for number in range(first_num, second_num + 1):

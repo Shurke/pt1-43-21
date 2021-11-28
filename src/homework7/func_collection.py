@@ -9,6 +9,7 @@ Output: Общая цена 9 рублей 60 копеек
 
 def total_value_of_goods(cost_rubles=1, cost_copecks=10, quantity=1):
     '''Вводится M рублей и N копеек цена, а также количество S товара.
+
     Выводит общую стоимость в рублях и копейках
     '''
 
@@ -53,6 +54,7 @@ def total_value_of_goods(cost_rubles=1, cost_copecks=10, quantity=1):
 
 def longest_word(entered_text='Longest word'):
     '''Находит самое длинное слово во введенном предложении.
+
     Учитывает наличие знаков препинания.
     '''
 
@@ -79,6 +81,7 @@ def longest_word(entered_text='Longest word'):
 
 def unique_string(entered_string='abrakadabra'):
     '''На ввод - строка.
+
     Вывод - строка без пробелов и повторяющихся символов
     '''
 
@@ -98,6 +101,7 @@ def unique_string(entered_string='abrakadabra'):
 
 def counter_low_up_words(entered_symbols='sdsdFSFSFDFdfsdfsfsdf fsdsf'):
     '''Вводится строка.
+
     Считает кол-во строчных и прописных англ. букв в ней.
     '''
 
@@ -123,8 +127,7 @@ n - вводится
 
 
 def fib_number(number_in_fib=1):
-    '''Выводится n-ое число Фибоначчи
-    '''
+    '''Выводится n-ое число Фибоначчи'''
 
     if 2 <= number_in_fib <= 3:
         fib_element = 1
@@ -160,8 +163,7 @@ def fib_number(number_in_fib=1):
 
 
 def polindrome_test_num(entered_number=222):
-    '''Определяет, является ли введенное число палиндромом
-    '''
+    '''Определяет, является ли введенное число палиндромом'''
 
     reversed_number = 0
     counter = entered_number
@@ -187,6 +189,7 @@ def polindrome_test_num(entered_number=222):
 
 def triangle_test(side_a, side_b, side_c):
     '''Определяет, существует ли треугольник по 3м сторонам.
+
     Если да - вычисляет его площадь.
     '''
 
@@ -213,8 +216,7 @@ The tests contain some very huge arrays, so think about performance. Done
 
 
 def find_uniq(list_sample=[0, 0, 0, 0.55, 0, 0, 0, 0, 0]):
-    '''Finds unique number in entered array
-    '''
+    '''Finds unique number in entered array'''
 
     list_sample.sort()
 
@@ -237,7 +239,9 @@ Note: If the number is a multiple of both 3 and 5, only count it once.
 
 
 def solution(number):
-    '''Returns the sum of all the multiples
+    '''Enter number.
+
+    Returns the sum of all the multiples
     of 3 or 5 below the number passed in
     '''
 
@@ -262,8 +266,9 @@ You may be given negative numbers as well (or 0).
 
 
 def is_prime(num):
-    '''Принимает число и выводит true, если число простое
-    False, если нет
+    '''Принимает число.
+
+    Выводит true, если число простое False, если нет
     '''
 
     prime_flag = True if num > 1 else False
@@ -287,9 +292,9 @@ Spaces will be included only when more than one word is present.
 
 
 def spin_words(sentence='It takes in a string of one or more words'):
-    '''It takes in a string of one or more words,
-    and returns the same string, but with all five or more letter
-    words reversed
+    '''It takes in a string of one or more words.
+
+    Returns the same string, but with all five or more letter words reversed
     '''
 
     sentence = sentence.split(' ')
@@ -314,8 +319,8 @@ the binary representation of 1.
 
 
 def binary_array_to_number(arr=[0, 1, 0, 1]):
-    """
-    Given an array of ones and zeroes,
+    """Given an array of ones and zeroes,
+
     convert the equivalent binary value to an integer.
     """
 
@@ -336,8 +341,9 @@ FizzBuzz
 
 
 def fizz_buzz_printer(a=1, b=101):
-    '''Печатает цифры от a до b, но вместо чисел,
-    кратных 3 пишет Fizz, вместо чисел кратный 5 пишет Buzz,
+    '''Печатает цифры от a до b.
+
+    Но вместо чисел, кратных 3 пишет Fizz, вместо чисел кратный 5 пишет Buzz,
     а вместо чисел одновременно кратных и 3 и 5 - FizzBuzz
     '''
 
@@ -389,8 +395,7 @@ Tuple practice
 
 
 def tuple_practice(tuple_sample=[1, 2, 3],):
-    '''Итерирует по первому элементу кортежа, последовательно выводя значения
-    '''
+    '''Итерирует по первому элементу кортежа, последовательно выводя значения'''
 
     for item in tuple_sample:
         for i in item:
@@ -409,8 +414,7 @@ def tuple_practice(tuple_sample=[1, 2, 3],):
 
 
 def pair_counter(number_input='1 1 1 1'):
-    '''Считает количество пар чисел в строке, равных друг другу
-    '''
+    '''Считает количество пар чисел в строке, равных друг другу'''
 
     import math
 
@@ -439,8 +443,7 @@ def pair_counter(number_input='1 1 1 1'):
 
 
 def unique_element_in_list(list_sample=[1, 1, 2, 3, 4, 3, 5, 5, 6]):
-    '''Выводит элементы списка, которые встречаются в нем только один раз
-    '''
+    '''Выводит элементы списка, которые встречаются в нем только один раз'''
 
     for i in list_sample:
         if list_sample.count(i) == 1:
@@ -457,6 +460,7 @@ def unique_element_in_list(list_sample=[1, 1, 2, 3, 4, 3, 5, 5, 6]):
 
 def sort_zeroes_right(list_sample=[1, 0, 2, 3, 0, 4, 5, 0, 0, 7, 6, 0, 8, 0, 0, 9]):
     '''Перемещает все ненулевые элементы в левую часть списка,
+
     не меняя их порядок, а все нули - в правую часть.
     '''
 
@@ -477,6 +481,7 @@ def sort_zeroes_right(list_sample=[1, 0, 2, 3, 0, 4, 5, 0, 0, 7, 6, 0, 8, 0, 0, 
 
 def dict_keys_in_cube(start=1, stop=21):
     '''Создает словарь с ключами от start до stop
+
     и значениями равными значению ключа в кубе
     '''
 
@@ -511,12 +516,14 @@ Russia
 '''
 
 
-def countries_finder(number_of_countries=1, country_input='Russia Moscow Petersburg Novgorod Kaluga'):
+def countries_finder(number_of_countries=1,
+                     country_input='Russia Moscow Petersburg Novgorod Kaluga'):
     '''Входные данные
     Программа получает на вход количество стран N. Далее идет N строк,
     каждая строка начинается с названия страны, затем идут названия городов
     этой страны. В следующей строке записано число M, далее идут
     M запросов — названия каких-то M городов, перечисленных выше.
+
     Выходные данные
     Для каждого из запроса выведите название страны, в котором находится данный город.
     '''

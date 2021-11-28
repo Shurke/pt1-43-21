@@ -8,10 +8,12 @@ def runner(*args):
         for function in functions:
             print(f'Выполняется функция {function}:')
             print(function.__doc__)  # Подскажите пожалуйста, как добыть __doc__ из другого модуля?
-            func = getattr(func_collection, function)()
+            func = getattr(func_collection, function)
+            func()
     else:
         for function in args:
-            func = getattr(func_collection, function)()
+            func = getattr(func_collection, function)
+            func()
 
 
 runner()
