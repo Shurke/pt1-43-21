@@ -31,9 +31,10 @@ def get_ranges(sorted_list=list) -> list:
     for i in collapsed_list:
         if i == '-':
             index_dash = collapsed_list.index('-')
-            collapsed_list.insert(index_dash,
-                                  str(collapsed_list[index_dash - 1]) + '-'
-                                  + str(collapsed_list[index_dash + 1]))
+
+            num_start = str(collapsed_list[index_dash - 1])
+            num_end = str(collapsed_list[index_dash + 1])
+            collapsed_list.insert(index_dash, num_start + '-' + num_end)
             collapsed_list.remove('-')
             collapsed_list.pop(index_dash - 1)
             collapsed_list.pop(index_dash)
