@@ -181,7 +181,7 @@ def task2_5():
     states = {}
 
     for _ in range(int(input('введите колличество стран', ))):
-        state, *cities = input('вветите название страны затем названия городов этой строны', ).split()
+        state, *cities = input('вветите название страны затем названия городов', ).split()
         for city in cities:
             states[city] = state
 
