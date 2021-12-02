@@ -19,11 +19,10 @@ func(1, 4)   -->  1111010
 
 
 def func(m, n):
-    k = n
     sum_ = 0
-    while k >= m:
-        sum_ = int(bin(k)[2::]) + sum_
-        k = k - 1
+    while n >= m:
+        sum_ = int(bin(n)[2::]) + sum_
+        n = n - 1
     return bin(sum_)[2::]
 
 
