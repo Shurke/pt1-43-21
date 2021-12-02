@@ -41,14 +41,12 @@ else:
         return list_films
 
     def print_films():
-        with open('top250_movies.txt', 'a') as f:
-            for film in films_list().keys():
-                f.write(film + '\n')
-        with open('ratings.txt', 'a') as f:
-            for item in films_list().items():
-                f.write('{}: {}\n'.format(item[0], item[1][1]))
-        with open('years.txt', 'a') as f:
-            for item in films_list().items():
-                f.write('{}: {}\n'.format(item[0], item[1][0]))
+        for film in films_list().items():
+            with open('top250_movies.txt', 'a') as f:
+                f.write(film[0] + '\n')
+            with open('ratings.txt', 'a') as f:
+                f.write('{}: {}\n'.format(film[0], film[1][1]))
+            with open('years.txt', 'a') as f:
+                f.write('{}: {}\n'.format(film[0], film[1][0]))
 
     print_films()
