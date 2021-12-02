@@ -27,6 +27,7 @@ def get_ranges(list_):
             result.append(list2)
         else:
             result.append(str(item2[0]))
+    result = ','.join(result)
     return result
 
 
