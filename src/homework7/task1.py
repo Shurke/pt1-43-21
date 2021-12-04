@@ -23,7 +23,9 @@ def run_function(func_name, module):
 def add_dict_of_functions(module):
     """Добавляет элементы в словарь
 
-    ключ - это имя функции, значение - это модуль"""
+    ключ - это имя функции, значение - это модуль
+
+    """
 
     for function_name in dir(module):
         if function_name[0] != "_" and function_name[:2] != "__":
