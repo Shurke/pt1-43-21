@@ -52,25 +52,26 @@ def get_rate(list_of_strings):
 
 def create_file_top250(list_of_rate):
     """Функция создает файл top250_movies.txt – названия файлов"""
-    file_top_250 = open("top250_movies.txt", "w")
-    for item in list_of_rate:
-        file_top_250.write(item[2] + '\n')
-    file_top_250.close()
+
+    with open("top250_movies.txt", "w") as file_top_250:
+        for item in list_of_rate:
+            file_top_250.write(item[2] + '\n')
     print("Создан файл top250_movies.txt")
 
 
 def create_bar_chart(list_of_items, file_name):
     """Функция создает гистограмму по заданному списку"""
-    f = open(file_name, "w")
+
     set_of_items = set(list_of_items)
     list_of_items_short = list(set_of_items)
     list_of_items_short.sort()
-    for item in list_of_items_short:
-        bar_string = str(item) + "   "
-        for i in range(list_of_items.count(item)):
-            bar_string = bar_string + "|"
-        f.write(bar_string + '\n')
-    f.close()
+    with open(file_name, "w") as f:
+        for item in list_of_items_short:
+            bar_string = str(item) + "   "
+            for i in range(list_of_items.count(item)):
+                bar_string = bar_string + "|"
+            f.write(bar_string + '\n')
+
     print(f"Создан файл {file_name}")
 
 

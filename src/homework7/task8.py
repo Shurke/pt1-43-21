@@ -88,22 +88,17 @@ def logic_func(function_name):
         else:
             return 0
 
-    if function_name == "AND":
-        return logic_and
-    elif function_name == "OR":
-        return logic_or
-    elif function_name == "XOR":
-        return logic_xor
-    elif function_name == "IMPLY":
-        return logic_imply
-    elif function_name == "NAND":
-        return logic_n_and
-    elif function_name == "NOR":
-        return logic_n_or
-    elif function_name == "XNOR":
-        return logic_x_n_or
-    else:
-        return None
+    functions = {
+        "AND": logic_and,
+        "OR": logic_or,
+        "XOR": logic_xor,
+        "IMPLY": logic_imply,
+        "NAND": logic_n_and,
+        "NOR": logic_n_or,
+        "XNOR": logic_x_n_or,
+    }
+
+    return functions.get(function_name)
 
 
 def get_truth_table(function_name, *args):

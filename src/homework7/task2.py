@@ -12,11 +12,11 @@ def total_recall(my_func):
     def wrapper(*args):
 
         result = my_func(*args)
-        f = open("recollection.txt", "a")
         line = " " + str(datetime.now().time()) + " аргументы: " + str(args)
         line = line + " результат: " + str(result) + '\n'
-        f.write(line)
-        f.close()
+        with open("recollection.txt", "a") as f:
+            f.write(line)
+
         return result
 
     return wrapper
