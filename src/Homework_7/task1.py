@@ -14,8 +14,7 @@ for mod in list_of_module:
 
 
 def runner(*args):
-    """Function check length of args. If it zero - we call every element from dict_of_funcs
-        and get values of functions"""
+    """Function call every function from imported modules, or calling sent as args function"""
     if len(args) == 0:
         for function, module in dict_of_funcs.items():
             print('Module name: ', module.__name__, '\n',
