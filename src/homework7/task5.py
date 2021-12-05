@@ -11,19 +11,8 @@ import os
 
 
 def movies():
-    if os.path.exists('ratings.list'):
-        n = 0
-        find_start = 0
-        content = []
-        with open('ratings.list', 'r') as file:
-            for line in file:
-                if 0 < n < 251:
-                    content.append(line.split('  '))
-                    n += 1
-                if find_start == 0 and line.find('New  Distribution  Votes  Rank  Title') != -1:
-                    n = 1
-                    find_start = 1
-        file.close()
+    if os.path.exists('ratings.list.txt'):
+        content = read_file('ratings.list.txt')
         top250 = []
         ratings = {}
         years = {}
@@ -39,30 +28,50 @@ def movies():
                 years[year] += 1
             else:
                 years[year] = 1
-        ratings_keys = list(ratings.keys())
-        ratings_keys.sort(reverse=True)
-        ratings_sorted = {}
-        for i in ratings_keys:
-            ratings_sorted[i] = ratings[i]
-        years_keys = list(years.keys())
-        years_keys.sort(reverse=True)
-        years_sorted = {}
-        for i in years_keys:
-            years_sorted[i] = years[i]
-        with open('top250_movies.txt', 'w') as file:
-            for item in top250:
-                file.write(item + "\n")
-        file.close()
-        with open('ratings.txt', 'w') as file:
-            for key, value in ratings_sorted.items():
-                file.write(key + ": " + str(value) + "\n")
-        file.close()
-        with open('years.txt', 'w') as file:
-            for key, value in years_sorted.items():
-                file.write(key + ": " + str(value) + "\n")
-        file.close()
+        ratings_sorted = dict_sorting_keys(ratings, True)
+        years_sorted = dict_sorting_keys(years, True)
+        write_file('top250_movies.txt', top250)
+        write_file('ratings.txt', ratings_sorted)
+        write_file('years.txt', years_sorted)
     else:
-        print('Файл `ratings.list` не существует по указанному пути.')
+        print('Файл `ratings.list.txt` не существует по указанному пути.')
+
+
+def dict_sorting_keys(dict_, rev=False):
+    keys = list(dict_.keys())
+    keys.sort(reverse=rev)
+    dict_sorted = {}
+    for i in keys:
+        dict_sorted[i] = dict_[i]
+    return dict_sorted
+
+
+def read_file(filename):
+    n = 0
+    find_start = 0
+    content = []
+    with open(filename, 'r') as file:
+        for line in file:
+            if 0 < n < 251:
+                content.append(line.split('  '))
+                n += 1
+            if find_start == 0 and line.find('New  Distribution  Votes  Rank  Title') != -1:
+                n = 1
+                find_start = 1
+    file.close()
+    return content
+
+
+def write_file(filename, data):
+    with open(filename, 'w') as file:
+        if isinstance(data, list):
+            for item in data:
+                file.write(item + "\n")
+        if isinstance(data, dict):
+            for key, value in data.items():
+                file.write(key + ": " + str(value) + "\n")
+    file.close()
+    print('Запись в файл', filename, 'закончена.')
 
 
 movies()

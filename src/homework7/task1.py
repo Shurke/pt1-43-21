@@ -18,37 +18,26 @@ def runner(*args):
                         if callable(getattr(HW4, func)) and not func.startswith("__")])
     method_list_hw5 = ([func for func in dir(HW5)
                         if callable(getattr(HW5, func)) and not func.startswith("__")])
-    function_mappings = {
-        'hw2_task1': HW2.hw2_task1,
-        'hw2_task2': HW2.hw2_task2,
-        'hw2_task3': HW2.hw2_task3,
-        'hw4_task1': HW4.hw4_task1,
-        'hw4_task2': HW4.hw4_task2,
-        'hw4_task3': HW4.hw4_task3,
-        'hw5_task1': HW5.hw5_task1,
-        'hw5_task2': HW5.hw5_task2,
-        'hw5_task3': HW5.hw5_task3
-    }
     inst_hw2 = HW2()
     inst_hw4 = HW4()
     inst_hw5 = HW5()
     if len(args) > 0:
         for func in args:
             if hasattr(HW2, func):
-                function_mappings[func](inst_hw2)
+                getattr(HW2, func)(inst_hw2)
             elif hasattr(HW4, func):
-                function_mappings[func](inst_hw4)
+                getattr(HW4, func)(inst_hw4)
             elif hasattr(HW5, func):
-                function_mappings[func](inst_hw5)
+                getattr(HW5, func)(inst_hw5)
             else:
                 print('Функции ', func, 'не существует.')
     else:
         for func in method_list_hw2:
-            function_mappings[func](inst_hw2)
+            getattr(HW2, func)(inst_hw2)
         for func in method_list_hw4:
-            function_mappings[func](inst_hw4)
+            getattr(HW4, func)(inst_hw4)
         for func in method_list_hw5:
-            function_mappings[func](inst_hw5)
+            getattr(HW5, func)(inst_hw5)
 
 
 runner()

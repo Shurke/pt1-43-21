@@ -10,10 +10,10 @@ def dec(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         if os.path.exists('statistic.txt'):
-            file = open('statistic.txt')
-            digit = file.read().split("\n")
-            digit = int(digit[0])
-            file.close()
+            with open('statistic', 'w') as f:
+                digit = f.read().split("\n")
+                digit = int(digit[0])
+                f.close()
         else:
             digit = 0
         with open('statistic.txt', 'w') as f:
