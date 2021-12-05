@@ -8,10 +8,13 @@
 """
 
 
-def get_ranges(num_list):
+def get_ranges(num_list: list = None) -> str:
+    """This function collapses sequences of consecutive digits"""
     total = []
     list_tmp = []
-
+    result = ''
+    if num_list is None:
+        num_list = [0, 1, 2, 3, 4, 7, 8, 10]
     for i in range(len(num_list) - 1):
         if num_list[i] + 1 == num_list[i + 1]:
             list_tmp.append(num_list[i])
@@ -27,8 +30,12 @@ def get_ranges(num_list):
             else:
                 list_tmp.append(num_list[-1])
                 total.append(list_tmp)
+    for i in total:
+        if len(i) > 1:
+            result += str(i[0]) + '-' + str(i[-1]) + ','
+        else:
+            result += str(i[-1]) + ','
+    return result[:-1]
 
-    print(*[str(i[0]) + '-' + str(i[-1]) if len(i) > 1 else str(i[-1]) for i in total], sep=',')
 
-
-get_ranges([0, 1, 2, 3, 4, 7, 8, 10])
+print(get_ranges())

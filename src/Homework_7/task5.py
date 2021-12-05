@@ -13,57 +13,79 @@ import json
 import matplotlib.pyplot as plt
 
 
-def pars(file):
+top_250_str = []
+dict_of_year = {}
+dict_of_ratings = {}
+
+
+def date_generator(file_name, key=None, band=None):
+    """Function generate rows in entered range after key-word"""
+    if key is None:
+        key = "New  Distribution "
+    if band is None:
+        band = 250
     try:
-        dict_of_ratings = {}
-        dict_of_year = {}
-        top_250_str = []
-        fh = codecs.open(file, 'r', encoding='utf-8', errors='ignore')
-        top_250 = open('top250_movies.txt', 'w')
-        ratings = open('ratings.txt', 'w')
-        years = open('years.txt', 'w')
-        data = fh.readlines()
-        list_of_250 = data[28:278]
-        for line in list_of_250:
-            line = line.split()[2:]
-            temp_str = ''
-            for i in line[1:-1]:
-                temp_str += i + ' '
-            temp_str = temp_str[:-1]
-            top_250_str.append(temp_str)
-            if line[0] not in dict_of_ratings:
-                dict_of_ratings[line[0]] = list([temp_str])
-            else:
-                dict_of_ratings[line[0]].append(temp_str)
-
-            if line[-1][1:-1] not in dict_of_year:
-                dict_of_year[line[-1][1:-1]] = list([temp_str])
-            else:
-                dict_of_year[line[-1][1:-1]].append(temp_str)
-        json.dump(top_250_str, top_250, indent=4)
-        json.dump(dict_of_ratings, ratings, indent=4)
-        json.dump(dict_of_year, years, indent=4)
-
-        def draw_gist(dict_):
-            dictionary = {key: len(dict_[key]) for key in dict_}
-            sorted_list = sorted([dictionary[key] for key in dictionary])
-            sorted_dic = {}
-            for elem in sorted_list:
-                for key in dictionary:
-                    if elem == dictionary[key]:
-                        sorted_dic[key] = dictionary[key]
-            plt.bar(list(sorted_dic.keys()), sorted_dic.values(), color='g')
-            return plt.show()
-
-        draw_gist(dict_of_year)
-        draw_gist(dict_of_ratings)
-        top_250.close()
-        ratings.close()
-        years.close()
-        fh.close()
-
+        fh = codecs.open(file_name, 'r', encoding='utf-8', errors='ignore')
+        while key not in fh.readline():
+            fh.readline()
+            next(fh)
+        for i in range(band):
+            yield next(fh)
     except FileNotFoundError:
         print('File not found.')
 
 
-pars('ratings.list')
+def date_operate(generator_func):
+    """Function add data to objects"""
+    for line in generator_func:
+        line = line.split()[2:]
+        temp_str = ''
+        for i in line[1:-1]:
+            temp_str += i + ' '
+        temp_str = temp_str[:-1]
+        top_250_str.append(temp_str)
+        if line[0] not in dict_of_ratings:
+            dict_of_ratings[line[0]] = list([temp_str])
+        else:
+            dict_of_ratings[line[0]].append(temp_str)
+        if line[-1][1:-1] not in dict_of_year:
+            dict_of_year[line[-1][1:-1]] = list([temp_str])
+        else:
+            dict_of_year[line[-1][1:-1]].append(temp_str)
+
+
+def draw_gist(date_dict):
+    """Function for histograms drawing"""
+    dictionary = {key: len(date_dict[key]) for key in date_dict}
+    sorted_list = sorted([dictionary[key] for key in dictionary])
+    sorted_dic = {}
+    for elem in sorted_list:
+        for key in dictionary:
+            if elem == dictionary[key]:
+                sorted_dic[key] = dictionary[key]
+    plt.bar(list(sorted_dic.keys()), sorted_dic.values(), color='g')
+    return plt.show()
+
+
+def write_file(name=None, *args, **kwargs):
+    """Function create .txt file with name - 'name' and data from iter object"""
+    if name is None:
+        name = 'Default.txt'
+    name += '.txt'
+    if len(args) == 0:
+        data = kwargs
+    else:
+        data = args
+    file = open(name, 'w')
+    json.dump(data, file, indent=4)
+
+
+date = date_generator('ratings.list')
+date_operate(date)
+
+write_file('top250_movies', top_250_str)
+write_file('ratings', dict_of_ratings)
+write_file('years', dict_of_year)
+
+draw_gist(dict_of_ratings)
+draw_gist(dict_of_year)

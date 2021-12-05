@@ -8,6 +8,7 @@ import datetime
 
 
 def save_res(func):
+    """Decorator create file that contain date, counts and result of function  call"""
     counter = 1
 
     def wrapper(*args, **kwargs):
@@ -15,8 +16,7 @@ def save_res(func):
         date = str(datetime.datetime.today())[:-7]
         result = func(*args, **kwargs)
         with open(date, 'a') as fh:
-            fh.write(f'{date}: function called {counter} times. Result of calculation: {result}.\n')
-        fh.close()
+            fh.write(f'{date}: function called {counter} times. Result: {result}.\n')
         counter += 1
         return result
     return wrapper

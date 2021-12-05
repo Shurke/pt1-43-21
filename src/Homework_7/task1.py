@@ -2,20 +2,35 @@ import HW1_tasks
 import HW4_tasks
 import HW5_tasks
 
+list_of_module = [HW1_tasks, HW4_tasks, HW5_tasks]
+dict_of_funcs = {}
+
+# Create dictionary with key as function name
+# and value as module name
+for mod in list_of_module:
+    # seek and add to list values that contain 'task' in the name
+    for func in list(filter(lambda x: 'task' in x, dir(mod))):
+        dict_of_funcs[func] = mod
+
 
 def runner(*args):
-    list_of_module = [HW1_tasks, HW4_tasks, HW5_tasks]
+    """Function check length of args. If it zero - we call every element from dict_of_funcs
+        and get values of functions"""
     if len(args) == 0:
-        for module in list_of_module:
-            print('*' * 9, '\n', module.__name__, '\n', '*' * 9, '\n', sep='')
-            for func in dir(module):
-                if 'task' in func:
-                    print(func, ':', '\n', getattr(module, func)(), '\n', sep='')
+        for function, module in dict_of_funcs.items():
+            print('Module name: ', module.__name__, '\n',
+                  'Function name: ', function, '\n',
+                  'Function output: ', '\n', getattr(module, function)(), '\n', sep='')
     else:
-        for func in args:
-            for mod in list_of_module:
-                if mod.__name__.lower().startswith(func[:-1]):
-                    print(func, ':', '\n', getattr(mod, func)(), '\n', sep='')
+        """If args contain the name of function, we gets values this functions only"""
+        for function in args:
+            module = dict_of_funcs.get(function)
+            if module:
+                print('Module name: ', module.__name__, '\n',
+                      'Function name: ', function, '\n',
+                      'Function output: ', '\n', getattr(module, function)(), '\n', sep='')
+            else:
+                print(f'Function named "{function}" does not exist!')
 
 
 runner()
