@@ -8,7 +8,6 @@ def dec(func_s):
         res = func_s(*args, **kwargs)
         with open('save.txt', 'a') as fh:
             fh.write(f"{res}\n")
-        fh.close()
         return res
     return wrapper
 

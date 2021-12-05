@@ -10,9 +10,16 @@ import h_w2_4_5
 
 def runner(*args):
     functions = [func_name for func_name in dir(h_w2_4_5) if not func_name.startswith("__")]
-    for function in functions:
-        func = getattr(h_w2_4_5, function)
-        func()
+    if not len(args):
+        for function in functions:
+            func = getattr(h_w2_4_5, function)
+            func()
+    else:
+        for function in args:
+            func = getattr(h_w2_4_5, function)
+            func()
 
 
+runner('task1_2')
+runner('task1_2', 'task3_4')
 runner()
