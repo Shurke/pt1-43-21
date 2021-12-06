@@ -26,8 +26,10 @@ def call_function(functions_to_be_called):
             getattr(hometasks2_functions, function)()
         elif function in dir(hometasks4_functions):
             getattr(hometasks4_functions, function)()
-        else:
+        elif function in dir(hometasks5_functions):
             getattr(hometasks5_functions, function)()
+        else:
+            raise NameError('Wrong name of the function')
 
 
 def all_functions_call():
@@ -56,11 +58,11 @@ def runner(*args):
 
 
 def main():
-    print('runner(func1) result - ')
+    print('1) runner(func1) result:')
     runner('set_intersection')
-    print('runner(func1, func2) result - ')
+    print('2) runner(func1, func2) result:')
     runner('set_xor', 'fizz_buzz_print')
-    print('runner() result - ')
+    print('3) runner() result - ')
     runner()
 
 

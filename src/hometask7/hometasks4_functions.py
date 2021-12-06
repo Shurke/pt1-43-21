@@ -103,7 +103,7 @@ def unique_elements(list_of_numbers):
     for element in list_of_numbers:
         if list_of_numbers.count(element) == 1:
             ans_list.append(element)
-    return ans_list
+    print(ans_list)
 
 
 def zero_at_the_end(input_list):

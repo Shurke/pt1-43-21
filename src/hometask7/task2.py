@@ -11,10 +11,10 @@ def decorator(func):
 
     def wrapper(*args):
         result = func(*args)
-        file_adder = open('task2_cache.txt', 'a')
-        file_adder.write(str(result))
-        file_adder.write('\n')
-        file_adder.close()
+        with open('task2_cache.txt', 'a') as file_adder:
+            file_adder.write(str(result))
+            file_adder.write('\n')
+
         return result
     return wrapper
 

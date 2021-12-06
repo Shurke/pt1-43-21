@@ -18,9 +18,20 @@ import seaborn
 def read_file():
     """returns list of file lines"""
 
+    start_value = "New  Distribution  Votes  Rank  Title"
+    end_value = -1
     try:
         with open('ratings.list', 'r') as ratings_list_file:
-            top_250_films = ratings_list_file.readlines()
+            top_250_films = []
+            for text_line in ratings_list_file:
+                current_line = text_line.strip()
+                if end_value >= 250:
+                    break
+                if start_value == current_line:
+                    end_value += 1
+                elif end_value >= 0:
+                    top_250_films.append(current_line)
+                    end_value += 1
             return top_250_films
     except FileNotFoundError:
         print('Ошибка - файл не найден')
@@ -54,9 +65,8 @@ def processing_file(input_file):
     rates = []
     dict_years = {}
     dict_rates = {}
-    for element in input_file[28:278]:
-        str_element = element.strip()
-        list_of_data = str_element.split('  ')
+    for element in input_file:
+        list_of_data = element.split('  ')
         titles.append(list_of_data[-1][:-7])   # appends title
         year_in_brackets = list_of_data[-1].split()[-1]
         # value of year in ()

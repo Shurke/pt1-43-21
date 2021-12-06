@@ -9,33 +9,35 @@ get_ranges([2, 3, 8, 9]) // '2-3,8-9'
 """
 
 
+def add_to_ans_list(ans_list, start_num, end_num):
+    """adds to list"""
+
+    if end_num - start_num == 0:
+        ans_list.append(str(start_num))
+    else:
+        ans_list.append(str(start_num) + '-' + str(end_num))
+    return ans_list
+
+
 def get_ranges(input_list):
     """returns ranges of numbers in given list"""
 
-    ans_list = []
     start_num = input_list[0]
     end_num = input_list[0]
     prev = input_list[0]
+    ans_list = []
 
-    def add_to_ans_list():
-        """adds to list"""
-
-        if end_num - start_num == 0:
-            ans_list.append(start_num)
-        else:
-            ans_list.append(str(start_num) + '-' + str(end_num))
-
-    for number_ in input_list[1:]:
-        if number_ == prev + 1:
+    for number in input_list[1:]:
+        if number == prev + 1:
             end_num += 1
-        if number_ != prev + 1:
-            add_to_ans_list()
-            start_num = number_
-            end_num = number_
-        if number_ == input_list[-1]:
-            add_to_ans_list()
-        prev = number_
-    return ans_list
+        if number != prev + 1:
+            add_to_ans_list(ans_list, start_num, end_num)
+            start_num = number
+            end_num = number
+        if number == input_list[-1]:
+            add_to_ans_list(ans_list, start_num, end_num)
+        prev = number
+    return ','.join(ans_list)
 
 
 def main():
