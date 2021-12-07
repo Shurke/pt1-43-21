@@ -11,24 +11,28 @@ import hw_2
 import hw_4
 import hw_5
 
-hw_2_list = [item for item in dir(hw_2) if 'task_' in item]
-hw_4_list = [item for item in dir(hw_4) if 'task_' in item]
-hw_5_list = [item for item in dir(hw_5) if 'task_' in item]
-common_tasks_list = hw_2_list + hw_4_list + hw_5_list
+
+def upd_func_dict(module):
+    '''
+    Add functions in a dict.
+    key - funciton name
+    value - module
+    :param module:
+    :return: Dict of functions
+    '''
+
+    for f_name in dir(module):
+        if 'task_' in f_name:
+            common_tasks_dict[f_name] = module
 
 
 def run_func(f_name):
-    if f_name == '' or f_name not in common_tasks_list:
+    if f_name == '' or f_name not in common_tasks_dict.keys():
         print('Func not found')
         return
 
-    func = None
-    if f_name.startswith('task_2'):
-        func = getattr(hw_2, f_name, None)
-    elif f_name.startswith('task_4'):
-        func = getattr(hw_4, f_name, None)
-    elif f_name.startswith('task_5'):
-        func = getattr(hw_5, f_name, None)
+    module = common_tasks_dict.get(f_name)
+    func = getattr(module, f_name, None)
 
     if func is None:
         print('Func not found')
@@ -40,12 +44,17 @@ def run_func(f_name):
 
 def runner(*args):
     if len(args) == 0:
-        for item in common_tasks_list:
-            run_func(item)
+        for f_name in common_tasks_dict.keys():
+            run_func(f_name)
     else:
-        for item in args:
-            run_func(item)
+        for f_name in args:
+            run_func(f_name)
 
+
+common_tasks_dict = {}
+upd_func_dict(hw_2)
+upd_func_dict(hw_4)
+upd_func_dict(hw_5)
 
 runner()
 runner('task_2_1', 'task_2_2')
