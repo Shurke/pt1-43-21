@@ -8,11 +8,12 @@ import datetime
 
 def dec(fun):
     def wrapper(*args, **kwargs):
-        dat = str(datetime.datetime.now())
-        tmp_file = open("task2_mem.txt", "a")
         result = fun(*args, **kwargs)
-        tmp_file.writelines(dat + ' | ' + str(result) + '\n')
-        tmp_file.close()
+        dat = str(datetime.datetime.now())
+        with open("task2_mem.txt", "a") as f:
+            f.writelines(dat + ' | ' + str(result) + '\n')
+            f.close()
+
         return result
     return wrapper
 
