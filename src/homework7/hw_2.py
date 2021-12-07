@@ -127,7 +127,7 @@ def task_2_8():
             res_str = res_str + ') ' + str(n[i])
         elif i == 6:
             res_str = res_str + '-' + str(n[i])
-    return res_str
+    print('Result:', res_str)
 
 
 def task_2_9():
@@ -144,17 +144,17 @@ def task_2_9():
         else:
             pass
     if len(letters) == 26:
-        return True
+        print('Result:', True)
     else:
-        return False
+        print('Result:', False)
 
 
 def task_2_10():
     n = 3
     if n >= 0:
         if n ** 0.5 % 1 == 0:
-            return True
+            print('Result:', True)
         else:
-            return False
+            print('Result:', False)
     else:
-        return False
+        print('Result:', False)
