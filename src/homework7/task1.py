@@ -14,10 +14,12 @@ import hw_5
 
 def upd_func_dict(module):
     """Add functions in a dict.
+
     key - function name
     value - module
     :param module: module name
     :return: Dict of functions
+
     """
 
     for f_name in dir(module):
