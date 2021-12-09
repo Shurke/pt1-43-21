@@ -1,53 +1,50 @@
-"""
-Оформите решение задач из прошлых домашних работ в функции. Напишите функцию runner.
-(все станет проще когда мы изучим модули, getattr и setattr)
+"""Задача 1.
+Оформите решение задач из прошлых домашних работ в функции.
+Напишите функцию runner. (все станет проще когда мы изучим
+модули, getattr и setattr)
 runner() – все фукнции вызываются по очереди
 runner(‘func_name’) – вызывается только функцию func_name.
 runner(‘func’, ‘func1’...) - вызывает все переданные функции
 """
 
 
-import homework2
-import homework4
-import homework5
+import tasks_homework2
+import tasks_homework4
+import tasks_homework5
 
 
-all_homeworks_funcs = {
-    homework2: [homework2.task1(),
-                homework2.task2(),
-                homework2.task3(),
-                homework2.task4(),
-                homework2.task5(),
-                homework2.task6(),
-                homework2.task7(),
-                homework2.task8_1(),
-                homework2.task8_2(),
-                homework2.task8_3(),
-                homework2.task8_4(),
-                homework2.task8_5()],
-    homework4: [homework4.task1(),
-                homework4.task2(),
-                homework4.task3(),
-                homework4.task4(),
-                homework4.task5(),
-                homework4.task6()],
-    homework5: [homework5.task1(),
-                homework5.task2(),
-                homework5.task3(),
-                homework5.task4(),
-                homework5.task5(),
-                homework5.task6(),
-                homework5.task7()]}
+def run_function(func_name, module):
+    """Запускает функиию по имени func_name из модуля module"""
+    f = getattr(module, func_name)
+    print(f)
+    f()
+
+
+def add_dict_of_functions(module):
+    """Добавляет элементы в словарь.
+
+    Ключ - это имя функции, значение - это модуль
+    """
+    for function_name in dir(module):
+        if function_name[0] != "_" and function_name[:2] != "__":
+            dict_of_functions[function_name] = module
 
 
 def runner(*args):
     if len(args) == 0:
-        for elem in all_homeworks_funcs.values():
-            for func in elem:
-                print(func)
+        for function_name, module in dict_of_functions.items():
+            run_function(function_name, module)
     else:
-        for arg in args:
-            print(arg)
+        for function_name in args:
+            module = dict_of_functions.get(function_name)
+            if module:
+                run_function(function_name, module)
 
 
-runner(homework2.task2(), homework2.task3(), homework4.task4(), homework5.task5())
+dict_of_functions = {}
+add_dict_of_functions(tasks_homework2)
+add_dict_of_functions(tasks_homework4)
+add_dict_of_functions(tasks_homework5)
+runner("task6_4")
+runner("task1_2", "task2_2")
+runner()
