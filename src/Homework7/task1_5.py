@@ -95,7 +95,7 @@ def task5_6():
 
 
 def task5_7():
-    """НОД по алгоритму евклида"""
+    """НОД по алгоритму Евклида"""
     my_int1 = int(input('Введите первое число: '))
     my_int2 = int(input('Введите второе число: '))
     if my_int1 == my_int2:
@@ -111,45 +111,3 @@ def task5_7():
         else:
             print('Наибольший общий делитель: ', my_int1)
     return
-
-
-def func_select(func_list_attr):
-    """Интерфейс выбора доступных функций."""
-    print('Доступные функции:')
-    for item in range(len(func_list_attr)):
-        print(func_list_attr[item], globals()[func_list_attr[item]].__doc__)
-    print('Выберите через запятую '
-          'название(я) функции для запуска или нажмите Enter для запуска всех функций')
-    input_str = [item for item in input().split(',')]
-    return input_str
-
-
-def runner(*args):
-    """Вызов функций"""
-    if len(args) == 0:
-        # Запуск всех доступных функций
-        [globals()[item]() for item in func_list]
-    else:
-        # Запуск выбранного списка функций
-        [globals()[args[0][item]]() for item in range(len(args[0]))]
-
-
-# Получение списка пользовательских функций в модуле
-attr_list = dir()
-# Выбор доступных функций
-func_list = [item for item in attr_list if not item.startswith('__') and 'task' in item]
-input_func_list = func_select(func_list)
-
-if len(input_func_list) == 1 and input_func_list[0] == '':
-    # Запуск всех доступных функций, если при выборе нажат Enter
-    runner()
-else:
-    flag = False
-    for item in input_func_list:
-        if item not in func_list:
-            print('Некорректный ввод')
-            flag = True
-            break
-    if not flag:
-        # Запуск списка доступных функций
-        runner(input_func_list)

@@ -27,32 +27,57 @@
     • символ новой строки
 """
 
-my_string = input().split(', ')
-name_operator, args = my_string[0], my_string[1:]
-number_itter = 1 << len(args)
-# Печать заголовных строк
-print(' '.join(args) + '\t' * 2 + name_operator, sep='', end='')
-print('(' + ','.join(args) + ')' + '\n' * 2, sep='')
-# Проход таблицы по строкам
-for item in range(0, number_itter):
-    out_itter = -1
-    # Проход строк по символам слева
-    for cat in range(len(args) - 1, -1, -1):
-        if item & (1 << cat):
+import re
+
+
+def value_table(operator_name, argument_names):
+    """Функция для расчета таблиц истинности."""
+
+    def symbol_place_finding(itter, column):
+        """Установка позицции элемента в строке аргументов."""
+        if itter & (1 << column):
             flag = 1
         else:
             flag = 0
-        if out_itter == -1:
-            out_itter = flag
+        return flag
+
+    def get_result(value, flag, name):
+        """Получение результата в зависимости от заданной лиогической функции."""
+        if value == -1:
+            value = flag
         else:
             # Получение результата по заданному оператору
-            if name_operator == 'AND':
-                out_itter = out_itter & flag
-            elif name_operator == 'XOR':
-                out_itter = out_itter ^ flag
-            elif name_operator == 'OR':
-                out_itter = out_itter | flag
-        # Печать таблицы
-        print(flag, end=' ')
-    # Печать результата
-    print('\t' * 2, out_itter)
+            if name == 'AND':
+                value = value & flag
+            elif name == 'XOR':
+                value = value ^ flag
+            elif name == 'OR':
+                value = value | flag
+        return value
+
+    # Печать заголовной строки
+    print(' '.join(argument_names) + '\t' * 2 + operator_name, sep='', end='')
+    print('(' + ','.join(argument_names) + ')' + '\n' * 2, sep='')
+
+    number_itter = 1 << len(argument_names)
+
+    # Проход таблицы по строкам
+    for row in range(0, number_itter):
+        out_value = -1
+
+        # Проход строк по символам слева
+        for column_number in range(len(argument_names) - 1, -1, -1):
+            symbol_flag = symbol_place_finding(row, column_number)
+            out_value = get_result(out_value, symbol_flag, operator_name)
+
+            # Печать символа таблицы
+            print(symbol_flag, end=' ')
+
+        # Печать результата строки символов
+        print('\t' * 2, out_value)
+    return
+
+
+my_string = re.split(', | |,', input('Введите имя логической функции, и имена аргументов: '))
+logic_function, variables = my_string[0], my_string[1:]
+value_table(logic_function, variables)

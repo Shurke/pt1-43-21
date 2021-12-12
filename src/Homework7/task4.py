@@ -20,15 +20,19 @@
 """
 
 
-def bin_pyramid(my_list):
-    """Обработка числа"""
-    sum_bin = 0
-    for item in range(my_list[0], my_list[1] + 1):
+def bin_pyramid(number_1, number_2):
+    """Обработка числа."""
+    sum_bin = int(format(number_1, 'b'))
+    for item in range(number_2, number_2 + 1):
         sum_bin += int(format(item, 'b'))
     return format(sum_bin, 'b')
 
 
-print('Введите диапазон чисел через пробел')
-numbers = []
-[numbers.append(int(i)) for i in input().split()]
-print('Выходное значение: ', bin_pyramid(numbers))
+print('Введите границы диапазона чисел через пробел: ', end='')
+try:
+    first_number_str, end_number_str = input().split()
+    first_number = int(first_number_str)
+    end_number = int(end_number_str)
+    print('Выходное значение двоичной пирамиды: ', bin_pyramid(first_number, end_number))
+except ValueError:
+    print('Ошибка! Должны быть введены два числа!')
