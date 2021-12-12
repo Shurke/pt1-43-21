@@ -19,6 +19,10 @@ def write_dict_value(some_dict, some_value):
     return
 
 
+def sort_dict(input_dict):
+    return sorted(input_dict.items(), key=lambda x: x[0])
+
+
 # Проверка наличия файла
 try:
     with open('ratings.list', 'r', encoding='latin-1') as movie_file_read:
@@ -57,9 +61,9 @@ try:
         item += 1
 
     # Упорядочивание данных в словарях
-    sort_movie_list = sorted(dict_movie.items(), key=lambda x: x[0])
-    sort_year_list = sorted(dict_year.items(), key=lambda x: x[0])
-    sort_rating_list = sorted(dict_rating.items(), key=lambda x: x[0])
+    sort_movie_list = sort_dict(dict_movie)
+    sort_year_list = sort_dict(dict_year)
+    sort_rating_list = sort_dict(dict_rating)
 
     # Запись данных  в файлы
     with open('top250_movies.txt', 'w') as movie_name:
