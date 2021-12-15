@@ -30,7 +30,6 @@ def runner():
         for key_item in func_dict:
             temp_func = getattr(func_dict.get(key_item), key_item)
             print(key_item, temp_func.__doc__)
-        return
 
     def func_select(func_dict):
         """Итерфейс выбора доступных функций."""
@@ -59,7 +58,6 @@ def runner():
             for item in input_list:
                 temp_func = getattr(func_dict.get(item), item)
                 temp_func()
-        return
 
     task_dict = {}
     for import_modul_name in [task1_2, task1_4, task1_5]:
