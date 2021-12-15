@@ -28,7 +28,7 @@ def upd_func_dict(module):
 
 
 def run_func(f_name):
-    if f_name == '' or f_name not in common_tasks_dict.keys():
+    if not f_name or f_name not in common_tasks_dict:
         print('Func not found')
         return
 
@@ -45,7 +45,7 @@ def run_func(f_name):
 
 def runner(*args):
     if len(args) == 0:
-        for f_name in common_tasks_dict.keys():
+        for f_name in common_tasks_dict:
             run_func(f_name)
     else:
         for f_name in args:
