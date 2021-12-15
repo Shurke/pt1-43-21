@@ -11,11 +11,10 @@ years.txt – гистограмма годов.
 
 
 def make_file(fl_name, in_lst, sort_ind, out_ind):
-    tmp_file = open(fl_name, "w")
-    tmp_lst = sorted(in_lst, key=lambda x: x[sort_ind])
-    for item in tmp_lst:
-        tmp_file.write(str(item[sort_ind]) + ' | ' + item[out_ind] + '\n')
-    tmp_file.close()
+    with open(fl_name, "w") as f:
+        tmp_lst = sorted(in_lst, key=lambda x: x[sort_ind])
+        for item in tmp_lst:
+            f.write(str(item[sort_ind]) + ' | ' + item[out_ind] + '\n')
 
 
 def read_data():
@@ -23,7 +22,6 @@ def read_data():
     try:
         with open('ratings.list', 'r', encoding='utf-8', errors='ignore') as fh:
             loc_lines = fh.readlines()
-            fh.close
             return loc_lines
     except FileNotFoundError:
         print('File not found')
@@ -80,12 +78,11 @@ def main(loc_lines):
 
     # Make files
     # Top 250. Names
-    tmp_file = open("top250_movies.txt", "w")
-    ind = 1
-    for item in result_list:
-        tmp_file.write(str(ind) + ' | ' + item[1] + '\n')
-        ind += 1
-    tmp_file.close()
+    with open("top250_movies.txt", "w") as f:
+        ind = 1
+        for item in result_list:
+            f.write(str(ind) + ' | ' + item[1] + '\n')
+            ind += 1
 
     # Top 250. Ratings
     make_file("ratings.txt", result_list, 0, 1)
