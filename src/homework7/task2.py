@@ -12,8 +12,6 @@ def dec(fun):
         dat = str(datetime.datetime.now())
         with open("task2_mem.txt", "a") as f:
             f.writelines(dat + ' | ' + str(result) + '\n')
-            f.close()
-
         return result
     return wrapper
 
