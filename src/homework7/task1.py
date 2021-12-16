@@ -4,11 +4,11 @@ import func_collection
 def runner(*args):
 
     functions = [func_name for func_name in dir(func_collection) if not func_name.startswith('__')]
-    if len(args) == 0:
+    if not len(args):
         for function in functions:
             print(f'Выполняется функция {function}:')
-            print(function.__doc__)  # Подскажите пожалуйста, как добыть __doc__ из другого модуля?
             func = getattr(func_collection, function)
+            print(func.__doc__)
             func()
     else:
         for function in args:

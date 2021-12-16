@@ -10,7 +10,6 @@ def dec_counter(sum_func):
         res = sum_func(*args, **kwargs)
         with open('dec_counter_call_history.txt', 'a') as fh:  # Открываем файл на дозапись
             fh.write(f'Function result - {res}.\n')
-        fh.close()
         return res
     return wrapper
 

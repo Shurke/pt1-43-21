@@ -42,7 +42,6 @@ def imdb_sort(input_file):
                 years_dict[film_info[-1][-6:-2:]] += 1
 
             names_list.append(film_info[1][:-8:])
-        file.close()
 
         fh = open('ratings.txt', 'w')
         for rate in rates_dict:
