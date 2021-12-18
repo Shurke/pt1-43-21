@@ -8,6 +8,7 @@
 какую-либо ситуацию - вызывать методы, взаимодействие объектов и т.д.
 
 """
+import random
 
 
 class Order:
@@ -19,14 +20,11 @@ class Order:
         total = 0
         for pizza in self.list_of_pizzas:
             total = total + pizza.price()
-        return  total
-
+        return total
 
 
 class Pizza:
-
-    """стандарт"""
-    """цена за пиццу в зависмости от размера это у дочерних классов"""
+    """"""
 
     price_to_cook = 7
     sizes = ("small", "medium", "big")
@@ -72,13 +70,12 @@ class Pizza:
         "маслины": 1,
         "петрушка": 1,
         "орегано": 1,
-        "базилик": 1 ,
+        "базилик": 1,
         "сельдерей": 1,
         "томатный соус": 1,
         "соус бешамель": 1,
         "помидоры": 1,
     }
-
 
     def __init__(self, ingredients, size):
         self.ingredients = ingredients
@@ -95,43 +92,57 @@ class Pizza:
 
 class Waiter:
 
-    def take_oder():
+    def __init__(self, name):
+        self.name = name
 
-        """предложить стандвртные пиццы"""
-        """предложить пиццы из набора ингридиенов"""
+    def take_oder(self):
+        list_of_pizzas = []
+        print("Добрый день, меня зовут " + self.name,
+              "Я готов принят ваш заказ, Давайте выберем пиццы.")
+        one_more_pizza = True
+        while one_more_pizza:
+            ingredients = []
+            print("Выберите размер пиццы: ", ", ".join(Pizza.sizes))
+            size = "big"
+            print("Вы выбрали пиццу размера " + size)
+            print("Вы можете выбрать следующие ингредиенты: ")
+            for ingredient in Pizza.available_ingredients:
+                print("\033[1;34;47m", ingredient, "\033[0;0m")
+            ingredients.append("Пармезан")
+            ingredients.append("бекон")
+
+            if len(ingredients) == 0:
+                print("К сожалению, вы не выбрали ингредиенты для пиццы")
+                one_more_pizza = False
+            else:
+                print("Вы выбрали следующте ингредиенты: ", ", ".join(ingredients))
+                new_pizza = Pizza(ingredients, size)
+                list_of_pizzas.append(new_pizza)
+            print("Готовы заказать еще одну пиццу?")
+            one_more_pizza = False
+            print("ок")
+
+        if len(list_of_pizzas) == 0:
+            print("Ваш заказ не принят")
+            return None
+        else:
+            print("Ваш заказ принят")
+            return Order(list_of_pizzas)
+
+    def sent_oder_to_cook(self, customer_order):
+        print("Ваш заказ будет готов чере 15 минут")
+        return True
+
+    def take_payment(self, customer_order):
+        print("Сумма вашего заказа составляет: ", customer_order.count_total())
+        print("Карта или наличные?")
+        print("Оплата прошла успешно")
+        return True
 
 
-
-
-    def sent_oder_to_cook():
-        pass
-
-    def print_the_bill():
-        pass
-
-    def take_payment():
-        pass
-
-
-waiter_Mark = Waiter()
-Pizza1 = Pizza(("Моцарелла",
-        "Пармезан",
-        "Эмменталь",
-        "сыр Дорблю",
-        "каперсы",
-        "маслины"), "big")
-print(Pizza1.price())
-Pizza2= Pizza(("Моцарелла",
-        "орегано",
-        "базилик",
-        "томатный соус",
-        "помидоры",), "big")
-print(Pizza2.price())
-
-order1 = Order([Pizza1, Pizza2])
-print(order1.count_total())
-
-#waiter_Mark.take_oder()
-#if take
-
-print("\033[1;34;47m цфшеук\033[0;0m")
+waiter_Mark = Waiter("Mark")
+customer_order_Mark = waiter_Mark.take_oder()
+if customer_order_Mark:
+    payment_succeed = waiter_Mark.take_payment(customer_order_Mark)
+    if payment_succeed:
+        waiter_Mark.sent_oder_to_cook(customer_order_Mark)
