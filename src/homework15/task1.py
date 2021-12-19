@@ -14,7 +14,9 @@ class Order:
     """Класс преднозначен для работы с заказом
 
     Для создания экземпляра класса необходимо передать список пицц: list_of_pizzas
-    Умеет подсчитывать стоимость заказа: count_total"""
+    Умеет подсчитывать стоимость заказа: count_total
+
+    """
     def __init__(self, list_of_pizzas):
         self.list_of_pizzas = list_of_pizzas
 
@@ -36,7 +38,9 @@ class Pizza:
     Хранит список возможных ингридитентов: available_ingredients, а так же их цены: ingredients_prices.
     Хранит стоимость приготовления пиццы: cost_to_cook.
     Хранит виды размеров пицы: sizes и коэффициенты изменения цены от размера: price_correction.
-    Умее расчитать цену пиццы: price"""
+    Умее расчитать цену пиццы: price
+
+    """
 
     cost_to_cook = 7
     sizes = (
@@ -153,7 +157,9 @@ class Waiter:
     При создании класса необходимо передать имя официанта: name
     Умеет принимать заказ: take_oder
     Умет отправлять заказ на кухню: sent_oder_to_cook
-    Умет принимать оплату take_payment"""
+    Умет принимать оплату take_payment
+
+    """
     def __init__(self, name):
         self.name = name
 
