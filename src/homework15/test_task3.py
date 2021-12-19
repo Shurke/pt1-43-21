@@ -6,9 +6,9 @@
 """
 
 
-import unittest
 from task3 import get_ranges
 from task3 import add_range
+import unittest
 
 
 class Testgetranges(unittest.TestCase):

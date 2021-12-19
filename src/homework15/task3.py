@@ -36,7 +36,3 @@ def get_ranges(list_of_number):
             middle_number = current_number
     string_of_ranges = add_range(string_of_ranges, first_number, middle_number)
     return string_of_ranges
-
-
-
-
