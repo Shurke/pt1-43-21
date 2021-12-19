@@ -1,11 +1,17 @@
-"""
+"""Проект Эйлера Задача 457 Многочлен по модулю квадрата простого числа
 
-
+Пусть f(n) = n2 - 3n - 1.
+Пусть p будет простым числом.
+Пусть R(p) будет наименьшим натуральным числом n, таким что f(n) mod p2 = 0,
+если такое целое n существует, в противном случае R(p) = 0.
+Пусть SR(L) будет равно ∑R(p) для всех простых чисел не больше L.
+Найдите SR(107).
 Алгоритм решения взяла тут:
-https://titanwolf.org/Network/Articles/Article?AID=12d4f3a9-2fcf-4ae9-9fed-2371b2360a97"""
+https://titanwolf.org/Network/Articles/Article?AID=12d4f3a9-2fcf-4ae9-9fed-2371b2360a97
+Задача решается с помощию алгоритма Чиполлы"""
 
 
-class Problem():
+class Problem:
     def __init__(self):
         self.primes = None
         self._init_primes(10 ** 7)
@@ -83,7 +89,5 @@ class Problem():
             return (g, x - (b // a) * y, y)
 
 
-
 problem = Problem()
 problem.solve()
-
