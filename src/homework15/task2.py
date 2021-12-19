@@ -24,7 +24,7 @@ def param_dec(max_number_of_calls, number_of_calls=1):
                 try:
                     func(*args, **kwargs)
                     break
-                except:
+                except ValueError:
                     number_of_calls += 1
             if number_of_calls > max_number_of_calls:
                 raise TooManyErrors("Функция была вызвана слишком много раз")
@@ -38,7 +38,7 @@ def param_dec(max_number_of_calls, number_of_calls=1):
 def our_function():
     number = input("Введите число: ")
     number = int(number)
-    print("Функуия выполнилась успешно")
+    print("Функуия выполнилась успешно. Введено число: ", number)
 
 
 our_function()
