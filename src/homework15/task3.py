@@ -1,50 +1,42 @@
-"""Задача 3, Вариант 4.
+"""Задача 3, Здесь задча из прошлоой домашней работы. Сам тест будет находится в файле test_task3
 
-Оформите указанную задачу из прошлых домашних в виде функции и покройте тестами.
-Учтите, что в функцию могут быть переданы некорректные значения, здесь может пригодится
-‘assertRaises’. Не нужно переделывать функцию для того чтобы она ловила все возможные ситуации сама.
-Домашняя 4, задача 2
+Свернуть список.
+Реализовать функцию get_ranges которая получает на вход непустой
+список неповторяющихся целых чисел, отсортированных по возрастанию,
+которая этот список “сворачивает”
+get_ranges([0, 1, 2, 3, 4, 7, 8, 10]) // "0-4,7-8,10"
+get_ranges([4,7,10]) // "4,7,10"
+get_ranges([2, 3, 8, 9]) // "2-3,8-9"
 """
 
 
-"""Вы помещаете свои тесты в методы класса unittest.TestCase
-Вы используете ряд специальных методов утверждения класса unittest.TestCase вместо встроенного оператора assert"""
-
-"""Method	Equivalent to
-.assertEqual(a, b)	a == b
-.assertTrue(x)	bool(x) is True
-.assertFalse(x)	bool(x) is False
-.assertIs(a, b)	a is b
-.assertIsNone(x)	x is None
-.assertIn(a, b)	a in b
-.assertIsInstance(a, b)	isinstance(a, b)"""
-
-def test_sum():
-    assert sum([1, 2, 3]) == 6, "Should be 6"
-if __name__ == "__main__":
-    test_sum()
-    print("Everything passed")
+def add_range(string_of_ranges, first_number, middle_number):
+    """Функция добавляет диапазон к строке"""
+    if len(string_of_ranges) != 0:
+        string_of_ranges = string_of_ranges + ", "
+    if first_number == middle_number:
+        string_of_ranges = string_of_ranges + str(first_number)
+    else:
+        string_of_ranges = string_of_ranges + str(first_number) + "-" + str(middle_number)
+    return string_of_ranges
 
 
+def get_ranges(list_of_number):
+    """Функция сворачивает список"""
+    first_number = int(list_of_number[0])
+    middle_number = first_number
+    string_of_ranges = ""
+    for i in range(1, len(list_of_number)):
+        current_number = int(list_of_number[i])
+        if middle_number + 1 == current_number:
+            middle_number += 1
+        else:
+            string_of_ranges = add_range(string_of_ranges, first_number, middle_number)
+            first_number = current_number
+            middle_number = current_number
+    string_of_ranges = add_range(string_of_ranges, first_number, middle_number)
+    return string_of_ranges
 
-import unittest
-class TestSum(unittest.TestCase):
-    def test_sum(self):
-        self.assertEqual(sum([1, 2, 3]), 6, "Should be 6")
-    def test_sum_tuple(self):
-        self.assertEqual(sum((1, 2, 2)), 6, "Should be 6")
-if __name__ == '__main__':
-    unittest.main()
 
-import unittest
-from my_sum import sum
-class TestSum(unittest.TestCase):
-    def test_list_int(self):
-        """
-        Test that it can sum a list of integers
-        """
-        data = [1, 2, 3]
-        result = sum(data)
-        self.assertEqual(result, 6)
-if __name__ == '__main__':
-    unittest.main()
+
+
