@@ -8,7 +8,7 @@
 
 class Product:
     def __init__(self, pId, name, price, quantity):
-        """ Инициализирует атрибуты"""
+        """Инициализирует атрибуты"""
         self.id = pId
         self.name = name
         self.price = price
@@ -22,9 +22,11 @@ class Product:
             self.price = new_price
 
     def updateQuantity(self, new_quantity, isIncrement):
+
         """Позволяет обновлять количество товара
         путем увеличения или уменьшения количества
         в зависимости от значения переменной isIncrement."""
+
         if isIncrement is True:
             self.quantity += new_quantity
         elif (self.quantity - new_quantity) >= 0:
@@ -38,7 +40,9 @@ class Product:
 
     def viewProduct(self):
         """Отображает информацию о продукте посредством печати"""
-        print("Product ID: " + str(self.id) + ", Name: " + self.name + ", Price: " + str(self.price) + ", Quantity: " + str(self.quantity))
+        print(
+            'Product ID: ' + str(self.id) + ", Name: " + self.name + ", Price: " \
+            + str(self.price) + ', Quantity: ' + str(self.quantity))
 
 
 class Inventory:
