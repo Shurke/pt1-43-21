@@ -19,3 +19,7 @@ class TestTask4(unittest.TestCase):
         self.assertRaises(TypeError, num_of_nat_fract, "Восемь")
         self.assertRaises(TypeError, num_of_nat_fract, [8, 3])
         self.assertRaises(TypeError, num_of_nat_fract, True)
+
+
+if __name__ == '__main__':
+    unittest.main()

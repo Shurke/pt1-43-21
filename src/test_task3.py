@@ -16,3 +16,7 @@ class TestTask3(unittest.TestCase):
         self.assertRaises(TypeError, num_of_couple, {8, 3})
         self.assertRaises(TypeError, num_of_couple, (8, 3))
         self.assertRaises(TypeError, num_of_couple, True)
+
+
+if __name__ == '__main__':
+    unittest.main()
