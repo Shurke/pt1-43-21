@@ -23,7 +23,9 @@ class Product:
 
     def updateQuantity(self, new_quantity, isIncrement):
         """Позволяет обновлять количество товара
+
         путем увеличения или уменьшения количества
+
         в зависимости от значения переменной isIncrement."""
         if isIncrement is True:
             self.quantity += new_quantity
@@ -38,9 +40,8 @@ class Product:
 
     def viewProduct(self):
         """Отображает информацию о продукте посредством печати"""
-        print(
-            'Product ID: ' + str(self.id) + ", Name: " + self.name + ", Price: "
-            + str(self.price) + ', Quantity: ' + str(self.quantity))
+        print('Product ID: ' + str(self.id) + ", Name: " + self.name + ", Price: " +
+              str(self.price) + ', Quantity: ' + str(self.quantity))
 
 
 class Inventory:
