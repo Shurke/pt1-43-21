@@ -27,12 +27,18 @@ n 	Взаимно простые числа 	φ(n) 	n/φ(n)
 
 
 class Iterable:
+    """
+    Iterable class.
+    The default argument can take a number or an iterable object (list, tuple).
+    If nothing is transmitted - it prompts the user to enter the number 'n' and
+    generate a sequence from 0 to 'n'
+    """
     def __init__(self, collection=None):
         if collection is None:
             n = int(input('Enter max "n": '))
             if n <= 1:
                 raise ValueError('Enter a natural number greater than 1!')
-            self._collection = [_ for _ in range(1, n)]
+            self._collection = [_ for _ in range(1, n + 1)]
         else:
             if type(collection).__name__ not in ('list', 'tuple'):
                 raise TypeError("The type of the iterable must be 'list' or 'tuple'")
@@ -43,6 +49,10 @@ class Iterable:
 
 
 class Iterator:
+    """
+    Iterator combined with the Euler function and returning the ratio of the number 'n'
+    to the value of the Euler function.
+    """
     max_num = 0, 0
 
     def __init__(self, collection):
@@ -53,22 +63,27 @@ class Iterator:
         return self
 
     @staticmethod
-    def eiler(num):
-        p = 2
+    def euler(num):
+        """
+        Euler's function takes a natural number as input and outputs the number of coprime numbers
+        :param num: natural number
+        :return: the coprime numbers
+        """
+        prime_number = 2
         result = 1
         count = 0
         while True:
-            if num % p == 0:
+            if num % prime_number == 0:
                 count += 1
-                num /= p
+                num /= prime_number
                 if count == 1:
-                    result *= p - 1
+                    result *= prime_number - 1
                 elif count > 1:
-                    result *= p
+                    result *= prime_number
             else:
-                p += 1
+                prime_number += 1
                 count = 0
-            if p > num:
+            if prime_number > num:
                 break
         return result
 
@@ -77,20 +92,24 @@ class Iterator:
             raise StopIteration
         elem = self.collection[self.cursor]
         self.cursor += 1
-        num = elem / self.eiler(elem)
+        num = elem / self.euler(elem)
         if num > self.max_num[1]:
             self.max_num = elem, num
         return self.max_num
 
 
 def task4(collection=None):
+    """
+    Function for iteration start.
+    :param collection: iterable object must be 'list' or 'tuple', or one number 'int' type
+    :return: the maximum ratio of 'n' to the Euler(n) function
+    """
     if type(collection).__name__ == 'int':
-        element = collection, collection / Iterator.eiler(collection)
+        element = collection, collection / Iterator.euler(collection)
     elif collection is None:
         for element in Iterable():
             pass
     else:
         for element in Iterable(collection):
             pass
-    return f'n = {element[0]}; max n/eiler(n) = {element[1]}'
-
+    return f'n = {element[0]}; max n/Euler(n) = {element[1]}'

@@ -65,7 +65,7 @@ class Hero(Character):
     """This is a class of hero. It contain parameters of parent class and
        one unique method 'level_up'."""
     def __init__(self, health, attack, defend, experience=0, level=1):
-        super(Hero, self).__init__(health, attack, defend, experience, level)
+        super().__init__(health, attack, defend, experience, level)
 
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
@@ -88,13 +88,12 @@ class Hero(Character):
 
 class Enemy(Character):
     """Enemy class inherited from the class Character"""
-    pass
 
 
 class SuperBoss(Enemy):
     """Inherited from Enemy class with high parameters"""
     def __init__(self, health=30, attack=5, defend=8):
-        super(SuperBoss, self).__init__(health, attack, defend, experience=99, level=99)
+        super().__init__(health, attack, defend, experience=99, level=99)
     pass
 
 

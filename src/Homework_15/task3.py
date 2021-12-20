@@ -38,7 +38,7 @@ Russia
 from task3_list_of_countries import result_list_of_countries
 
 
-def task2(tup_of_req: [list, tuple] = None, dict_of_cities: dict = None):
+def task2(tup_of_req=None, dict_of_cities=None):
     """
     The function input num of
     :param tup_of_req: it contain the cities that we want to check
@@ -56,7 +56,7 @@ def task2(tup_of_req: [list, tuple] = None, dict_of_cities: dict = None):
         dict_of_cities = {i: input('Enter country and cities per space: ')
                           for i in range(num_of_country)}
     # this block check the type of object that transmit in function
-    if type(tup_of_req).__name__ not in ('tuple', 'list'):
+    elif type(tup_of_req).__name__ not in ('tuple', 'list'):
         raise TypeError("Data contained request with cities for check transmits in function with"
                         " 'tuple' or 'list' type!")
     elif type(dict_of_cities).__name__ != 'dict':

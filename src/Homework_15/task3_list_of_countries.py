@@ -18,7 +18,7 @@ Azerbaijan
 Top of Page
 
 B
-Bahamas, The
+Bahamas
 Bahrain
 Bangladesh
 Barbados
@@ -282,7 +282,5 @@ list_of_country = city_name.split('\n')
 result_list_of_countries = []
 
 for city in list_of_country:
-    if len(city) == 1 or city == '' or city == 'Top of Page':
-        continue
-    else:
+    if not any((len(city) == 1, city == '', city == 'Top of Page')):
         result_list_of_countries.append(city)

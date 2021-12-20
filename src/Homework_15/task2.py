@@ -11,7 +11,8 @@ def decorator_that_call_func_without_except(num_of_call: int):
     """
     The decorator accepts as input the max number of function calls
     :param num_of_call:
-    :return: in case of incorrect operation of the function, the decorator throws an 'Error' exception;
+    :return: in case of incorrect operation of the function, the decorator throws an 'Error'
+    exception;
     if the function has completed without exception, the decorator done its work.
     """
     def dec(func, flag=True):
@@ -26,7 +27,7 @@ def decorator_that_call_func_without_except(num_of_call: int):
                 result = func(*args, **kwargs)
                 flag = False
                 return result
-            except:
+            except (TypeError, ZeroDivisionError):
                 num_of_call -= 1
                 return 'Error!'
 
@@ -36,8 +37,8 @@ def decorator_that_call_func_without_except(num_of_call: int):
 
 
 @decorator_that_call_func_without_except(int(input('Enter nums of decorator calls: ')))
-def some_func(a):
-    return 1 / a
+def some_func(num):
+    return 1 / num
 
 
 print(some_func(0))
