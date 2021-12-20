@@ -22,11 +22,9 @@ class Product:
             self.price = new_price
 
     def updateQuantity(self, new_quantity, isIncrement):
-
         """Позволяет обновлять количество товара
         путем увеличения или уменьшения количества
         в зависимости от значения переменной isIncrement."""
-
         if isIncrement is True:
             self.quantity += new_quantity
         elif (self.quantity - new_quantity) >= 0:
@@ -41,7 +39,7 @@ class Product:
     def viewProduct(self):
         """Отображает информацию о продукте посредством печати"""
         print(
-            'Product ID: ' + str(self.id) + ", Name: " + self.name + ", Price: " \
+            'Product ID: ' + str(self.id) + ", Name: " + self.name + ", Price: "
             + str(self.price) + ', Quantity: ' + str(self.quantity))
 
 
