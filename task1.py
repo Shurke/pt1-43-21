@@ -8,29 +8,23 @@
 
 class Product:
     def __init__(self, pId, name, price, quantity):
-        """
-        Инициализирует атрибуты
-        """
+        """ Инициализирует атрибуты"""
         self.id = pId
         self.name = name
         self.price = price
         self.quantity = quantity
 
     def updatePrice(self, new_price):
-        """
-        Обновляет цену товара
-        """
+        """Обновляет цену товара"""
         if new_price > 0:
-            self.price = new_price
-        else:
             print("Ошибка! Невозможно обновить цену до нуля или ниже")
+        else:
+            self.price = new_price
 
     def updateQuantity(self, new_quantity, isIncrement):
-        """
-        Позволяет обновлять количество товара
+        """Позволяет обновлять количество товара
         путем увеличения или уменьшения количества
-        в зависимости от значения переменной isIncrement.
-        """
+        в зависимости от значения переменной isIncrement."""
         if isIncrement is True:
             self.quantity += new_quantity
         elif (self.quantity - new_quantity) >= 0:
@@ -39,44 +33,32 @@ class Product:
             print("Ошибка, дальнейшее сокращение невозможно!")
 
     def getQuantity(self):
-        """
-        Возвращает текущее количество товара.
-        """
+        """Возвращает текущее количество товара."""
         return self.quantity
 
     def viewProduct(self):
-        """
-        Отображает информацию о продукте посредством печати
-        """
+        """Отображает информацию о продукте посредством печати"""
         print("Product ID: " + str(self.id) + ", Name: " + self.name + ", Price: " + str(self.price) + ", Quantity: " + str(self.quantity))
 
 
 class Inventory:
     def __init__(self):
-        """
-        Инициализирует атрибут
-        """
+        """Инициализирует атрибут"""
         self.listProd = []
 
     def addProduct(self, pId):
-        """
-        Добавить новый товар в список
-        """
+        """Добавить новый товар в список"""
         self.listProd.append(pId)
 
     def removeProduct(self, pId):
-        """
-        удаляет товар из списка
-        """
+        """удаляет товар из списка"""
         if pId in self.listProd:
             self.listProd.remove(pId)
         else:
             print("Ошибка. Товара нет на складе.")
 
     def viewInventory(self):
-        """
-        Отображает список инвентаря через печать
-        """
+        """Отображает список инвентаря через печать"""
         print(self.listProd)
 
 
