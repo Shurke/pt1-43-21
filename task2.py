@@ -1,22 +1,25 @@
-"""Создайте декоратор, который хранит результаты вызовов функции (за
-все время вызовов, не только текущий запуск программы)"""
+"""Создайте декоратор, который вызывает задекорированную функцию пока она не выполнится
+без исключений (но не более n раз - параметр декоратора).
+Если превышено количество попыток, должно быть возбуждено исключение типа TooManyErrors"""
 
 
-def dec(func_s):
-
-    def wrapper(*args, **kwargs):
-        res = func_s(*args, **kwargs)
-        with open('save.txt', 'a') as fh:
-            fh.write(f"{res}\n")
-        return res
-    return wrapper
+class TooManyErrors:
+    pass
 
 
-@dec
-def func_s(a, b):
-    return a + b
+def func(int1):
+    int1_2 = int1
+
+    def wrapper():
+        nonlocal int1_2
+        try:
+            while int1_2 >= 1:
+                print(int1_2)
+                int1_2 = int1_2 - 1
+        finally:
+            raise TooManyErrors
+
+    return wrapper()
 
 
-func_s(1, 1)
-func_s(1, 2)
-func_s(1, 3)
+func(int(input("введите число раз вызова функции: ")))
