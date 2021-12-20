@@ -33,8 +33,9 @@ class User:
 
     def get_choice(self):
         try:
-            choice = int(input(
-                f"\nПривет, {self.name}!\nСегодня ты сразишься с {self.botname}\n\nВыбери жест:\n1-Камень\n2-Ножницы\n3-Бумага\nВаш выбор: "))
+            choice = int(input(f"\nПривет, {self.name}!\n"
+                               f"Сегодня ты сразишься с {self.botname}\n\nВыбери жест:"
+                               f"\n1-Камень\n2-Ножницы\n3-Бумага\nВаш выбор: "))
             user_choice = Battle.all_actions[choice - 1]
             bot_choice = Bot.bot_choice()
             print(f"{user_choice} VS {bot_choice}")
@@ -61,5 +62,3 @@ class User:
 
 p1 = User()
 p1.get_choice()
-
-
