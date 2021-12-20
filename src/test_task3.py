@@ -1,5 +1,5 @@
-import unittest
 from task3 import num_of_couple
+import unittest
 
 
 class TestTask3(unittest.TestCase):

@@ -1,5 +1,5 @@
-import unittest
 from task4 import num_of_nat_fract
+import unittest
 
 
 class TestTask4(unittest.TestCase):
@@ -14,7 +14,7 @@ class TestTask4(unittest.TestCase):
         self.assertRaises(ValueError, num_of_nat_fract, -5)
 
     def test_types(self):
-        self.assertRaises(TypeError, num_of_nat_fract, 5+2j)
+        self.assertRaises(TypeError, num_of_nat_fract, 5 + 2j)
         self.assertRaises(TypeError, num_of_nat_fract, 1.4)
         self.assertRaises(TypeError, num_of_nat_fract, "Восемь")
         self.assertRaises(TypeError, num_of_nat_fract, [8, 3])
