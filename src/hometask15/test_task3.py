@@ -1,5 +1,5 @@
 """
-Testing module for 'task3.py'
+Testing module 'task3.py'
 tests function 'get_ranges'
 tests function 'add_to_ans_list'
 """
@@ -17,6 +17,8 @@ import unittest
 
 @ddt
 class TestGetRanges(unittest.TestCase):
+    """class tests get_ranges function"""
+
     @data(
         ([0, 1, 2, 3, 4, 7, 8, 10], '0-4,7-8,10'),
         ([4, 7, 10], '4,7,10'),
@@ -25,10 +27,12 @@ class TestGetRanges(unittest.TestCase):
     )
     @unpack
     def test_validate_case(self, input_list, expected):
+        """function tests validate cases"""
         self.assertEqual(get_ranges(input_list), expected)
 
     @data([])
     def test_bad_cases(self, input_list):
+        """function tests bad case with empty list"""
         print(len(input_list))
         self.assertRaises(LengthError, get_ranges, input_list)
 
@@ -40,11 +44,14 @@ class TestGetRanges(unittest.TestCase):
         '1, 2, 3, 4, 5'
     )
     def test_bad_case(self, input_list):
+        """function tests bad cases with Error raise"""
         self.assertRaises(ValueError, get_ranges, input_list)
 
 
 @ddt
 class TestAddAnsToList(unittest.TestCase):
+    """class tests add_ans_to_list function"""
+
     @data(
         (5, 6, ['1-3', '4'], ['1-3', '4', '5-6']),
         (1, 7, [], ['1-7']),
@@ -53,6 +60,7 @@ class TestAddAnsToList(unittest.TestCase):
     )
     @unpack
     def test_valid_cases(self, start, end, ans_list, expected):
+        """function tests validate cases"""
         add_to_ans_list(ans_list, start, end)
         self.assertEqual(ans_list, expected)
 
@@ -64,6 +72,7 @@ class TestAddAnsToList(unittest.TestCase):
     )
     @unpack
     def test_wrong_arguments(self, *args):
+        """function tests bad cases with Error raise"""
         self.assertRaises(ArgumentsError, add_to_ans_list, *args)
 
 

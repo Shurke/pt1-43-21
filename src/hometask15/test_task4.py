@@ -1,5 +1,5 @@
 """
-Testing module for 'task4.py';
+Testing module 'task4.py'
 tests function 'max_product'
 tests function 'converting_to_list'
 """
@@ -22,7 +22,8 @@ class TestMaxProductFunction(unittest.TestCase):
         ('9017539683', 3, 432),
     )
     @unpack
-    def test_normal_case(self, num1, multipliers, expected):
+    def test_validate_case(self, num1, multipliers, expected):
+        """function tests validate cases"""
         self.assertEqual(expected, max_product(num1, multipliers))
 
     @data(
@@ -33,6 +34,7 @@ class TestMaxProductFunction(unittest.TestCase):
     )
     @unpack
     def test_wrong_input_data(self, *args):
+        """function tests bad cases"""
         self.assertRaises(ValueError, max_product, *args)
 
     @data(
@@ -42,6 +44,7 @@ class TestMaxProductFunction(unittest.TestCase):
     )
     @unpack
     def test_negative_multiplier(self, *args):
+        """function tests bad case of negative 'number of multiplies' """
         self.assertRaises(ValueError, max_product, *args)
 
     @data(("""73167176531330624919225119674426574742355349194934
@@ -66,12 +69,13 @@ class TestMaxProductFunction(unittest.TestCase):
 71636269561882670428252483600823257530420752963450""", 13, 23514624000))
     @unpack
     def test_euler_project(self, num1, multipliers, expected):
+        """function tests the example of input form webpage 'euler project' """
         self.assertEqual(expected, max_product(num1, multipliers))
 
 
 @ddt
 class TestConvertingToList(unittest.TestCase):
-    """testing function converting_to_list"""
+    """class tests converting_to_string function"""
 
     @data(
         ('123456', [1, 2, 3, 4, 5, 6]),
@@ -80,6 +84,7 @@ class TestConvertingToList(unittest.TestCase):
     )
     @unpack
     def test_validate_cases(self, input_str, expected):
+        """function tests validate cases"""
         self.assertEqual(expected, converting_to_list(input_str))
 
     @data('123456 67657',
@@ -87,6 +92,7 @@ class TestConvertingToList(unittest.TestCase):
           '-324=818394',
           '0039!/32')
     def test_bad_cases(self, *args):
+        """function tests bad cases"""
         self.assertRaises(ValueError, converting_to_list, *args)
 
 
