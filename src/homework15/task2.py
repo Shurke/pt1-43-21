@@ -4,9 +4,9 @@
 Если превышено количество попыток, должно быть возбуждено исключение типа TooManyErrors
 """
 
+from bs4 import BeautifulSoup
 import requests
 import time
-from bs4 import BeautifulSoup
 
 
 class TooManyErrors(Exception):
@@ -26,7 +26,8 @@ def functional_expander(n):
                     result += func(*args, **kwargs)
                     end = time.time()
                     total += end - start
-                    print("Фрагмент текста сайта получен", i, "раз(а), в среднем за", total / i, "секунд.")
+                    print("Фрагмент текста сайта получен", i, "раз(а), в среднем за",
+                          total / i, "секунд.")
                     i += 1
                 else:
                     raise TooManyErrors("Превышено количество попыток вызова функции.")

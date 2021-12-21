@@ -36,7 +36,8 @@ def search_left_numerator(count, search_fraction):
     s = list(set(t))  # устраняем дубликаты - превращаем список во множество
     for q in sorted(s, key=lambda x: x[0] / x[1]):  # сортируем по величине частного (в виде float)
         print(str(q[0]) + "/" + str(q[1]))
-        if str(q[0]) == str(search_fraction_numerator) and str(q[1]) == str(search_fraction_denominator):
+        if str(q[0]) == str(search_fraction_numerator) \
+                and str(q[1]) == str(search_fraction_denominator):
             print("Числитель дроби, расположенной непосредственно слева от дроби",
                   str(search_fraction), "-", prev_numerator)
             result = prev_numerator

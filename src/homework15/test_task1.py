@@ -1,7 +1,8 @@
 """Tests for task1.py."""
 
 import unittest
-from task1 import School, SchoolClass
+from task1 import School
+from task1 import SchoolClass
 
 
 class TestSchoolMethods(unittest.TestCase):
@@ -15,8 +16,8 @@ class TestSchoolMethods(unittest.TestCase):
     def test_school_address(self):
         """check for string"""
         school_address = School().get_school_address()
-        self.assertTrue(isinstance(school_address, str))
-        self.assertFalse(isinstance(school_address, int))
+        self.assertIs(type(school_address), str)
+        self.assertIsNot(type(school_address), int)
 
     def test_director_name(self):
         """director's name in two words"""
@@ -28,7 +29,7 @@ class TestSchoolMethods(unittest.TestCase):
         """test total_students"""
         total_students = School().total_students
         classes = School().classes
-        self.assertTrue(isinstance(total_students, int))
+        self.assertIs(type(total_students), int)
         if total_students > 0:
             self.assertTrue(len(classes) > 0)
 
@@ -49,7 +50,7 @@ class TestSchoolClassMethods(unittest.TestCase):
         if len(School().classes) > 0:
             class_name = School().classes[0]
         teacher = SchoolClass(class_name).get_teacher()
-        self.assertTrue(isinstance(teacher, str))
+        self.assertIs(type(teacher), str)
 
     def test_class_students(self):
         """test class students"""
