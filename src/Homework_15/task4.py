@@ -21,18 +21,15 @@ n 	Взаимно простые числа 	φ(n) 	n/φ(n)
 10 	1,3,7,9 	            4 	    2.5
 
 Нетрудно заметить, что максимум n/φ(n) наблюдается при n=6, для n ≤ 10.
-
 Найдите значение n ≤ 1 000 000, при котором значение n/φ(n) максимально.
 """
 
 
 class Iterable:
-    """
-    Iterable class.
+    """Iterable class.
     The default argument can take a number or an iterable object (list, tuple).
     If nothing is transmitted - it prompts the user to enter the number 'n' and
-    generate a sequence from 0 to 'n'
-    """
+    generate a sequence from 0 to 'n'"""
     def __init__(self, collection=None):
         if collection is None:
             n = int(input('Enter max "n": '))
@@ -49,10 +46,8 @@ class Iterable:
 
 
 class Iterator:
-    """
-    Iterator combined with the Euler function and returning the ratio of the number 'n'
-    to the value of the Euler function.
-    """
+    """Iterator combined with the Euler function and returning the ratio of the number 'n'
+    to the value of the Euler function."""
     max_num = 0, 0
 
     def __init__(self, collection):
@@ -64,11 +59,10 @@ class Iterator:
 
     @staticmethod
     def euler(num):
-        """
-        Euler's function takes a natural number as input and outputs the number of coprime numbers
+        """Euler's function takes a natural number as input and outputs the number of
+        coprime numbers
         :param num: natural number
-        :return: the coprime numbers
-        """
+        :return: the coprime numbers"""
         prime_number = 2
         result = 1
         count = 0
@@ -99,11 +93,9 @@ class Iterator:
 
 
 def task4(collection=None):
-    """
-    Function for iteration start.
+    """Function for iteration start.
     :param collection: iterable object must be 'list' or 'tuple', or one number 'int' type
-    :return: the maximum ratio of 'n' to the Euler(n) function
-    """
+    :return: the maximum ratio of 'n' to the Euler(n) function"""
     if type(collection).__name__ == 'int':
         element = collection, collection / Iterator.euler(collection)
     elif collection is None:

@@ -8,13 +8,11 @@ import sys
 
 
 def decorator_that_call_func_without_except(num_of_call: int):
-    """
-    The decorator accepts as input the max number of function calls
+    """The decorator accepts as input the max number of function calls
     :param num_of_call:
     :return: in case of incorrect operation of the function, the decorator throws an 'Error'
     exception;
-    if the function has completed without exception, the decorator done its work.
-    """
+    if the function has completed without exception, the decorator done its work."""
     def dec(func, flag=True):
         def wrapper(*args, **kwargs):
             nonlocal num_of_call
