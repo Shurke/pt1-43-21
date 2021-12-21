@@ -9,7 +9,10 @@ import unittest
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-from task3 import get_ranges, add_to_ans_list, LengthError, ArgumentsError
+from task3 import ArgumentsError
+from task3 import add_to_ans_list
+from task3 import get_ranges
+from task3 import LengthError
 
 
 @ddt
