@@ -1,8 +1,8 @@
 """Tests for task1.py."""
 
-import unittest
 from task1 import School
 from task1 import SchoolClass
+import unittest
 
 
 class TestSchoolMethods(unittest.TestCase):
