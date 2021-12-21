@@ -16,8 +16,7 @@ class TestCaseTask3(unittest.TestCase):
                                 2: 'Ukraine Kiev Donetsk Odessa'}), 'Ukraine Russia Russia')
 
     def test_2(self):
-        """Passed test
-        :return: OK"""
+        """Passed test :return: OK"""
         self.assertEqual(task2(('Brest', 'NewYork'),
                                {1: 'Belarus Minsk Gomel Brest',
                                 2: 'USA Washington NewYork LosAngeles'}), 'Belarus USA')
@@ -25,8 +24,7 @@ class TestCaseTask3(unittest.TestCase):
     def test_3(self):
         """Test with raise call:
         if the city name contains a number, an exception is thrown
-        and the corresponding message is displayed
-        :return: OK"""
+        and the corresponding message is displayed :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Ode1ssa', 'Moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -35,8 +33,7 @@ class TestCaseTask3(unittest.TestCase):
 
     def test_4(self):
         """Test with raise call
-        if an invalid key is used as an argument when passing a dictionary
-        :return: OK"""
+        if an invalid key is used as an argument when passing a dictionary :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   {'key': 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -45,8 +42,7 @@ class TestCaseTask3(unittest.TestCase):
 
     def test_5(self):
         """Test with raise call:
-        if the first place of the list is not a country
-        :return: OK"""
+        if the first place of the list is not a country :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -67,8 +63,7 @@ class TestCaseTask3(unittest.TestCase):
 
     def test_7(self):
         """Test with raise call:
-        if the city name does not start with a capital letter in request list
-        :return: OK"""
+        if the city name does not start with a capital letter in request list :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -77,8 +72,7 @@ class TestCaseTask3(unittest.TestCase):
 
     def test_8(self):
         """Test with raise call:
-        checks the value of the argument types
-        :return: OK"""
+        checks the value of the argument types :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2({'Odessa', 'Moscow', 'Novgorod'},
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
