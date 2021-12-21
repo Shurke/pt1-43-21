@@ -2,12 +2,13 @@
 Module for testing task3 Homework_15
 """
 
-from task3 import task2
 import unittest
+from task3 import task2
 
 
 class TestCaseTask3(unittest.TestCase):
     """Tests for task2 function"""
+
     def test_1(self):
         """Passed test :return: OK"""
         self.assertEqual(task2(('Odessa', 'Moscow', 'Novgorod'),
@@ -30,6 +31,7 @@ class TestCaseTask3(unittest.TestCase):
         self.assertEqual('The city name cannot contain numbers!', error.exception.args[0])
 
     def test_4(self):
+
         """Test with raise call: if an invalid key is used as an argument when passing a
         dictionary"""
         with self.assertRaises(TypeError) as error:
@@ -58,7 +60,8 @@ class TestCaseTask3(unittest.TestCase):
                          error.exception.args[0])
 
     def test_7(self):
-        """Test with raise call: if the city name does not start with a capital letter in request
+        """Test with raise call:
+        if the city name does not start with a capital letter in request
         list :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'moscow', 'Novgorod'),
