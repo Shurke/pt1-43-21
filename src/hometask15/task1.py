@@ -12,12 +12,10 @@ class TooManyErrors(Exception):
 
 
 def param_decorator(number_of_calls: int) -> callable:
-    """
-    param decorator function that decorates another function and
+    """param decorator function that decorates another function and
     calls it until it is called with exceptions, but no more than
     param - 'number_of_calls' times
-    :param number_of_calls: gets number of available function calls
-    """
+    :param number_of_calls: gets number of available function calls"""
     def decorator(given_function: callable) -> callable:
         def wrapper(*args: int) -> None:
             nonlocal number_of_calls

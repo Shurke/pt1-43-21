@@ -6,7 +6,9 @@ tests function 'add_to_ans_list'
 
 
 import unittest
-from ddt import ddt, unpack, data
+from ddt import data
+from ddt import ddt
+from ddt import unpack
 from task3 import get_ranges, add_to_ans_list, LengthError, ArgumentsError
 
 

@@ -62,7 +62,7 @@ class Reception:
     }
     problems_with_room = []
     pending_service = {}
-    welcome_words = f'Hello, we are glad to see you at our Hotel!'
+    welcome_words = 'Hello, we are glad to see you at our Hotel!'
     get_info = """please enter your name, surname, duration in days and
 1 if you choose "all-inclusive" or 0 if you choose "standard" package:"""
     offer_help_message = 'How can we help you?'
@@ -178,7 +178,7 @@ class Entertainment(Reception):
         if 7 < int(s[0]) * 10 + int(s[1]) < 22:
             print(f'We gave you {person_amount * 2} towels, you can swim until 22:00')
         else:
-            print(f'Unfortunately, swimming-pool is closed now,it opens at 7:00')
+            print('Unfortunately, swimming-pool is closed now,it opens at 7:00')
 
 
 class Restaurant(Reception):
