@@ -21,7 +21,6 @@ class TestCaseTask3(unittest.TestCase):
     def test_2(self):
         """
         Passed test
-
         :return: OK
         """
         self.assertEqual(task2(('Brest', 'NewYork'),
@@ -31,10 +30,8 @@ class TestCaseTask3(unittest.TestCase):
     def test_3(self):
         """
         Test with raise call:
-
         if the city name contains a number, an exception is thrown
         and the corresponding message is displayed
-        :return: OK
         """
         with self.assertRaises(TypeError) as error:
             task2(('Ode1ssa', 'Moscow', 'Novgorod'),
@@ -45,9 +42,7 @@ class TestCaseTask3(unittest.TestCase):
     def test_4(self):
         """
         Test with raise call
-
         if an invalid key is used as an argument when passing a dictionary
-        :return: OK
         """
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
@@ -62,6 +57,7 @@ class TestCaseTask3(unittest.TestCase):
         if the first place of the list is not a country
         :return: OK
         """
+
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -84,12 +80,10 @@ class TestCaseTask3(unittest.TestCase):
                          error.exception.args[0])
 
     def test_7(self):
-        """
-        Test with raise call:
+        """Test with raise call:
 
         if the city name does not start with a capital letter in request list
-        :return: OK
-        """
+        :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -97,11 +91,9 @@ class TestCaseTask3(unittest.TestCase):
         self.assertEqual('City name must start with a capital letter', error.exception.args[0])
 
     def test_8(self):
-        """
-        Test with raise call:
+        """Test with raise call:
         checks the value of the argument types
-        :return: OK
-        """
+        :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2({'Odessa', 'Moscow', 'Novgorod'},
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -110,11 +102,7 @@ class TestCaseTask3(unittest.TestCase):
                          " 'tuple' or 'list' type!", error.exception.args[0])
 
     def test_9(self):
-        """Test with raise call:
-
-        checks the value of the argument types
-        :return: OK"""
-
+        """Test with raise call: checks the value of the argument types :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   [1, 'Russia Moscow Petersburg Novgorod Kaluga',
