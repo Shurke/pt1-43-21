@@ -33,7 +33,6 @@ class TestGetRanges(unittest.TestCase):
     @data([])
     def test_bad_cases(self, input_list):
         """function tests bad case with empty list"""
-        print(len(input_list))
         self.assertRaises(LengthError, get_ranges, input_list)
 
     @data(
