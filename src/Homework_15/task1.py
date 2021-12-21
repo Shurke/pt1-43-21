@@ -19,8 +19,7 @@ class Character:
         - level
         and dictionary which contains hero's level as a key, and list
         with [string name of level, minimum exp points for level up, health points].
-        And two class method: 'status' and 'random_skill_up'
-        """
+        And two class method: 'status' and 'random_skill_up'"""
     SKILL = {1: ['Level 1', 0,  2],
              2: ['Level 2', 2, 4],
              3: ['Level 3', 4, 8],
@@ -91,10 +90,11 @@ class Enemy(Character):
 
 
 class SuperBoss(Enemy):
-    """Inherited from Enemy class with high parameters"""
+    """
+    Inherited from Enemy class with high parameters
+    """
     def __init__(self, health=30, attack=5, defend=8):
         super().__init__(health, attack, defend, experience=99, level=99)
-    pass
 
 
 class Action:
