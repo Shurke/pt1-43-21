@@ -87,9 +87,7 @@ class TestCaseTask3(unittest.TestCase):
                          " 'tuple' or 'list' type!", error.exception.args[0])
 
     def test_9(self):
-        """Test with raise call:
-        checks the value of the argument types
-        :return: OK"""
+        """Test with raise call: checks the value of the argument types :return: OK"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   [1, 'Russia Moscow Petersburg Novgorod Kaluga',
