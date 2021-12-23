@@ -1,8 +1,7 @@
 """ test task3"""
 
-
-from task4 import Problem
 import pytest
+from task4 import Problem
 import unittest
 
 
