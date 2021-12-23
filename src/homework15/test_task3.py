@@ -5,61 +5,46 @@
 ‘assertRaises’. Не нужно переделывать функцию для того чтобы она ловила все возможные ситуации сама.
 """
 
-
 from task3 import add_range
 from task3 import get_ranges
+
 import unittest
+from ddt import data
+from ddt import ddt
+from ddt import unpack
 
 
-class Testgetranges(unittest.TestCase):
+@ddt
+class TestGetRanges(unittest.TestCase):
     """Test cases for the get_ranges() function."""
 
-    def test_bad_input(self):
+    @data([1, "n", 5, 6, 7, 8])
+    def test_bad_input(self, user_input):
         """Test for bad input."""
-        user_input = [1, "n", 5, 6, 7, 8]
-        self.assertIsNone(get_ranges(user_input))
+        self.failUnlessRaises(ValueError, get_ranges(user_input))
 
-    def test_output(self):
+    @data(
+        ([1, 4, 5, 6, 7, 8], "1, 4-8"),
+        ([4], "4"),
+        ([0, 1, 2, 3, 4, 7, 8, 10], "0-4, 7-8, 10"),
+        ([3, 5, 7], "3, 5, 7"),
+    )
+    @unpack
+    def test_output(self, user_input, output):
         """Test for proper output."""
-        user_input = [1, 4, 5, 6, 7, 8]
-        output = "1, 4-8"
-        self.assertEqual(get_ranges(user_input), output)
-        user_input = [4]
-        output = "4"
-        self.assertEqual(get_ranges(user_input), output)
-        user_input = [0, 1, 2, 3, 4, 7, 8, 10]
-        output = "0-4, 7-8, 10"
-        self.assertEqual(get_ranges(user_input), output)
-        user_input = [3, 5, 7]
-        output = "3, 5, 7"
         self.assertEqual(get_ranges(user_input), output)
 
 
-class Testaddrange(unittest.TestCase):
+@ddt
+class TestAddRange(unittest.TestCase):
 
-    def test_output(self):
-        string_of_ranges = ""
-        first_number = 2
-        middle_number = 2
-        output = "2"
-        self.assertEqual(add_range(string_of_ranges, first_number, middle_number), output)
-
-        string_of_ranges = ""
-        first_number = 3
-        middle_number = 7
-        output = "3-7"
-        self.assertEqual(add_range(string_of_ranges, first_number, middle_number), output)
-
-        string_of_ranges = "4-6"
-        first_number = 9
-        middle_number = 9
-        output = "4-6, 9"
-        self.assertEqual(add_range(string_of_ranges, first_number, middle_number), output)
-
-        string_of_ranges = "4-6"
-        first_number = 9
-        middle_number = 15
-        output = "4-6, 9-15"
+    @data(
+        ("", 2, 2, "2"),
+        ("", 3, 7, "3-7"),
+        ("4-6", 9, 9, "4-6, 9"),
+        ("4-6", 9, 15, "4-6, 9-15"))
+    @unpack
+    def test_output(self, string_of_ranges, first_number, middle_number, output):
         self.assertEqual(add_range(string_of_ranges, first_number, middle_number), output)
 
 
