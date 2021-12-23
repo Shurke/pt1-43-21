@@ -18,7 +18,8 @@ class TestPizza(unittest.TestCase):
 
     def test_ingredients(self):
         """проверяет ингредиенты пиццы"""
-        self.assertEqual(self.pizza.ingredients, ["Моцарелла", "базилик", "томатный соус", "помидоры"])
+        ingredients_expected = ["Моцарелла", "базилик", "томатный соус", "помидоры"]
+        self.assertEqual(self.pizza.ingredients, ingredients_expected)
 
     def test_str(self):
         """проверяет строковое представление пиццы"""

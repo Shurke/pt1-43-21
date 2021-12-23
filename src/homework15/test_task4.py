@@ -21,4 +21,3 @@ class TestProblem(unittest.TestCase):
         self.p.solve()
         captured = self.capsys.readouterr()
         self.assertEqual(captured.out.strip(), "Fast => 2647787126797397063")
-

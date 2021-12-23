@@ -8,10 +8,11 @@
 from task3 import add_range
 from task3 import get_ranges
 
-import unittest
 from ddt import data
 from ddt import ddt
 from ddt import unpack
+
+import unittest
 
 
 @ddt
