@@ -9,24 +9,31 @@ class TooManyErrors(ValueError):
     pass
 
 
-def dec(func):
-    def wrapper(num_rep):
-        counter = 0
-        while counter < num_rep:
-            try:
-                result = func(num_rep)
-                return result
-            except ValueError:
-                counter += 1
-        raise TooManyErrors("Превышено количество попыток!")
-    return wrapper
-
-
-@dec
-def my_func(num):
-    numeral = int(input(f"Всего попыток: {num}\nВведите цифру: "))
-    print(f"Вот такое число введено: {numeral}")
+def dec(num_rep):
+    def execution(func):
+        def wrapper():
+            nonlocal num_rep
+            counter = 0
+            while counter < num_rep:
+                try:
+                    result = func()
+                    return result
+                except ValueError:
+                    counter += 1
+            raise TooManyErrors("Превышено количество попыток!")
+        return wrapper
+    return execution
 
 
 my_num = int(input("Введите лимит для выполнения декоратора (условие): "))
-my_func(my_num)
+
+
+@dec(my_num)
+def my_func():
+    calls = my_num
+    numeral = int(input(f"Всего попыток: {calls}\nВведите цифру: "))
+    calls -= 1
+    print(f"Вот такое число введено: {numeral}")
+
+
+my_func()
