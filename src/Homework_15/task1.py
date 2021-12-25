@@ -4,6 +4,7 @@
 ситуацию. Объекты должны содержать как атрибуты так и методы класса для симуляции
 различных действий. Программа должна инстанцировать объекты и эмулировать какую-либо ситуацию -
 вызывать методы, взаимодействие объектов и т.д.
+Для запуска боя необходимо запустить функцию run()
 """
 
 
@@ -69,8 +70,7 @@ class Character:
 class Hero(Character):
     """This is a class of hero. It contain parameters of parent class and
        one unique method 'level_up'."""
-    # def __init__(self, health, attack, defend, experience=0, level=1):
-    #     super(Hero, self).__init__(health, attack, defend, experience, level)
+    pass
 
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
@@ -104,11 +104,20 @@ class SuperBoss(Enemy):
 
 class Action:
     """Class describes the logic of interaction between two classes: the classes "attacker"
-       and "defender". Damage = attack * random coefficient (from 0 to 4) - defense points
-       of the defender. If the Hero defeats the Enemy, he gets 2 experience points and
-       the "level_up()" method is also called, which checks if there are enough points
-       to increase the experience. The class also displays messages to simulate interactivity."""
+       and "defender"."""
     def __init__(self, attacker, defender):
+        self.attacker = attacker
+        self.defender = defender
+
+    @staticmethod
+    def hit(attacker, defender):
+        """
+        The static method 'hit' description the logics of attack.
+        Damage = attack[attackers characteristic] * random coefficient (from 0 to 4) - defense points
+        of the defender. If the Hero defeats the Enemy, he gets 2 experience points and
+        the "level_up()" method is also called, which checks if there are enough points
+        to increase the experience. The class also displays messages to simulate interactivity.
+        """
         coefficient = randint(0, 4)
         print(f'{attacker.__class__.__name__} move:')
         if coefficient:
@@ -161,11 +170,11 @@ def run():
                 enemy.random_skill_up()
             print(enemy.status())
         else:
-            Action(enemy, hero)
+            Action.hit(enemy, hero)
             print()
             if hero.health == 0:
                 break
-            Action(hero, enemy)
+            Action.hit(hero, enemy)
             print()
     # If Hero survived - the final fight is started!
     if hero.health:
@@ -177,7 +186,7 @@ def run():
         sleep(3)
         print('Let\'s fight!', '\n')
         while hero.health and boss.health:
-            Action(boss, hero)
+            Action.hit(boss, hero)
             sleep(1)
             if hero.health == 0:
                 print('After a huge number of great victories, you are not'
@@ -187,12 +196,9 @@ def run():
                 print(hero.status())
                 print('Try Again!')
                 break
-            Action(hero, boss)
+            Action.hit(hero, boss)
             sleep(1)
             if boss.health == 0:
                 sleep(1)
                 print(hero.status())
                 break
-
-
-print(run())
