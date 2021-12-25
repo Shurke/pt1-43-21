@@ -3,8 +3,8 @@ Module for testing task4 Homework_15
 """
 
 
-from task4 import max_euler, _euler
 import unittest
+from task4 import max_euler, _euler
 
 
 class TestCaseTask4(unittest.TestCase):

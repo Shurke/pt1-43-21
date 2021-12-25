@@ -32,7 +32,8 @@ class TestClasses(TestCase):
         """The test raises an exception when entering incorrect data"""
         with self.assertRaises(TypeError) as error:
             task1.Hero(health, attack, defend, experience, level)
-            self.assertEqual('Incorrect input: characteristic must be a integer!', error.exception.args[0])
+            self.assertEqual('Incorrect input: characteristic must be a integer!',
+                             error.exception.args[0])
 
     @data((-1, 1, 1, 1, -1), (1, 1, -1, 1, 2))
     @unpack

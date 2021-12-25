@@ -8,6 +8,17 @@
 import sys
 
 
+class TooManyErrors(Exception):
+    """
+    Class for create Exception 'TooManyErrors'
+    """
+    def __init__(self):
+        pass
+
+    def __str__(self):
+        return 'TooManyErrors!'
+
+
 def decorator_that_call_func_without_except(num_of_call: int = None):
     """The decorator accepts as input the max number of function calls
     :param num_of_call:
@@ -25,7 +36,7 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
                 print(5 * '*', 'Decorator finished work!', 5 * '*')
                 sys.exit()
             if num_of_call == 0:
-                raise 'TooManyErrors'
+                raise TooManyErrors
             try:
                 result = func(*args, **kwargs)
                 flag = False
@@ -39,6 +50,7 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
     return dec
 
 
-@decorator_that_call_func_without_except()
+@decorator_that_call_func_without_except(3)
 def some_func(num):
+    """Something function"""
     return 1 / num

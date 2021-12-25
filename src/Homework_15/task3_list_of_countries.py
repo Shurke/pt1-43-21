@@ -3,7 +3,7 @@ This module forms auxiliary list
 """
 
 
-city_name = '''Afghanistan
+CITY_NAME = '''Afghanistan
 Albania
 Algeria
 Andorra
@@ -278,7 +278,7 @@ Z
 Zambia
 Zimbabwe'''
 
-list_of_country = city_name.split('\n')
+list_of_country = CITY_NAME.split('\n')
 result_list_of_countries = []
 
 for city in list_of_country:

@@ -4,9 +4,9 @@ Module for testing task2 Homework_15
 
 
 import unittest
+import task2
 from unittest import TestCase
 from ddt import ddt, data, unpack
-from task2 import some_func
 
 
 @ddt
@@ -20,25 +20,25 @@ class TestParametricDecorator(TestCase):
     @unpack
     def test_1(self, some_n, expected):
         """The first test throws an exception"""
-        self.assertEqual(some_func(some_n), expected)
+        self.assertEqual(task2.some_func(some_n), expected)
 
     @data((1, 1.0))
     @unpack
     def test_2(self, some_n, expected):
         """The second test get input values for test pass"""
-        self.assertEqual(some_func(some_n), expected)
+        self.assertEqual(task2.some_func(some_n), expected)
 
     @data((0, 'Error!'))
     @unpack
     def test_3(self, some_n, expected):
         """The third and subsequent tests will throw an exception"""
-        self.assertRaises(SystemExit, some_func, some_n, expected)
+        self.assertRaises(SystemExit, task2.some_func, some_n, expected)
 
     @data((1, 1.0))
     @unpack
     def test_4(self, some_n, expected):
         """The third and subsequent tests will throw an exception"""
-        self.assertRaises(SystemExit, some_func, some_n, expected)
+        self.assertRaises(SystemExit, task2.some_func, some_n, expected)
 
 
 if __name__ == '__main__':

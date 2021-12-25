@@ -27,7 +27,7 @@ class Character:
              4: ['Level 4', 8, 10],
              5: ['TOP level', 16, 16]}
 
-    def __init__(self, health: int, attack: int, defend: int, experience: int = 0, level: int = 1):
+    def __init__(self, health, attack, defend, experience=0, level=1):
         self.health = health
         self.attack = attack
         self.defend = defend
@@ -35,9 +35,9 @@ class Character:
         self.level = level
         for characteristic in (health, attack, defend, experience, level):
             if type(characteristic).__name__ != 'int':
-                raise "Incorrect input: characteristic must be a integer!"
+                raise TypeError("Incorrect input: characteristic must be a integer!")
             if characteristic < 0:
-                raise "Characteristics can't be less than 0!"
+                raise TypeError("Characteristics can't be less than 0!")
 
     def status(self):
         """This method return characteristics of the hero."""
@@ -69,8 +69,8 @@ class Character:
 class Hero(Character):
     """This is a class of hero. It contain parameters of parent class and
        one unique method 'level_up'."""
-    def __init__(self, health, attack, defend, experience=0, level=1):
-        super().__init__(health, attack, defend, experience, level)
+    # def __init__(self, health, attack, defend, experience=0, level=1):
+    #     super(Hero, self).__init__(health, attack, defend, experience, level)
 
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
@@ -86,9 +86,10 @@ class Hero(Character):
             temp_level = self.SKILL.get(self.level + 1)
             print(f'*** You level UP! Now the hero is {temp_level[0]}! ***')
             self.health = temp_level[2]
-            super(Hero, self).random_skill_up()
+            self.random_skill_up()
             self.experience = 0
             self.level += 1
+            print(self.status())
 
 
 class Enemy(Character):
@@ -98,7 +99,7 @@ class Enemy(Character):
 class SuperBoss(Enemy):
     """Inherited from Enemy class with high parameters"""
     def __init__(self, health=30, attack=5, defend=8):
-        super().__init__(health, attack, defend, experience=99, level=99)
+        super(SuperBoss, self).__init__(health, attack, defend, experience=99, level=99)
 
 
 class Action:
@@ -135,20 +136,17 @@ class Action:
                 attacker.level_up()
 
 
-"""
-This function for automatic fight hero with enemy
-The cycle creates enemy instances from the Enemy class,
-the enemy's health is assigned from the SKILL dictionary and
-the "attack" and "defend" skills are randomly distributed using the
-random_skill_up method from Character Class.
-
-With "Action" class Enemy attacked Hero and Hero attacked Enemy one by one.
-
-When Hero get level 5 - called SuperBoss for final fight!
-"""
-
-
 def run():
+    """This function for automatic fight hero with enemy
+    The cycle creates enemy instances from the Enemy class,
+    the enemy's health is assigned from the SKILL dictionary and
+    the "attack" and "defend" skills are randomly distributed using the
+    random_skill_up method from Character Class.
+
+    With "Action" class Enemy attacked Hero and Hero attacked Enemy one by one.
+
+    When Hero get level 5 - called SuperBoss for final fight!
+    """
     hero = Hero(2, 10, 10)
     enemy = Enemy(1, 1, 1)
     print(hero.status(), '\n')
@@ -158,10 +156,10 @@ def run():
             enemy = Enemy(1, 1, 1)
             enemy.health = Character.SKILL[hero.level][2]
             enemy.level = hero.level
-            print(enemy.status())
             # Enemy get some random points "attack" and "defence" for balance.
-            for lvl in range(hero.level - 1):
+            for _ in range(hero.level - 1):
                 enemy.random_skill_up()
+            print(enemy.status())
         else:
             Action(enemy, hero)
             print()
@@ -195,3 +193,6 @@ def run():
                 sleep(1)
                 print(hero.status())
                 break
+
+
+print(run())

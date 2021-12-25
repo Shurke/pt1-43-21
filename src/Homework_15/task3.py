@@ -64,7 +64,6 @@ def task2(tup_of_req=None, dict_of_cities=None):
     # this loop breaks the string into elements and converts it to list
     for key, val in dict_of_cities.items():
         dict_of_cities[key] = val.split()
-
     """this block check:
         the key should be a number only
         country name must come first: it compare the first element in list with
@@ -75,21 +74,21 @@ def task2(tup_of_req=None, dict_of_cities=None):
     for key, city_list in dict_of_cities.items():
         if type(key).__name__ != 'int':
             raise TypeError('The key in dictionary must be a integer!')
-        elif city_list[0] not in result_list_of_countries:
+        if city_list[0] not in result_list_of_countries:
             raise TypeError('The name of the country should be in the first place!')
         for elem in city_list:
             if type(elem).__name__ != 'str' or not elem.isalpha():
                 raise TypeError('Names of cities and countries must contain only letters!')
-            elif elem.islower():
+            if elem.islower():
                 raise TypeError('City and country name must start with a capital letter')
-            elif len(elem) <= 1:
+            if len(elem) <= 1:
                 raise TypeError('There are no cities with this name.')
 
     # this block check the name of cities in requests list
     for city in tup_of_req:
         if type(city).__name__ != 'str' or not city.isalpha():
             raise TypeError('The city name cannot contain numbers!')
-        elif city[0].islower():
+        if city[0].islower():
             raise TypeError('City name must start with a capital letter')
 
     # this loop forms a result list with the names of countries for output
