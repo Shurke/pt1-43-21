@@ -65,13 +65,13 @@ def task2(tup_of_req=None, dict_of_cities=None):
     for key, val in dict_of_cities.items():
         dict_of_cities[key] = val.split()
 
-    # this block check:
-    #   the key should be a number only
-    #   country name must come first: it compare the first element in list with
-    #   auxiliary list - result_list_of_countries
-    #   names of cities and countries contain only letters
-    #   city and country name must start with a capital letter
-    #   and check the length of the city name
+    """this block check:
+        the key should be a number only
+        country name must come first: it compare the first element in list with
+        auxiliary list - result_list_of_countries
+        names of cities and countries contain only letters
+        city and country name must start with a capital letter
+        and check the length of the city name"""
     for key, city_list in dict_of_cities.items():
         if type(key).__name__ != 'int':
             raise TypeError('The key in dictionary must be a integer!')

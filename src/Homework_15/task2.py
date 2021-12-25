@@ -4,21 +4,26 @@
 должно быть возбуждено исключение типа TooManyErrors
 """
 
+
 import sys
 
 
-def decorator_that_call_func_without_except(num_of_call: int):
+def decorator_that_call_func_without_except(num_of_call: int = None):
     """The decorator accepts as input the max number of function calls
     :param num_of_call:
     :return: in case of incorrect operation of the function, the decorator throws an 'Error'
     exception;
     if the function has completed without exception, the decorator done its work."""
+    if num_of_call is None:
+        num_of_call = int(input('Enter nums of decorator calls: '))
+
     def dec(func, flag=True):
         def wrapper(*args, **kwargs):
             nonlocal num_of_call
             nonlocal flag
             if not flag:
-                sys.exit(1)
+                print(5 * '*', 'Decorator finished work!', 5 * '*')
+                sys.exit()
             if num_of_call == 0:
                 raise 'TooManyErrors'
             try:
@@ -34,11 +39,6 @@ def decorator_that_call_func_without_except(num_of_call: int):
     return dec
 
 
-@decorator_that_call_func_without_except(int(input('Enter nums of decorator calls: ')))
+@decorator_that_call_func_without_except()
 def some_func(num):
     return 1 / num
-
-
-print(some_func(0))
-print(some_func(1))
-print(some_func(0))

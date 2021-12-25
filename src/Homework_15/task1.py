@@ -6,6 +6,7 @@
 вызывать методы, взаимодействие объектов и т.д.
 """
 
+
 from random import randint
 from time import sleep
 
@@ -16,7 +17,7 @@ class Character:
         - attack
         - defend
         - experience
-        - level
+        - level [TOP level = 5]
         and dictionary which contains hero's level as a key, and list
         with [string name of level, minimum exp points for level up, health points].
         And two class method: 'status' and 'random_skill_up'"""
@@ -26,12 +27,17 @@ class Character:
              4: ['Level 4', 8, 10],
              5: ['TOP level', 16, 16]}
 
-    def __init__(self, health, attack, defend, experience=0, level=1):
+    def __init__(self, health: int, attack: int, defend: int, experience: int = 0, level: int = 1):
         self.health = health
         self.attack = attack
         self.defend = defend
         self.experience = experience
         self.level = level
+        for characteristic in (health, attack, defend, experience, level):
+            if type(characteristic).__name__ != 'int':
+                raise "Incorrect input: characteristic must be a integer!"
+            if characteristic < 0:
+                raise "Characteristics can't be less than 0!"
 
     def status(self):
         """This method return characteristics of the hero."""
@@ -117,7 +123,7 @@ class Action:
             print(f'{attacker.__class__.__name__} missed!', '\n')
         if defender.health <= 0 and attacker.__class__.__name__ == 'Enemy':
             setattr(defender, 'health', 0)
-            print('You die!', 'Game Over', hero.status(), sep='\n')
+            print('You die!', 'Game Over', defender.status(), sep='\n')
         elif defender.health <= 0 and attacker.__class__.__name__ == 'Hero':
             setattr(defender, 'health', 0)
             if defender.__class__.__name__ == 'SuperBoss':
@@ -129,60 +135,63 @@ class Action:
                 attacker.level_up()
 
 
-hero = Hero(2, 10, 10)
-enemy = Enemy(1, 1, 1)
-print(hero.status(), '\n')
+"""
+This function for automatic fight hero with enemy
+The cycle creates enemy instances from the Enemy class,
+the enemy's health is assigned from the SKILL dictionary and
+the "attack" and "defend" skills are randomly distributed using the
+random_skill_up method from Character Class.
 
-# This loop for automatic fight hero with enemy
-# The cycle creates enemy instances from the Enemy class,
-# the enemy's health is assigned from the SKILL dictionary and
-# the "attack" and "defend" skills are randomly distributed using the
-# random_skill_up method from Character Class.
+With "Action" class Enemy attacked Hero and Hero attacked Enemy one by one.
 
-# With "Action" class Enemy attacked Hero and Hero attacked Enemy one by one.
+When Hero get level 5 - called SuperBoss for final fight!
+"""
 
-# When Hero get level 5 - called SuperBoss for final fight!
-while hero.health and hero.level != 5:
-    # if the enemy instance is destroyed, a new instance is created.
-    if enemy.health == 0:
-        enemy = Enemy(1, 1, 1)
-        enemy.health = Character.SKILL[hero.level][2]
-        enemy.level = hero.level
-        print(enemy.status())
-        # Enemy get some random points "attack" and "defence" for balance.
-        for lvl in range(hero.level - 1):
-            enemy.random_skill_up()
-    else:
-        Action(enemy, hero)
-        print()
-        if hero.health == 0:
-            break
-        Action(hero, enemy)
-        print()
 
-# If Hero survived - the final fight is started!
-if hero.health:
-    print('\n', "OMG, a huge evil Orc is heading towards you!!!", '\n')
-    boss = SuperBoss()
-    sleep(2)
+def run():
+    hero = Hero(2, 10, 10)
+    enemy = Enemy(1, 1, 1)
     print(hero.status(), '\n')
-    print(boss.status(), '\n')
-    sleep(3)
-    print('Let\'s fight!', '\n')
-    while hero.health and boss.health:
-        Action(boss, hero)
-        sleep(1)
-        if hero.health == 0:
-            print('After a huge number of great victories, you are not'
-                  ' holding back the onslaught of the mighty Orc! '
-                  'Your hero dies in an unequal battle!')
+    while hero.health and hero.level != 5:
+        # if the enemy instance is destroyed, a new instance is created.
+        if enemy.health == 0:
+            enemy = Enemy(1, 1, 1)
+            enemy.health = Character.SKILL[hero.level][2]
+            enemy.level = hero.level
+            print(enemy.status())
+            # Enemy get some random points "attack" and "defence" for balance.
+            for lvl in range(hero.level - 1):
+                enemy.random_skill_up()
+        else:
+            Action(enemy, hero)
+            print()
+            if hero.health == 0:
+                break
+            Action(hero, enemy)
+            print()
+    # If Hero survived - the final fight is started!
+    if hero.health:
+        print('\n', "OMG, a huge evil Orc is heading towards you!!!", '\n')
+        boss = SuperBoss()
+        sleep(2)
+        print(hero.status(), '\n')
+        print(boss.status(), '\n')
+        sleep(3)
+        print('Let\'s fight!', '\n')
+        while hero.health and boss.health:
+            Action(boss, hero)
             sleep(1)
-            print(hero.status())
-            print('Try Again!')
-            break
-        Action(hero, boss)
-        sleep(1)
-        if boss.health == 0:
+            if hero.health == 0:
+                print('After a huge number of great victories, you are not'
+                      ' holding back the onslaught of the mighty Orc! '
+                      'Your hero dies in an unequal battle!')
+                sleep(1)
+                print(hero.status())
+                print('Try Again!')
+                break
+            Action(hero, boss)
             sleep(1)
-            print(hero.status())
-            break
+            if boss.health == 0:
+                sleep(1)
+                print(hero.status())
+                break
