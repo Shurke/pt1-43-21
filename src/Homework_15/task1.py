@@ -70,8 +70,6 @@ class Character:
 class Hero(Character):
     """This is a class of hero. It contain parameters of parent class and
        one unique method 'level_up'."""
-    pass
-
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
            than point of exp in second list element with key 'level + 1' in SKILL dictionary.
@@ -99,7 +97,7 @@ class Enemy(Character):
 class SuperBoss(Enemy):
     """Inherited from Enemy class with high parameters"""
     def __init__(self, health=30, attack=5, defend=8):
-        super(SuperBoss, self).__init__(health, attack, defend, experience=99, level=99)
+        super().__init__(health, attack, defend, experience=99, level=99)
 
 
 class Action:
@@ -108,6 +106,21 @@ class Action:
     def __init__(self, attacker, defender):
         self.attacker = attacker
         self.defender = defender
+
+    @staticmethod
+    def check_status(attacker, defender):
+        if defender.health <= 0 and attacker.__class__.__name__ == 'Enemy':
+            setattr(defender, 'health', 0)
+            print('You die!', 'Game Over', defender.status(), sep='\n')
+        elif defender.health <= 0 and attacker.__class__.__name__ == 'Hero':
+            setattr(defender, 'health', 0)
+            if defender.__class__.__name__ == 'SuperBoss':
+                print('***** Evil Orc defeated! The victory is yours! Congratulations!!! *****')
+                print('Game Over.')
+            else:
+                print(f'{defender.__class__.__name__} die! You win and get 2 exp point!')
+                attacker.experience += 2
+                attacker.level_up()
 
     @staticmethod
     def hit(attacker, defender):
@@ -131,18 +144,7 @@ class Action:
                 print(f'{attacker.__class__.__name__} attacked and can\'t pierce the armor!', '\n')
         else:
             print(f'{attacker.__class__.__name__} missed!', '\n')
-        if defender.health <= 0 and attacker.__class__.__name__ == 'Enemy':
-            setattr(defender, 'health', 0)
-            print('You die!', 'Game Over', defender.status(), sep='\n')
-        elif defender.health <= 0 and attacker.__class__.__name__ == 'Hero':
-            setattr(defender, 'health', 0)
-            if defender.__class__.__name__ == 'SuperBoss':
-                print('***** Evil Orc defeated! The victory is yours! Congratulations!!! *****')
-                print('Game Over.')
-            else:
-                print(f'{defender.__class__.__name__} die! You win and get 2 exp point!')
-                attacker.experience += 2
-                attacker.level_up()
+        Action.check_status(attacker, defender)
 
 
 def run():
@@ -202,3 +204,6 @@ def run():
                 sleep(1)
                 print(hero.status())
                 break
+
+
+print(run())
