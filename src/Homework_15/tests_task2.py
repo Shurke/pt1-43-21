@@ -12,9 +12,13 @@ from ddt import ddt, data, unpack
 @ddt
 class TestParametricDecorator(TestCase):
     """Test case for parametric decorator, that calls the function a certain number of times,
+
     if the function is executed without an exception, the decorator finishes work,
+
     upon expiration of attempts it raises an exception TooManyErrors.
-    For correct testing please enter number for decorator calls more than 2"""
+
+    For correct testing please enter number for decorator calls more than 2
+    """
 
     @data((0, 'Error!'))
     @unpack
