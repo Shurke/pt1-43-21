@@ -4,7 +4,7 @@ Module for testing task4 Homework_15
 
 
 import unittest
-from task4 import _euler
+from task4 import euler
 from task4 import max_euler
 
 
@@ -37,7 +37,7 @@ class TestCaseTask4(unittest.TestCase):
     def test_6(self):
         """Test raise call's if type of input data are not integer"""
         with self.assertRaises(TypeError) as error:
-            max_euler(_euler())
+            max_euler(euler())
             self.assertEqual('Please enter a simple integer!', error.exception.args[0])
 
 

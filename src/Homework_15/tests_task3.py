@@ -3,8 +3,8 @@ Module for testing task3 Homework_15
 """
 
 
-import unittest
 from task3 import task2
+import unittest
 
 
 class TestCaseTask3(unittest.TestCase):
@@ -23,8 +23,7 @@ class TestCaseTask3(unittest.TestCase):
                                 2: 'USA Washington NewYork LosAngeles'}), 'Belarus USA')
 
     def test_3(self):
-        """Test with raise call. If the city name contains a number, an exception is thrown and
-        the corresponding message is displayed"""
+        """If the city name contains a number, an exception is thrown"""
         with self.assertRaises(TypeError) as error:
             task2(('Ode1ssa', 'Moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -32,8 +31,7 @@ class TestCaseTask3(unittest.TestCase):
         self.assertEqual('The city name cannot contain numbers!', error.exception.args[0])
 
     def test_4(self):
-        """Test with raise call: if the city or country name does not start with a capital letter
-        in dictionary"""
+        """if the city name doesn't start with a capital letter an exception is thrown"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
@@ -43,9 +41,7 @@ class TestCaseTask3(unittest.TestCase):
                          error.exception.args[0])
 
     def test_5(self):
-        """Test with raise call. If the city name does not start with a capital letter in request
-        list.
-        """
+        """If the city name doesn't start with a capital letter in list raise called"""
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',

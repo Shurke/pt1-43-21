@@ -8,7 +8,7 @@ The numba module worked for speed up processing function.
 
 
 # @njit()
-def _euler(num: int) -> float:
+def euler(num: int) -> float:
     """
     Euler's function takes a natural number as input and outputs the ratio of number to the number
     of co-prime numbers.
@@ -44,7 +44,7 @@ def max_euler(num: int = None) -> tuple:
         raise TypeError('Please enter a simple integer!')
     max_of_euler_func: tuple = 0, 0
     for element in range(1, num + 1):
-        result: float = _euler(element)
+        result: float = euler(element)
         if result > max_of_euler_func[1]:
             max_of_euler_func = element, result
     return max_of_euler_func
