@@ -2,10 +2,13 @@
 Module for testing task1 Homework_15
 """
 
-import unittest
-from unittest import TestCase
-from ddt import ddt, data, unpack
+
+from ddt import data
+from ddt import ddt
+from ddt import unpack
 from task1 import Hero, Enemy
+from unittest import TestCase
+import unittest
 
 
 @ddt

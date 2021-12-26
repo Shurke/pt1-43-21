@@ -9,9 +9,9 @@ The numba module worked for speed up processing function.
 
 # @njit()
 def euler(num: int) -> float:
-    """
-    Euler's function takes a natural number as input and outputs the ratio of number to the number
-    of co-prime numbers.
+    """Euler's function takes a natural number as input and outputs the ratio of number to the
+    
+    number of co-prime numbers.
     """
     total_num = num
     prime_number: int = 2
@@ -34,8 +34,8 @@ def euler(num: int) -> float:
 
 
 def max_euler(num: int = None) -> tuple:
-    """
-    The function iterate numbers from range , processing it with Euler func
+    """The function iterate numbers from range , processing it with Euler func
+
     and return the maximum value
     """
     if num is None:
