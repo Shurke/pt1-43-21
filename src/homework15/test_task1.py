@@ -11,7 +11,7 @@ import unittest
 
 @ddt
 class TestPizza(unittest.TestCase):
-    """Test cases for the Pizza Class."""
+    """Test cases for the Pizza Class. """
 
     @data(
         (
