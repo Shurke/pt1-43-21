@@ -4,12 +4,13 @@
 ситуацию. Объекты должны содержать как атрибуты так и методы класса для симуляции
 различных действий. Программа должна инстанцировать объекты и эмулировать какую-либо ситуацию -
 вызывать методы, взаимодействие объектов и т.д.
-Для запуска боя необходимо запустить функцию run()
+
+!!!Для запуска автобоя необходимо запустить функцию run()!!!
 """
 
 
 from random import randint
-from time import sleep
+from time import sleep, time
 
 
 class Character:
@@ -28,13 +29,12 @@ class Character:
              4: ['Level 4', 8, 10],
              5: ['TOP level', 16, 16]}
 
-    def __init__(self, health, attack, defend, experience=0, level=1):
+    def __init__(self, health, attack, defend, level=1):
         self.health = health
         self.attack = attack
         self.defend = defend
-        self.experience = experience
         self.level = level
-        for characteristic in (health, attack, defend, experience, level):
+        for characteristic in (health, attack, defend, level):
             if type(characteristic).__name__ != 'int':
                 raise TypeError("Incorrect input: characteristic must be a integer!")
             if characteristic < 0:
@@ -46,7 +46,6 @@ class Character:
                f"Health: {self.health}\n" \
                f"Attack: {self.attack}\n" \
                f"Defend: {self.defend}\n" \
-               f"Exp: {self.experience}\n" \
                f"Level: {self.level}"
 
     def random_skill_up(self):
@@ -70,22 +69,24 @@ class Character:
 class Hero(Character):
     """This is a class of hero. It contain parameters of parent class and
        one unique method 'level_up'."""
+    EXPERIENCE = 0
+
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
            than point of exp in second list element with key 'level + 1' in SKILL dictionary.
            Maximum level is 5, upon reaching this level and subsequent hero gets 2 skill points
            (distributed randomly) and health points are restored."""
-        if self.level == 5 and self.experience >= 16:
+        if self.level == 5 and Hero.EXPERIENCE >= 16:
             self.health = self.SKILL.get(self.level)[2]
             self.random_skill_up()
-            self.experience = 0
+            Hero.EXPERIENCE = 0
             print('*** You have the maximum level! ***')
-        elif self.experience >= self.SKILL.get(self.level + 1)[1]:
+        elif Hero. EXPERIENCE >= self.SKILL.get(self.level + 1)[1]:
             temp_level = self.SKILL.get(self.level + 1)
             print(f'*** You level UP! Now the hero is {temp_level[0]}! ***')
             self.health = temp_level[2]
             self.random_skill_up()
-            self.experience = 0
+            Hero.EXPERIENCE = 0
             self.level += 1
             print(self.status())
 
@@ -97,7 +98,7 @@ class Enemy(Character):
 class SuperBoss(Enemy):
     """Inherited from Enemy class with high parameters"""
     def __init__(self, health=30, attack=10, defend=8):
-        super().__init__(health, attack, defend, experience=99, level=99)
+        super().__init__(health, attack, defend, level=99)
 
 
 class Action:
@@ -124,7 +125,7 @@ class Action:
                 print()
             else:
                 print(f'{defender.__class__.__name__} die! You win and get 2 exp point!')
-                attacker.experience += 2
+                Hero.EXPERIENCE += 2
                 attacker.level_up()
 
     @staticmethod
@@ -165,15 +166,20 @@ def run():
     hero = Hero(2, 5, 10)
     enemy = Enemy(1, 1, 1)
     print(hero.status(), '\n')
+    kill_count = 0
+    total_score = 0
+    start_time = time()
     while hero.health and hero.level != 5:
         # if the enemy instance is destroyed, a new instance is created.
         if enemy.health == 0:
+            kill_count += 1
             enemy = Enemy(1, 1, 1)
             enemy.health = Character.SKILL[hero.level][2]
             enemy.level = hero.level
             # Enemy get some random points "attack" and "defence" for balance.
             for _ in range(hero.level - 1):
                 enemy.random_skill_up()
+            total_score += enemy.health
             print(enemy.status())
             print()
         else:
@@ -200,15 +206,17 @@ def run():
                       ' holding back the onslaught of the mighty Orc! '
                       'Your hero dies in an unequal battle!', 5 * '*')
                 sleep(1)
-                print(7 * '*', 'Try Again!', 7 * '*')
+                print(f"{' '* 14 + 7 * '*'}Try Again!{7 * '*'}")
                 break
             Action.hit(hero, boss)
-            # Action.check_fighter_status(hero, boss)
             sleep(1)
             if boss.health == 0:
                 sleep(1)
                 print(hero.status())
+                total_score += 30
                 break
-
-
-print(run())
+    print(f"{' ' * 15 + 5 * '*'}TOTAL SCORE{5 * '*'}")
+    print(f'Hero name   Total kills   Total score   Gaming time')
+    print(f'  {Hero.__name__}          {kill_count}            {total_score}         '
+          f'{round(time() - start_time, 3)}')
+    print('*' * 51)
