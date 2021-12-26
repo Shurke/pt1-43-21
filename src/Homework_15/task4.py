@@ -4,10 +4,10 @@ The numba module worked for speed up processing function.
 """
 
 
-from numba import njit
+# from numba import njit
 
 
-@njit()
+# @njit()
 def _euler(num: int) -> float:
     """
     Euler's function takes a natural number as input and outputs the ratio of number to the number
