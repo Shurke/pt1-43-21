@@ -3,9 +3,9 @@ Module for testing task1 Homework_15
 """
 
 import unittest
-from task1 import Hero, Enemy
-from unittest import TestCase
 from ddt import ddt, data, unpack
+from unittest import TestCase
+from task1 import Hero, Enemy
 
 
 @ddt
