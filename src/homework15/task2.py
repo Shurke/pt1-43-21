@@ -6,21 +6,16 @@
 
 
 class TooManyErrors(Exception):
-    '''
-
-    TooManyErrors Class
-    '''
+    '''TooManyErrors Class'''
 
     def __str__(self):
         return 'TooManyErrors'
 
 
 def dec(fun):
-    """
+    """Если превышено количество попыток {num_calls}, должно быть возбуждено исключение типа
+    TooManyErrors"""
 
-    Если превышено количество попыток {num_calls}, должно быть возбуждено исключение типа
-    TooManyErrors
-    """
     num_calls = int(input("Please enter call amount:"))
 
     def wrapper(*args, **kwargs):
@@ -38,11 +33,8 @@ def dec(fun):
 
 @dec
 def func_polindrome(num: int):
-    """
-
-    Определяет, является ли число палиндромом (читается слева направо и справа налево одинаково).
-    Число положительное целое, произвольной длины.
-    """
+    """Определяет, является ли число палиндромом (читается слева направо и справа налево одинаково).
+    Число положительное целое, произвольной длины."""
 
     old_num = num
     new_num = 0
