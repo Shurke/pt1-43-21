@@ -60,18 +60,18 @@ def task2(tup_of_req=None, dict_of_cities=None):
     # this loop breaks the string into elements and converts it to list
     for key, val in dict_of_cities.items():
         dict_of_cities[key] = val.split()
-    """this block check:
-        names of cities and countries contain only letters
-        city and country name must start with a capital letter
-        and check the length of the city name"""
-    for key, city_list in dict_of_cities.items():
+    # this block check:
+    #   names of cities and countries contain only letters
+    #   city and country name must start with a capital letter
+    #   and check the length of the city name
+    for city_list in dict_of_cities.values():
         for elem in city_list:
-            if type(elem).__name__ != 'str' or not elem.isalpha():
-                raise TypeError('Names of cities and countries must contain only letters!')
-            if elem.islower():
-                raise TypeError('City and country name must start with a capital letter')
-            if len(elem) <= 1:
-                raise TypeError('There are no cities with this name.')
+            if any([type(elem).__name__ != 'str',
+                    not elem.isalpha(),
+                    elem.islower(),
+                    len(elem) <= 1]):
+                raise TypeError('City and country names must be longer than 1,'
+                                ' start with a capital letter, and contain only letters.')
     # this block check the name of cities in requests list
     for city in tup_of_req:
         if type(city).__name__ != 'str' or not city.isalpha():

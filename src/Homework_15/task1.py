@@ -96,7 +96,7 @@ class Enemy(Character):
 
 class SuperBoss(Enemy):
     """Inherited from Enemy class with high parameters"""
-    def __init__(self, health=30, attack=5, defend=8):
+    def __init__(self, health=30, attack=10, defend=8):
         super().__init__(health, attack, defend, experience=99, level=99)
 
 
@@ -114,14 +114,14 @@ class Action:
         and the "level_up()" method is also called, which checks if there are enough points
         to increase the experience. The class also displays messages to simulate interactivity.
         """
-        if defender.health <= 0 and attacker.__class__.__name__ == 'Enemy':
+        if defender.health <= 0 and attacker.__class__.__name__ in ('Enemy', 'SuperBoss'):
             setattr(defender, 'health', 0)
             print('You die!', 'Game Over', defender.status(), sep='\n')
         elif defender.health <= 0 and attacker.__class__.__name__ == 'Hero':
             setattr(defender, 'health', 0)
             if defender.__class__.__name__ == 'SuperBoss':
                 print('***** Evil Orc defeated! The victory is yours! Congratulations!!! *****')
-                print('Game Over.')
+                print()
             else:
                 print(f'{defender.__class__.__name__} die! You win and get 2 exp point!')
                 attacker.experience += 2
@@ -175,6 +175,7 @@ def run():
             for _ in range(hero.level - 1):
                 enemy.random_skill_up()
             print(enemy.status())
+            print()
         else:
             Action.hit(enemy, hero)
             print()
@@ -193,18 +194,21 @@ def run():
         print('Let\'s fight!', '\n')
         while hero.health and boss.health:
             Action.hit(boss, hero)
-            sleep(1)
+            sleep(2)
             if hero.health == 0:
-                print('After a huge number of great victories, you are not'
+                print(5 * '*', 'After a huge number of great victories, you are not'
                       ' holding back the onslaught of the mighty Orc! '
-                      'Your hero dies in an unequal battle!')
+                      'Your hero dies in an unequal battle!', 5 * '*')
                 sleep(1)
-                print(hero.status())
-                print('Try Again!')
+                print(7 * '*', 'Try Again!', 7 * '*')
                 break
             Action.hit(hero, boss)
+            # Action.check_fighter_status(hero, boss)
             sleep(1)
             if boss.health == 0:
                 sleep(1)
                 print(hero.status())
                 break
+
+
+print(run())

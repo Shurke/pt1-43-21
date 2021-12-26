@@ -38,7 +38,8 @@ class TestCaseTask3(unittest.TestCase):
             task2(('Odessa', 'Moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
                    2: 'Ukraine kiev Donetsk Odessa'})
-        self.assertEqual('City and country name must start with a capital letter',
+        self.assertEqual('City and country names must be longer than 1, start with'
+                         ' a capital letter, and contain only letters.',
                          error.exception.args[0])
 
     def test_5(self):
