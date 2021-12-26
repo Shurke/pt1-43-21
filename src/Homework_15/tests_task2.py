@@ -2,13 +2,12 @@
 Module for testing task2 Homework_15
 """
 
-
-from ddt import data
-from ddt import ddt
-from ddt import unpack
 import task2
 import unittest
 from unittest import TestCase
+from ddt import data
+from ddt import ddt
+from ddt import unpack
 
 
 @ddt

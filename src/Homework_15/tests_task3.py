@@ -2,9 +2,8 @@
 Module for testing task3 Homework_15
 """
 
-
-from task3 import task2
 import unittest
+from task3 import task2
 
 
 class TestCaseTask3(unittest.TestCase):
