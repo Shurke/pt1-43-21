@@ -14,8 +14,7 @@ class TestPizza(unittest.TestCase):
     """Test cases for the Pizza Class. """
 
     @data(
-        (
-         "medium",
+        ("medium",
          "medium",
          ["Моцарелла", "базилик", "томатный соус", "помидоры"],
          ["Моцарелла", "базилик", "томатный соус", "помидоры"]
