@@ -3,8 +3,8 @@ Module for testing task1 Homework_15
 """
 
 import unittest
-from ddt import ddt, data, unpack
 from unittest import TestCase
+from ddt import ddt, data, unpack
 from task1 import Hero, Enemy
 
 

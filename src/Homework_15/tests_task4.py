@@ -4,7 +4,8 @@ Module for testing task4 Homework_15
 
 
 import unittest
-from task4 import max_euler, _euler
+from task4 import max_euler
+from task4 import _euler
 
 
 class TestCaseTask4(unittest.TestCase):
