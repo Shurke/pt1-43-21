@@ -2,24 +2,27 @@
 Module for testing task1 Homework_15
 """
 
-
+import sys
 import unittest
 from unittest import TestCase
 from ddt import ddt, data, unpack
+
+sys.path.append('Homework_15')
 import task1
 
 
 @ddt
 class TestClasses(TestCase):
     """Test case for task1"""
-    @data((1, 1, 1, 1, 1), (2, 1, 3, 1, 1), (5, 5, 5, 1, 1))
+
+    @data((1, 1, 1, 1), (2, 1, 3, 1), (5, 5, 5, 1))
     @unpack
     def test_1(self, *args):
         """The test check, that 'inst' is instance of class 'Hero'"""
         inst = task1.Hero(*args)
         self.assertIsInstance(inst, task1.Hero)
 
-    @data((1, 1, 1, 1, 1), (1, 2, 3, 1, 1))
+    @data((1, 1, 1, 1), (1, 2, 3, 1))
     @unpack
     def test_2(self, *args):
         """The test check, that 'inst' (instance of Enemy class) is not instance of class 'Hero'"""
