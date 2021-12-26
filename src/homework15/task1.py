@@ -39,7 +39,8 @@ class Pizza:
     цены: ingredients_prices.
     Хранит стоимость приготовления пиццы: cost_to_cook.
     Хранит виды размеров пицы: sizes и коэффициенты изменения цены от размера: price_correction.
-    Умее расчитать цену пиццы: price
+    Хранит словарь имен пиццы: names_for_pizza
+    Умеет расчитать цену пиццы: price
 
     """
 
@@ -99,46 +100,47 @@ class Pizza:
         "помидоры": 1,
     }
 
+    meat = {
+        "бекон",
+        "куриное филе",
+        "ветчина",
+    }
+    sea = {
+        "морской коктейль из мидий",
+        "мини-осьминоги",
+        "кальмары",
+        "креветки",
+    }
+    cheese = {
+        "Моцарелла",
+        "Пармезан",
+        "Эмменталь",
+        "сыр Дорблю",
+    }
+    vegetarian = {
+        "каперсы",
+        "маслины",
+        "петрушка",
+        "орегано",
+        "базилик",
+        "сельдерей",
+        "томатный соус",
+        "помидоры",
+    }
+    names_for_pizza = {
+        "Морская пицца": sea,
+        "Мясная пицца": meat,
+        "Сырная пицца": cheese,
+        "Вегетарианская пицца": vegetarian,
+    }
+
     def __init__(self, ingredients, size):
         self.ingredients = ingredients
         self.size = size
 
     def __str__(self):
-        meat = {
-            "бекон",
-            "куриное филе",
-            "ветчина",
-        }
-        sea = {
-            "морской коктейль из мидий",
-            "мини-осьминоги",
-            "кальмары",
-            "креветки",
-        }
-        cheese = {
-            "Моцарелла",
-            "Пармезан",
-            "Эмменталь",
-            "сыр Дорблю",
-        }
-        vegetarian = {
-            "каперсы",
-            "маслины",
-            "петрушка",
-            "орегано",
-            "базилик",
-            "сельдерей",
-            "томатный соус",
-            "помидоры",
-        }
-        names_for_pizza = {
-            "Морская пицца": sea,
-            "Мясная пицца": meat,
-            "Сырная пицца": cheese,
-            "Вегетарианская пицца": vegetarian,
-        }
         set_ingredients = set(self.ingredients)
-        for name_of_pizza, main_ingredients in names_for_pizza.items():
+        for name_of_pizza, main_ingredients in self.names_for_pizza.items():
             if main_ingredients & set_ingredients:
                 return name_of_pizza
         return "Оригинальная пицца"
