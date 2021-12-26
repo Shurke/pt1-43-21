@@ -5,9 +5,9 @@ Module for testing task1 Homework_15
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-import unittest
 from task1 import Enemy
 from task1 import Hero
+import unittest
 
 
 @ddt
