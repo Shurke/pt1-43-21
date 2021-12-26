@@ -108,7 +108,12 @@ class Action:
         self.defender = defender
 
     @staticmethod
-    def check_status(attacker, defender):
+    def check_fighter_status(attacker, defender):
+        """
+        Method check fighter status. If the Hero defeats the Enemy, he gets 2 experience points
+        and the "level_up()" method is also called, which checks if there are enough points
+        to increase the experience. The class also displays messages to simulate interactivity.
+        """
         if defender.health <= 0 and attacker.__class__.__name__ == 'Enemy':
             setattr(defender, 'health', 0)
             print('You die!', 'Game Over', defender.status(), sep='\n')
@@ -126,10 +131,8 @@ class Action:
     def hit(attacker, defender):
         """
         The static method 'hit' description the logics of attack.
-        Damage = attack[attackers characteristic] * random coefficient (from 0 to 4) - defense points
-        of the defender. If the Hero defeats the Enemy, he gets 2 experience points and
-        the "level_up()" method is also called, which checks if there are enough points
-        to increase the experience. The class also displays messages to simulate interactivity.
+        Damage = attack[attackers characteristic] * random coefficient (from 0 to 4) - defense
+        points of the defender.
         """
         coefficient = randint(0, 4)
         print(f'{attacker.__class__.__name__} move:')
@@ -141,10 +144,11 @@ class Action:
                 defender.health -= damage
                 print(f'{attacker.__class__.__name__} hit and deal {damage} damage!', '\n')
             else:
-                print(f'{attacker.__class__.__name__} attacked and can\'t pierce the armor!', '\n')
+                print(f'{attacker.__class__.__name__} attacked and can\'t'
+                      f' pierce the armor!', '\n')
         else:
             print(f'{attacker.__class__.__name__} missed!', '\n')
-        Action.check_status(attacker, defender)
+        Action.check_fighter_status(attacker, defender)
 
 
 def run():
@@ -158,7 +162,7 @@ def run():
 
     When Hero get level 5 - called SuperBoss for final fight!
     """
-    hero = Hero(2, 10, 10)
+    hero = Hero(2, 5, 10)
     enemy = Enemy(1, 1, 1)
     print(hero.status(), '\n')
     while hero.health and hero.level != 5:
@@ -204,6 +208,3 @@ def run():
                 sleep(1)
                 print(hero.status())
                 break
-
-
-print(run())

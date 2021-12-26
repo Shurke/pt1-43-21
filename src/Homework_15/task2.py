@@ -12,8 +12,6 @@ class TooManyErrors(Exception):
     """
     Class for create Exception 'TooManyErrors'
     """
-    def __init__(self):
-        pass
 
     def __str__(self):
         return 'TooManyErrors!'
@@ -28,7 +26,9 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
     if num_of_call is None:
         num_of_call = int(input('Enter nums of decorator calls: '))
 
-    def dec(func, flag=True):
+    def dec(func):
+        flag = True
+
         def wrapper(*args, **kwargs):
             nonlocal num_of_call
             nonlocal flag
@@ -50,7 +50,12 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
     return dec
 
 
-@decorator_that_call_func_without_except(3)
+@decorator_that_call_func_without_except()
 def some_func(num):
     """Something function"""
     return 1 / num
+
+
+# print(some_func(0))
+# print(some_func(1))
+# print(some_func(1))

@@ -35,9 +35,6 @@ Russia
 """
 
 
-from task3_list_of_countries import result_list_of_countries
-
-
 def task2(tup_of_req=None, dict_of_cities=None):
     """
     The function input num of
@@ -56,26 +53,18 @@ def task2(tup_of_req=None, dict_of_cities=None):
         dict_of_cities = {i: input('Enter country and cities per space: ')
                           for i in range(num_of_country)}
     # this block check the type of object that transmit in function
-    elif type(tup_of_req).__name__ not in ('tuple', 'list'):
-        raise TypeError("Data contained request with cities for check transmits in function with"
-                        " 'tuple' or 'list' type!")
-    elif type(dict_of_cities).__name__ != 'dict':
-        raise TypeError("You need to pass to the function a dictionary!")
+    elif type(tup_of_req).__name__ not in ('tuple', 'list') or\
+            type(dict_of_cities).__name__ != 'dict':
+        raise TypeError("Incorrect input data type!")
+
     # this loop breaks the string into elements and converts it to list
     for key, val in dict_of_cities.items():
         dict_of_cities[key] = val.split()
     """this block check:
-        the key should be a number only
-        country name must come first: it compare the first element in list with
-        auxiliary list - result_list_of_countries
         names of cities and countries contain only letters
         city and country name must start with a capital letter
         and check the length of the city name"""
     for key, city_list in dict_of_cities.items():
-        if type(key).__name__ != 'int':
-            raise TypeError('The key in dictionary must be a integer!')
-        if city_list[0] not in result_list_of_countries:
-            raise TypeError('The name of the country should be in the first place!')
         for elem in city_list:
             if type(elem).__name__ != 'str' or not elem.isalpha():
                 raise TypeError('Names of cities and countries must contain only letters!')
@@ -83,7 +72,6 @@ def task2(tup_of_req=None, dict_of_cities=None):
                 raise TypeError('City and country name must start with a capital letter')
             if len(elem) <= 1:
                 raise TypeError('There are no cities with this name.')
-
     # this block check the name of cities in requests list
     for city in tup_of_req:
         if type(city).__name__ != 'str' or not city.isalpha():
