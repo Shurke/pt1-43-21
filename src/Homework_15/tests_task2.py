@@ -3,9 +3,9 @@ Module for testing task2 Homework_15
 """
 
 
-import unittest
-import task2
 from ddt import data
+import task2
+import unittest
 from ddt import ddt
 from ddt import unpack
 
