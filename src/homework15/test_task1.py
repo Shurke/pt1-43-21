@@ -1,3 +1,7 @@
+from ddt import data
+from ddt import ddt
+from ddt import unpack
+
 from task1 import Order
 from task1 import Pizza
 from task1 import Waiter
@@ -5,29 +9,61 @@ from task1 import Waiter
 import unittest
 
 
+@ddt
 class TestPizza(unittest.TestCase):
     """Test cases for the Pizza Class."""
-    def setUp(self):
-        ingredients = ["Моцарелла", "базилик", "томатный соус", "помидоры"]
-        size = "medium"
-        self.pizza = Pizza(ingredients, size)
 
-    def test_size(self):
-        """проверяет размер пиццы"""
-        self.assertEqual(self.pizza.size, "medium")
+    @data(
+        (
+         "medium",
+         "medium",
+         ["Моцарелла", "базилик", "томатный соус", "помидоры"],
+         ["Моцарелла", "базилик", "томатный соус", "помидоры"]
+         ),
+        ("big",
+         "big",
+         ["куриное филе", "ветчина", "Моцарелла"],
+         ["куриное филе", "ветчина", "Моцарелла"]
+         ),
+    )
+    @unpack
+    def test_size_ingredients(self, size_input, size_output, ingredients_input, ingredients_output):
+        pizza = Pizza(ingredients_input, size_input)
+        """проверяет размер и ингредиенты пиццы"""
+        self.assertEqual(pizza.size, size_output)
+        self.assertEqual(pizza.ingredients, ingredients_output)
 
-    def test_ingredients(self):
-        """проверяет ингредиенты пиццы"""
-        ingredients_expected = ["Моцарелла", "базилик", "томатный соус", "помидоры"]
-        self.assertEqual(self.pizza.ingredients, ingredients_expected)
-
-    def test_str(self):
+    @data(
+        ("medium",
+         ["Моцарелла", "базилик", "томатный соус", "помидоры"],
+         "Сырная пицца"
+         ),
+        ("big",
+         ["куриное филе", "ветчина", "Моцарелла"],
+         "Мясная пицца"
+         ),
+    )
+    @unpack
+    def test_str(self, size_input, ingredients_input, expected_str):
         """проверяет строковое представление пиццы"""
-        self.assertEqual(str(self.pizza), "Сырная пицца")
+        pizza = Pizza(ingredients_input, size_input)
+        self.assertEqual(str(pizza), expected_str)
 
-    def test_price(self):
+    @data(
+        ("medium",
+         ["Моцарелла", "базилик", "томатный соус", "помидоры"],
+         15.6
+         ),
+        ("big",
+         ["куриное филе", "ветчина", "Моцарелла"],
+         19.5
+         ),
+    )
+    @unpack
+    def test_price(self, size_input, ingredients_input, expected_price):
         """проверяет расчет цены товара"""
-        self.assertEqual(self.pizza.price(), 15.6)
+        pizza = Pizza(ingredients_input, size_input)
+        self.assertEqual(pizza.price(), expected_price)
 
 
 class TestOrder(unittest.TestCase):
