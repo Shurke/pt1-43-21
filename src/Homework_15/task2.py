@@ -9,9 +9,7 @@ import sys
 
 
 class TooManyErrors(Exception):
-    """
-    Class for create Exception 'TooManyErrors'
-    """
+    """Class for create Exception 'TooManyErrors'"""
 
     def __str__(self):
         return 'TooManyErrors!'
@@ -25,7 +23,6 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
     :return: in case of incorrect operation of the function, the decorator throws an 'Error'
 
     exception;
-    
     if the function has completed without exception, the decorator done its work.
     """
     if num_of_call is None:

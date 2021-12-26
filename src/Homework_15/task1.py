@@ -10,19 +10,29 @@
 
 
 from random import randint
-from time import sleep, time
+from time import sleep
+from time import time
 
 
 class Character:
     """The basic class Character contain five parameters:
+
         - health
+
         - attack
+
         - defend
+
         - experience
+
         - level [TOP level = 5]
-        and dictionary which contains hero's level as a key, and list
-        with [string name of level, minimum exp points for level up, health points].
-        And two class method: 'status' and 'random_skill_up'"""
+
+    and dictionary which contains hero's level as a key, and list
+
+    with [string name of level, minimum exp points for level up, health points].
+
+    And two class method: 'status' and 'random_skill_up'
+    """
     SKILL = {1: ['Level 1', 0, 2],
              2: ['Level 2', 2, 4],
              3: ['Level 3', 4, 8],
@@ -50,8 +60,11 @@ class Character:
 
     def random_skill_up(self):
         """This method randomize the attack and defence points distribution for element
-           of surprise in automatic mod. In real game, we need to provide for the possibility
-           of distributing skills in manual mode"""
+
+        of surprise in automatic mod. In real game, we need to provide for the possibility
+
+        of distributing skills in manual mode
+        """
         flag = 0
         while True:
             chance = randint(0, 1)
@@ -68,14 +81,20 @@ class Character:
 
 class Hero(Character):
     """This is a class of hero. It contain parameters of parent class and
-       one unique method 'level_up'."""
+
+    one unique method 'level_up'.
+    """
     EXPERIENCE = 0
 
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
-           than point of exp in second list element with key 'level + 1' in SKILL dictionary.
-           Maximum level is 5, upon reaching this level and subsequent hero gets 2 skill points
-           (distributed randomly) and health points are restored."""
+
+        than point of exp in second list element with key 'level + 1' in SKILL dictionary.
+
+        Maximum level is 5, upon reaching this level and subsequent hero gets 2 skill points
+
+        (distributed randomly) and health points are restored.
+        """
         if self.level == 5 and Hero.EXPERIENCE >= 16:
             self.health = self.SKILL.get(self.level)[2]
             self.random_skill_up()
@@ -103,16 +122,19 @@ class SuperBoss(Enemy):
 
 class Action:
     """Class describes the logic of interaction between two classes: the classes "attacker"
-       and "defender"."""
+
+       and "defender".
+       """
     def __init__(self, attacker, defender):
         self.attacker = attacker
         self.defender = defender
 
     @staticmethod
     def check_fighter_status(attacker, defender):
-        """
-        Method check fighter status. If the Hero defeats the Enemy, he gets 2 experience points
+        """Method check fighter status. If the Hero defeats the Enemy, he gets 2 experience points
+
         and the "level_up()" method is also called, which checks if there are enough points
+
         to increase the experience. The class also displays messages to simulate interactivity.
         """
         if defender.health <= 0 and attacker.__class__.__name__ in ('Enemy', 'SuperBoss'):
@@ -130,9 +152,10 @@ class Action:
 
     @staticmethod
     def hit(attacker, defender):
-        """
-        The static method 'hit' description the logics of attack.
+        """The static method 'hit' description the logics of attack.
+
         Damage = attack[attackers characteristic] * random coefficient (from 0 to 4) - defense
+
         points of the defender.
         """
         coefficient = randint(0, 4)
@@ -154,9 +177,13 @@ class Action:
 
 def run():
     """This function for automatic fight hero with enemy
+
     The cycle creates enemy instances from the Enemy class,
+
     the enemy's health is assigned from the SKILL dictionary and
+
     the "attack" and "defend" skills are randomly distributed using the
+
     random_skill_up method from Character Class.
 
     With "Action" class Enemy attacked Hero and Hero attacked Enemy one by one.

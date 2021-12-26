@@ -7,8 +7,8 @@ from ddt import data
 from ddt import ddt
 from ddt import unpack
 import task2
-from unittest import TestCase
 import unittest
+from unittest import TestCase
 
 
 @ddt
