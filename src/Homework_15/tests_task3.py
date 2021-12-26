@@ -43,8 +43,9 @@ class TestCaseTask3(unittest.TestCase):
                          error.exception.args[0])
 
     def test_5(self):
-        """Test with raise call. If the city name does not start with a capital letter in
-        request list"""
+        """Test with raise call. If the city name does not start with a capital letter in request
+        list.
+        """
         with self.assertRaises(TypeError) as error:
             task2(('Odessa', 'moscow', 'Novgorod'),
                   {1: 'Russia Moscow Petersburg Novgorod Kaluga',
