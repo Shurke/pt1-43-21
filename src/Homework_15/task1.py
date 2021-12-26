@@ -216,7 +216,7 @@ def run():
                 total_score += 30
                 break
     print(f"{' ' * 15 + 5 * '*'}TOTAL SCORE{5 * '*'}")
-    print(f'Hero name   Total kills   Total score   Gaming time')
-    print(f'  {Hero.__name__}          {kill_count}            {total_score}         '
+    print('Hero name', ' ' * 3, 'Total kills', ' ' * 3, 'Total score', ' ' * 3, 'Gaming time')
+    print(f'  {Hero.__name__}             {kill_count}             {total_score}           '
           f'{round(time() - start_time, 3)}')
-    print('*' * 51)
+    print('*' * 57)
