@@ -8,11 +8,10 @@ from ddt import ddt
 from ddt import unpack
 from task1 import Enemy
 from task1 import Hero
-from unittest import TestCase
 
 
 @ddt
-class TestClasses(TestCase):
+class TestClasses(unittest.TestCase):
     """Test case for task1"""
     @data((1, 1, 1, 1), (2, 1, 3, 1), (5, 5, 5, 1))
     @unpack

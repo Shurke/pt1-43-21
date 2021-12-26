@@ -2,16 +2,16 @@
 Module for testing task2 Homework_15
 """
 
-import task2
+
 import unittest
+import task2
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-from unittest import TestCase
 
 
 @ddt
-class TestParametricDecorator(TestCase):
+class TestParametricDecorator(unittest.TestCase):
     """Test case for parametric decorator, that calls the function a certain number of times,
 
     if the function is executed without an exception, the decorator finishes work,
