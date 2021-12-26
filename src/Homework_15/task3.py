@@ -36,11 +36,14 @@ Russia
 
 
 def task2(tup_of_req=None, dict_of_cities=None):
-    """
-    The function input num of
+    """The function input num of
+
     :param tup_of_req: it contain the cities that we want to check
+
     :param dict_of_cities: it contain num of countries as key and string with the first
+
     of the country name and list of cities as value
+
     :return: the name of the countries in which the cities from the tup_of_req are located
     """
     result = []

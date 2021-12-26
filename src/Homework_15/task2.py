@@ -19,10 +19,15 @@ class TooManyErrors(Exception):
 
 def decorator_that_call_func_without_except(num_of_call: int = None):
     """The decorator accepts as input the max number of function calls
+
     :param num_of_call:
+
     :return: in case of incorrect operation of the function, the decorator throws an 'Error'
+
     exception;
-    if the function has completed without exception, the decorator done its work."""
+    
+    if the function has completed without exception, the decorator done its work.
+    """
     if num_of_call is None:
         num_of_call = int(input('Enter nums of decorator calls: '))
 

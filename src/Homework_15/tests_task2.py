@@ -6,8 +6,8 @@ Module for testing task2 Homework_15
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-from unittest import TestCase
 import task2
+from unittest import TestCase
 import unittest
 
 

@@ -10,7 +10,7 @@ The numba module worked for speed up processing function.
 # @njit()
 def euler(num: int) -> float:
     """Euler's function takes a natural number as input and outputs the ratio of number to the
-    
+
     number of co-prime numbers.
     """
     total_num = num
