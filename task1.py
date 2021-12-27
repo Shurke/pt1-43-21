@@ -67,6 +67,6 @@ if __name__ == '__main__':
     print(prod1.getQuantity(), prod1.updateQuantity(2, True), prod1.viewProduct())
 
     invent1 = Inventory()
-    invent1.addProduct(1)
+    invent1.addProduct(3)
     invent1.removeProduct(2)
     invent1.viewInventory()
