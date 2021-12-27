@@ -23,7 +23,7 @@ import sys
 class Prime:
     @staticmethod
     def get(n):
-        """ Создание списка простых чисел в диапазоне n, начиная с двойки."""
+        """Создание списка простых чисел в диапазоне n, начиная с двойки."""
         primes = []
         visited = [False] * (n + 1)
 
@@ -55,7 +55,7 @@ class BinomialCoefficient:
 
             # Расчет биномиальных коэффициентов
             for i in range(1, m + 1):
-                result = result * (n - i + 1)//i
+                result = result * (n - i + 1) // i
             self.cache[n][m] = result % self.mod
         return self.cache[n][m]
 

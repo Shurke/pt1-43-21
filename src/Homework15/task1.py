@@ -87,8 +87,10 @@ class NewYearTree(NewYearTreePlace):
         print('Даа... Выбор здесь большой.')
         view_tree_list = ['облезлая', 'редкая', 'пышная']
         while True:
-            rand_height = round(random.triangular(self.height * 0.7, self.height * 1.3, self.height), 1)
-            rand_width = round(random.triangular(self.width * 0.7, self.width * 1.3, self.width), 1)
+            rand_height = round(random.triangular(self.height * 0.7,
+                                                  self.height * 1.3, self.height), 1)
+            rand_width = round(random.triangular(self.width * 0.7,
+                                                 self.width * 1.3, self.width), 1)
             random_choose_view = RandomChoose(view_tree_list, 1)
             view_tree = random_choose_view.get_choice()
             print(f'Посмотрим на эту. Высота {rand_height}, ширина {rand_width}, {view_tree}')
