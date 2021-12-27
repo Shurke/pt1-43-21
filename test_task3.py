@@ -1,5 +1,5 @@
-import unittest
 from task3 import n
+import unittest
 
 
 def test1():
