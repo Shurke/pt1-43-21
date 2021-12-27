@@ -2,11 +2,14 @@
 Module for testing task2 Homework_15
 """
 
+
+import unittest
+
 from ddt import data
 from ddt import ddt
 from ddt import unpack
-import task2
-import unittest
+
+from Homework_15 import task2
 
 
 @ddt

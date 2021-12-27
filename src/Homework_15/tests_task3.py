@@ -2,8 +2,8 @@
 Module for testing task3 Homework_15
 """
 
-import task3
 import unittest
+import task3
 
 
 class TestCaseTask3(unittest.TestCase):
