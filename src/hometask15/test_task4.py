@@ -4,11 +4,8 @@ tests function 'max_product'
 tests function 'converting_to_list'
 """
 
-from ddt import data
-from ddt import ddt
-from ddt import unpack
-from task4 import converting_to_list
-from task4 import max_product
+from ddt import data, ddt, unpack
+from task4 import converting_to_list, max_product
 import unittest
 
 

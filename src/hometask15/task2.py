@@ -25,7 +25,7 @@ import time
 
 
 class RoomNumberError(Exception):
-    pass
+    """Excepts not existing room number input"""
 
 
 class Client:
@@ -33,6 +33,19 @@ class Client:
 
     def __init__(self, name: str, surname: str, days: int, all_incl: int = 0):
         """initialization of client"""
+
+        # checks if name is string
+        if not isinstance(name, str):
+            raise ValueError('Wrong input data')
+        # checks if surname is string
+        if not isinstance(surname, str):
+            raise ValueError('Wrong input data')
+        # checks if days is integer
+        if not isinstance(days, int) or days < 1:
+            raise ValueError('Wrong input data')
+        # checks if all_inclusive is integer
+        if not isinstance(all_incl, int):
+            raise ValueError('Wrong input data')
 
         self.name = name
         self.surname = surname
@@ -49,6 +62,24 @@ class Client:
 
 class Reception:
     """processes Reception Services and help"""
+
+    def __init__(self, room_num: int = None):
+        """initialization of room_number if client (not) exists """
+
+        if room_num is not None:
+            # If the client has a room, getting an request from him
+            if room_num not in Reception.rooms.keys() or Reception.rooms[room_num] == 0:
+                raise RoomNumberError('Wrong room number')
+            self.room_number = room_num
+            client = Reception.get_client_info(room_num)
+            print(f'Hello, {client.name} {client.surname}!')
+            print(Reception.offer_help_message)
+        else:
+            # If the client doesn't have a room, checking him in
+            Reception.welcoming()
+            x = Client(input(), input(), int(input()), int(input()))
+            Reception.move_in(x)
+            self.room_number = x.curr_room
 
     rooms = {
         101: 0, 102: 0, 103: 0, 104: 0, 105: 0,
@@ -76,16 +107,19 @@ class Reception:
     @staticmethod
     def move_in(obj):
         """checks client in the room"""
-
+        booked = False
         if obj.all_inclusive:
             obj.money_debt = obj.days * 150
         else:
             obj.money_debt = obj.days * 120
         for room in Reception.rooms.keys():
             if Reception.rooms[room] == 0:
-                obj.curr_room = room
                 Reception.rooms[room] = obj
+                obj.curr_room = room
+                booked = True
                 break
+        if not booked:
+            raise RoomNumberError('There are no free places at the hotel')
         print(f'Your room number is {obj.curr_room}')
         print(f'payments for the duration - {obj.money_debt}')
 
@@ -93,13 +127,17 @@ class Reception:
         """changes client's room and (optional) adds reason into list"""
 
         client = Reception.rooms[self.room_number]
+        flag = False
         for room in Reception.rooms.keys():
-            if Reception.rooms[room] == 0 and room != client.curr_room:
+            if Reception.rooms[room] == 0:
                 Reception.rooms[client.curr_room] = 0
                 client.curr_room = room
                 Reception.rooms[room] = client
                 self.room_number = room
+                flag = True
                 break
+        if not flag:
+            raise RoomNumberError('All other rooms are booked')
         print('Your room has been changed!')
         print(f'Now your room number is {client.curr_room}')
         if reason is not None:
@@ -120,26 +158,10 @@ class Reception:
 
     @staticmethod
     def get_client_info(room_num: int):
+        if not isinstance(room_num, int) or room_num not in Reception.rooms.keys():
+            raise RoomNumberError('Wrong room number')
         """returns all information about the client from the room"""
         return Reception.rooms[room_num]
-
-    def __init__(self, room_num: int = None):
-        """initialization of room_number if client (not) exists """
-
-        if room_num is not None:
-            # If the client has a room, getting an request from him
-            if Reception.rooms[room_num] == 0:
-                raise RoomNumberError('Wrong room number given')
-            self.room_number = room_num
-            client = Reception.get_client_info(room_num)
-            print(f'Hello, {client.name} {client.surname}!')
-            print(Reception.offer_help_message)
-        else:
-            # If the client doesn't have a room, checking him in
-            Reception.welcoming()
-            x = Client(input(), input(), int(input()), int(input()))
-            Reception.move_in(x)
-            self.room_number = x.curr_room
 
 
 class Entertainment(Reception):
@@ -153,6 +175,13 @@ class Entertainment(Reception):
 
     def play_casino(self, deposit: int):
         """Simulates casino gameplay, based on random library"""
+
+        # checks if deposit more than 0
+        if deposit <= 0:
+            raise ValueError('Deposit should be more than 0')
+        # checks if int was given
+        if not isinstance(deposit, int):
+            raise TypeError('Deposit should be int')
 
         if random.randint(1, 10) % 2 == 0:
             # Winning case
@@ -172,6 +201,13 @@ class Entertainment(Reception):
     @staticmethod
     def swimming(person_amount: int):
         """gives person * 2 towels if swimming-pool is opened"""
+
+        # checks if the amount of people more than 0
+        if person_amount <= 0:
+            raise ValueError('Should be at least one person')
+        # checks if int was given
+        if not isinstance(person_amount, int):
+            raise TypeError('Number of persons should be int')
 
         # s equals to time in hh:mm:ss format
         s = time.strftime(time.ctime()).split()[3]
