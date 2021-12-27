@@ -16,83 +16,56 @@
 обратное числу m по модулю n равно самому же m.
 Таким образом, I(15)=11.
 Также, I(100)=51 и I(7)=1.
-Найдите ∑I(n) для 3≤n≤2·107
+Найдите ∑I(n) для 3≤n≤2*10**7
 '''
 
 
-def list_del(a, b):
+def great_comm_divisor(a, b):
     '''Находит НОД 2х чисел'''
-    while a != 0 and b != 0:
-        if a > b:
-            a = a % b
-        else:
-            b = b % a
-    return a + b
+
+    if a < b:
+        while b:
+            (a, b) = (b, a % b)
+        return a
+    while a:
+        (b, a) = (a, b % a)
+    return b
 
 
-def easy_list(n: int = 15) -> list:
+def mutually_simple_list(n: int = 15) -> list:
     '''Создает список взаимно простых чисел от 1 до n'''
-    lst_1 = [el for el in range(1, n) if list_del(n, el) == 1]
+
+    lst_1 = [el for el in range(1, n) if great_comm_divisor(n, el) == 1]
     return lst_1
 
 
-def back_list(list_func: list, n: int) -> list:
-    '''Создает список чисел обратных числам из list_func по модулю n в диапазоне от 1 до n-1'''
-    list_iter = easy_list(n)
-    back_lst = [i for i in list_iter if (i * i) % n == 1 and i < n - 1]
+def modulo_inverse_list(lst: list, n: int) -> list:
+    '''Создает урезанный список чисел обратных числам из lst по модулю n в диапазоне от 1 до n-1,
+    состоящий только из элементов равных себе же обратным по модулю'''
+
+    back_lst = [i for i in lst if (i * i) % n == 1 and i < n - 1]
     return back_lst
 
 
 def max_m(n):
     '''находит наибольшее положительное число m, такое, что число обратное m по модулю n равно самому m'''
-    a = easy_list(n)
-    b = back_list(a, n)
+
+    b = modulo_inverse_list(mutually_simple_list(n), n)
     m = b[-1]
     return m
     pass
 
 
 def sum_func(ranges):
-    '''Находит Найдите ∑max_m(n) для диапазона ranges'''
-    summa = 0
+    '''Находит ∑max_m(n) для диапазона ranges'''
+
+    summ = 0
     for i in ranges:
-        summa += max_m(i)
-    print(summa)
-    return summa
+        summ += max_m(i)
+    print(summ)
+    return summ
     pass
 
 
-def test1():
-    if max_m(15) == 11:
-        print('test1 max_m - ok')
-    else:
-        print('test1 max_m - fail')
-
-
-def test2():
-    if max_m(100) == 51:
-        print('test2 max_m - ok')
-    else:
-        print('test2 max_m - fail')
-
-
-def test3():
-    if max_m(7) == 1:
-        print('test3 max_m - ok')
-    else:
-        print('test3 max_m - fail')
-
-
-def test4():
-    if sum_func(7, 15, 100) == 63:
-        print('test4 sum algorithm - ok')
-    else:
-        print('test4 sum algorithm - fail')
-
-
-test1()
-test2()
-test3()
-test4()
-
-sum_func(range(3, 2 * 10**7))
+#sum_func(range(3, 2 * 10**7))
+sum_func([1, 15, 100])

@@ -1,3 +1,5 @@
+'''Tests for task4'''
+
 import unittest
 from task4 import great_comm_divisor, max_m, modulo_inverse_list, mutually_simple_list, sum_func
 import pytest
