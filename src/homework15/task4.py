@@ -10,29 +10,37 @@ https://euler.jakumo.org/problems/view/71.html
 дробь представляется кортежом-парой (числитель, знаменатель)
 """
 
+ 
+class StringWithoutSlash(Exception):
+    def __init__(self, message):
+        self.txt = message
 
-def gcd(a, b):  # Наибольший общий делитель (алгоритм Евклида)
+
+def gcd(a: int, b: int) -> int:   # Наибольший общий делитель (алгоритм Евклида)
     while b > 0:
         a, b = b, a % b
     return a
 
 
-def simplify(fraction):  # сокращение дроби
+def simplify(fraction: tuple) -> tuple:  # сокращение дроби
     g = gcd(fraction[0], fraction[1])
     return fraction[0] // g, fraction[1] // g
 
 
-def search_left_numerator(count, search_fraction):
+def search_left_numerator(count: int, search_fraction: str) -> str:
+    if search_fraction.find("/") == -1:
+        raise StringWithoutSlash("Второй аргумент вызова функции search_left_numerator "
+                                 "должен быть дробью.")
     search_fraction_list = search_fraction.split('/')
-    search_fraction_numerator = search_fraction_list[0]
-    search_fraction_denominator = search_fraction_list[1]
+    search_fraction_numerator = int(search_fraction_list[0])
+    search_fraction_denominator = int(search_fraction_list[1])
     t = []
     prev_numerator = None
     result = None
-    for num in range(1, count + 1):  # цикл по всем числителям
-        for den in range(num + 1, count + 1):  # цикл по всем знаменателям
-            pair = simplify((num, den))  # очередная дробь
-            t.append(pair)  # добавим к списку
+    for num in range(1, count+1):          # цикл по всем числителям
+        for den in range(num+1, count+1):  # цикл по всем знаменателям
+            pair = simplify((num, den))    # очередная дробь
+            t.append(pair)                 # добавим к списку
     s = list(set(t))  # устраняем дубликаты - превращаем список во множество
     for q in sorted(s, key=lambda x: x[0] / x[1]):  # сортируем по величине частного (в виде float)
         print(str(q[0]) + "/" + str(q[1]))

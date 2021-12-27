@@ -2,6 +2,8 @@
 который вызывает задекорированную функцию пока она не выполнится без исключений
 (но не более n раз - параметр декоратора).
 Если превышено количество попыток, должно быть возбуждено исключение типа TooManyErrors
+
+Парсинг фрагмента текста сайта с замером среднего времени выполнения этой операции.
 """
 
 from bs4 import BeautifulSoup
@@ -40,7 +42,7 @@ def functional_expander(n):
 
 
 @functional_expander(n=10)
-def get_text(url):
+def get_text(url: str) -> str:
     rs = requests.get(url)
     root = BeautifulSoup(rs.content, 'html.parser')
     article = root.select_one('.main-section-top__txt p')
