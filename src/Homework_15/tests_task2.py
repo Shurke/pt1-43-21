@@ -9,7 +9,7 @@ from ddt import data
 from ddt import ddt
 from ddt import unpack
 
-from Homework_15 import task2
+import task2
 
 
 @ddt
