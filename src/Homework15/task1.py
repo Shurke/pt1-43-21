@@ -1,5 +1,3 @@
-import random
-
 """
 Создайте  модель из жизни. Это может быть бронирование комнаты в
 отеле, покупка билета в транспортной компании, или простая РПГ.
@@ -10,6 +8,12 @@ import random
 взаимодействие объектов и т.д.
 """
 
+
+import random
+import sys
+# import time
+
+
 """
 Подготовка к встрече Нового Года
 
@@ -17,14 +21,15 @@ import random
 """
 
 
-class NewyearTreePlace:
+class NewYearTreePlace:
     """Место для новогодней елки."""
     def __init__(self, height, width):
         self.height = height
         self.width = width
 
     def dimensions_tree(self):
-        print(f'Так, в высоту елка должна быть {self.height} метра, в ширину - {self.width}')
+        out_str = f'Так, в высоту елка должна быть {self.height} метра, в ширину - {self.width}'
+        return print(out_str)
 
 
 class Car:
@@ -33,7 +38,9 @@ class Car:
         self.vehicle = vehicle
 
     def move(self):
-        print(f'А добраться туда можно на {self.vehicle}.')
+        out_str = f'А добраться туда можно на {self.vehicle}.'
+        print(out_str)
+        return self.vehicle
 
 
 class Gifts:
@@ -41,12 +48,14 @@ class Gifts:
     def __init__(self, desires):
         self.desires = desires
 
-    def move_gifts(self):
+    @staticmethod
+    def move_gifts():
         """Поездка за подарками."""
         print('За подарками поедем в торговый центр. ', end='')
         random_choose_car = RandomChoose(['такси', 'своей машине', 'общественном транспорте'], 1)
         my_vehicle = Car(random_choose_car.get_choice())
-        my_vehicle.move()
+        out_vehicle = my_vehicle.move()
+        return out_vehicle
 
     def choose_gifts(self):
         """Выбор подарков."""
@@ -54,39 +63,42 @@ class Gifts:
         out_gifts = random_choose_gifts.get_choice()
         print('Куплены отличные подарки: ', end='')
         print(', '.join(out_gifts))
+        return out_gifts
 
 
-class NewyearTree(NewyearTreePlace):
+class NewYearTree(NewYearTreePlace):
     """Новогодняя ёлка."""
     type_tree = ''
     get_tree_place = ''
 
     def __init__(self, height, width):
-        NewyearTreePlace.__init__(self, height, width)
+        NewYearTreePlace.__init__(self, height, width)
 
     def choose_type_tree(self):
         """Выбор между живой и искусственной елкой."""
         type_tree_list = ['Живую, конечно!', 'Искусственную, в гараже дожидается!']
         random_choose_tree = RandomChoose(type_tree_list, 1)
         self.type_tree = random_choose_tree.get_choice()
-        print(f'Какую ель выбрать?..{self.type_tree}')
+        out_type = f'Какую ель выбрать?..{self.type_tree}'
+        return print(out_type)
 
     def get_tree(self):
         """Покупка ёлки на базаре."""
         print('Даа... Выбор здесь большой.')
         view_tree_list = ['облезлая', 'редкая', 'пышная']
-        end_choice = True
-        while end_choice:
+        while True:
             rand_height = round(random.triangular(self.height * 0.7, self.height * 1.3, self.height), 1)
             rand_width = round(random.triangular(self.width * 0.7, self.width * 1.3, self.width), 1)
             random_choose_view = RandomChoose(view_tree_list, 1)
             view_tree = random_choose_view.get_choice()
             print(f'Посмотрим на эту. Высота {rand_height}, ширина {rand_width}, {view_tree}')
             if view_tree == 'пышная':
-                if rand_height == self.height and rand_width == self.width:
+                height_ratio = rand_height / self.height
+                width_ratio = rand_width / self.width
+                if height_ratio == 1.0 and width_ratio == 1.0:
                     print('Это она. Красавица! Поехали домой.')
-                    end_choice = False
-                elif 0.8 <= rand_height / self.height <= 1.1 and 0.8 <= rand_width / self.width <= 1.1:
+                    break
+                elif 0.8 <= height_ratio <= 1.1 and 0.8 <= width_ratio <= 1.1:
                     print('Красивая! Правда, размер немного другой. ', end='')
                     my_choice = ''
                     while my_choice != 'да' and my_choice != 'нет':
@@ -95,7 +107,8 @@ class NewyearTree(NewyearTreePlace):
                         print('Похожу еще')
                     elif my_choice == 'да':
                         print('Все, выбрали. Поехали домой.')
-                        end_choice = False
+                        break
+        return view_tree
 
     def move_tree(self):
         """Поездка за ёлкой."""
@@ -109,14 +122,17 @@ class NewyearTree(NewyearTreePlace):
         random_choose_car = RandomChoose(['такси', 'своей машине'], 1)
         my_vehicle = Car(random_choose_car.get_choice())
         my_vehicle.move()
+        return my_vehicle
 
-    def put_gifts(self):
+    @staticmethod
+    def put_gifts():
         """Положить подарки."""
         desires_list = ['наушники', 'краски с кистью', 'плюшевый мишка', 'часы', 'кукла', 'духи', 'коньки']
         print('Ёлку поставили и украсили. Надо еще положить подарки.')
         gifts = Gifts(desires_list)
-        gifts.move_gifts()
-        gifts.choose_gifts()
+        out_vehicle = gifts.move_gifts()
+        out_gifts = gifts.choose_gifts()
+        return [out_vehicle, out_gifts]
 
 
 class RandomChoose:
@@ -127,8 +143,7 @@ class RandomChoose:
 
     def get_choice(self):
         if self.choice_type == 1:
-            out_value = random.choice(self.choice_list)
-            return out_value
+            return random.choice(self.choice_list)
         elif self.choice_type > 1:
             return random.sample(self.choice_list, self.choice_type)
 
@@ -139,10 +154,10 @@ def tree_quest():
 
     height_place = 2.5
     width_place = 1.5
-    tree_place = NewyearTreePlace(height_place, width_place)
+    tree_place = NewYearTreePlace(height_place, width_place)
     tree_place.dimensions_tree()
 
-    newyear_tree = NewyearTree(tree_place.height, tree_place.width)
+    newyear_tree = NewYearTree(tree_place.height, tree_place.width)
     newyear_tree.choose_type_tree()
     newyear_tree.move_tree()
     if newyear_tree.get_tree_place == 'Базар':
@@ -153,4 +168,5 @@ def tree_quest():
     print('Конец')
 
 
-tree_quest()
+if __name__ == '__main__':
+    sys.exit(tree_quest())
