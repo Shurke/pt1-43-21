@@ -1,5 +1,5 @@
 """
-Тестирование
+Тесты задачи task_3.
 """
 
 import pytest
@@ -12,7 +12,7 @@ def get_range(my_string):
      отсортированных по возрастанию, и “сворачивает” этот список.
      get_ranges([0, 1, 2, 3, 4, 7, 8, 10]) // "0-4,7-8,10"
      get_ranges([4,7,10]) // "4,7,10"
-     get_ranges([2, 3, 8, 9]) // "2-3,8-9"
+     get_ranges([2, 3, 8, 9]) // "2-3,8-9".
 
      """
     input_list = list(map(int, my_string.split(',')))
@@ -70,4 +70,4 @@ def test_check_input_float():
 def test_out_type():
     """Проверка типа результата выполнения функции get_range"""
     t_func = get_range('1,2,3')
-    assert isinstance(t_func, str) is True
+    assert isinstance(t_func, str)
