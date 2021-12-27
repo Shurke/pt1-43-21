@@ -23,24 +23,28 @@ class TooManyErrors(Exception):
             return 'TooManyErrors'
 
 
-def repeat_decorator(func_to_decorate):
-    num_repeat = int(input('Введите количество попыток ввода числа: '))
+def repeat_decorator(num):
+    """Декоратор с параметром."""
+    def decor(func_to_decorate):
+        def wrapper():
+            nonlocal num
+            while num > 0:
+                try:
+                    func_to_decorate()
+                    break
+                except ValueError:
+                    num -= 1
+                    print('Ошибка ввода!')
+            if num == 0:
+                raise TooManyErrors('Превышен лимит ошибок ввода!')
+        return wrapper
+    return decor
 
-    def wrapper():
-        nonlocal num_repeat
-        while num_repeat > 0:
-            try:
-                func_to_decorate()
-                break
-            except ValueError:
-                num_repeat -= 1
-                print('Ошибка ввода!')
-        if num_repeat == 0:
-            raise TooManyErrors('Превышен лимит ошибок ввода!')
-    return wrapper
+
+num_repeat = int(input('Введите количество попыток ввода числа: '))
 
 
-@repeat_decorator
+@repeat_decorator(num_repeat)
 def function_befor_decoration():
     """Вычисление квадратного корня."""
     val_item = int(input('Введите целое положительное число: '))
@@ -49,7 +53,6 @@ def function_befor_decoration():
         print('Квадратный корень из', val_item, 'равен', '{:.2f}'.format(out_item))
     else:
         raise ValueError
-    return
 
 
 function_befor_decoration()
