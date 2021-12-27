@@ -5,8 +5,13 @@ tests function 'add_to_ans_list'
 """
 
 
-from ddt import data, ddt, unpack
-from task3 import add_to_ans_list, ArgumentsError, get_ranges, LengthError
+from ddt import data
+from ddt import ddt
+from ddt import unpack
+from task3 import add_to_ans_list
+from task3 import ArgumentsError
+from task3 import get_ranges
+from task3 import LengthError
 import unittest
 
 

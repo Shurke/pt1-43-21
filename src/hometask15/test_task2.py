@@ -9,9 +9,15 @@ it tests task1 with unittests
 """
 
 
-from ddt import data, ddt, unpack
+from ddt import data
+from ddt import ddt
+from ddt import unpack
 import io
-from task2 import Client, Entertainment, Reception, RoomNumberError, Restaurant
+from task2 import Client
+from task2 import Entertainment
+from task2 import Reception
+from task2 import RoomNumberError
+from task2 import Restaurant
 import time
 import unittest
 from unittest.mock import patch
@@ -168,7 +174,7 @@ class TestReception(unittest.TestCase):
         phrase2 = f'Now your room number is {expected_room}\n'
         expected_phrase = phrase1 + phrase2
         self.assertFalse(first_room == client.room_number)
-        self.assertTrue('Sun side' in Reception.problems_with_room)
+        self.assertIn('Sun side', Reception.problems_with_room)
         self.assertEqual(expected_phrase, mock_stdout.getvalue())
 
     def test_negative_change_room(self):
