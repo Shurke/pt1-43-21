@@ -22,4 +22,9 @@ def func(int1):
     return wrapper()
 
 
-func(int(input("введите число раз вызова функции: ")))
+@func(4)
+def a():
+    return
+
+
+a()
