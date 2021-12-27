@@ -53,8 +53,7 @@ def test_one_get_choice():
 
 
 def test_multiple_get_choice():
-    """
-    Тестирование get_choice.
+    """Тестирование get_choice.
 
     Тестирование функции get_choice класса RandomChoose при выборе нескольких
     элементов из списка.
@@ -68,8 +67,7 @@ def test_multiple_get_choice():
 
 
 def test_multiple_get_choice_type():
-    """
-    Тестирование get_choice.
+    """Тестирование get_choice.
 
     Тестирование типа результата функции get_choice класса RandomChoose
     при выборе нескольких элементов из списка.
@@ -81,8 +79,7 @@ def test_multiple_get_choice_type():
 
 
 def test_wrong_input_1_get_choice():
-    """
-    Проверка на ошибку №1 get_choice.
+    """Проверка на ошибку №1 get_choice.
 
     Проверка возникновения ошибки при передаче в функцию get_choice
     класса RandomChoose неправильного типа данных.
@@ -95,8 +92,7 @@ def test_wrong_input_1_get_choice():
 
 
 def test_wrong_input_2_get_choice():
-    """
-    Проверка на ошибку №2 get_choice.
+    """Проверка на ошибку №2 get_choice.
 
     Проверка возникновения ошибки при передаче в функцию get_choice
     класса RandomChoose длины выборки, которая больше длины набора,
