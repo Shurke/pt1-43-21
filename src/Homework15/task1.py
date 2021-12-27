@@ -129,7 +129,8 @@ class NewYearTree(NewYearTreePlace):
     @staticmethod
     def put_gifts():
         """Положить подарки."""
-        desires_list = ['наушники', 'краски с кистью', 'плюшевый мишка', 'часы', 'кукла', 'духи', 'коньки']
+        desires_list = ['наушники', 'краски с кистью', 'плюшевый мишка', 'часы',
+                        'кукла', 'духи', 'коньки']
         print('Ёлку поставили и украсили. Надо еще положить подарки.')
         gifts = Gifts(desires_list)
         out_vehicle = gifts.move_gifts()
