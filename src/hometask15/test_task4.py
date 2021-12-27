@@ -4,50 +4,48 @@ tests function 'max_product'
 tests function 'converting_to_list'
 """
 
-from ddt import data
-from ddt import ddt
-from ddt import unpack
+import ddt
 from task4 import converting_to_list
 from task4 import max_product
 import unittest
 
 
-@ddt
+@ddt.ddt
 class TestMaxProductFunction(unittest.TestCase):
     """testing Max Product function"""
 
-    @data(
+    @ddt.data(
         ('1234567890', 2, 72),
         ('109034567910', 2, 63),
         ('9017539683', 3, 432),
     )
-    @unpack
+    @ddt.unpack
     def test_validate_case(self, num1, multipliers, expected):
         """function tests validate cases"""
         self.assertEqual(expected, max_product(num1, multipliers))
 
-    @data(
+    @ddt.data(
         (('df', 23), 'f'),
         ([1, 2, 3, 4], '5'),
         (1234.456, 4),
         ((1, 2, 3, 4), 1)
     )
-    @unpack
+    @ddt.unpack
     def test_wrong_input_data(self, *args):
         """function tests bad cases"""
         self.assertRaises(ValueError, max_product, *args)
 
-    @data(
+    @ddt.data(
         ([1, 2, 3, 4], 0),
         ([1, 6, 9, 4, 7, 0], -1),
         ([6, 1, 9, 9, 8], -100)
     )
-    @unpack
+    @ddt.unpack
     def test_negative_multiplier(self, *args):
         """function tests bad case of negative 'number of multiplies' """
         self.assertRaises(ValueError, max_product, *args)
 
-    @data(("""73167176531330624919225119674426574742355349194934
+    @ddt.data(("""73167176531330624919225119674426574742355349194934
 96983520312774506326239578318016984801869478851843
 85861560789112949495459501737958331952853208805511
 12540698747158523863050715693290963295227443043557
@@ -67,30 +65,30 @@ class TestMaxProductFunction(unittest.TestCase):
 84580156166097919133875499200524063689912560717606
 05886116467109405077541002256983155200055935729725
 71636269561882670428252483600823257530420752963450""", 13, 23514624000))
-    @unpack
+    @ddt.unpack
     def test_euler_project(self, num1, multipliers, expected):
         """function tests the example of input form webpage 'euler project' """
         self.assertEqual(expected, max_product(num1, multipliers))
 
 
-@ddt
+@ddt.ddt
 class TestConvertingToList(unittest.TestCase):
     """class tests converting_to_string function"""
 
-    @data(
+    @ddt.data(
         ('123456', [1, 2, 3, 4, 5, 6]),
         ('145078', [1, 4, 5, 0, 7, 8]),
         ('1269804', [1, 2, 6, 9, 8, 0, 4])
     )
-    @unpack
+    @ddt.unpack
     def test_validate_cases(self, input_str, expected):
         """function tests validate cases"""
         self.assertEqual(expected, converting_to_list(input_str))
 
-    @data('123456 67657',
-          '32489234g4324',
-          '-324=818394',
-          '0039!/32')
+    @ddt.data('123456 67657',
+              '32489234g4324',
+              '-324=818394',
+              '0039!/32')
     def test_bad_cases(self, *args):
         """function tests bad cases"""
         self.assertRaises(ValueError, converting_to_list, *args)

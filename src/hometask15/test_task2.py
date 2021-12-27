@@ -9,21 +9,15 @@ it tests task1 with unittests
 """
 
 
-from ddt import data
-from ddt import ddt
-from ddt import unpack
+import ddt
 import io
-from task2 import Client
-from task2 import Entertainment
-from task2 import Reception
-from task2 import RoomNumberError
-from task2 import Restaurant
+import task2
 import time
 import unittest
 from unittest.mock import patch
 
 
-@ddt
+@ddt.ddt
 class TestClient(unittest.TestCase):
     """Tests Client class
 
@@ -32,15 +26,14 @@ class TestClient(unittest.TestCase):
 
     """
 
-    @data(
+    @ddt.data(
         ('Sergey', 'Ivanov', 23, True),
         ('Polina', 'Smirnova', 10, 0)
         )
-    @unpack
+    @ddt.unpack
     def test_valid_init(self, name, surname, days, all_incl):
         """valid tests of creating prototype of Client class"""
-
-        prototype = Client(name, surname, days, all_incl)
+        prototype = task2.Client(name, surname, days, all_incl)
         self.assertEqual(name, prototype.name)
         self.assertEqual(surname, prototype.surname)
         self.assertEqual(days, prototype.days)
@@ -48,7 +41,7 @@ class TestClient(unittest.TestCase):
         self.assertEqual(0, prototype.money_debt)
         self.assertEqual(None, prototype.curr_room)
 
-    @data(
+    @ddt.data(
         ((), 'Ivanov', 23, True),
         ([], 'Smirnova', 10, 0),
         ('Vita', ['Rowan'], 16, True),
@@ -59,10 +52,10 @@ class TestClient(unittest.TestCase):
         ('Pavel', "Swan", 11, [0]),
         ('Anton', "Swanky", 0, False),
     )
-    @unpack
+    @ddt.unpack
     def test_negative_init(self, *args):
         """negative tests of creating prototype of Client class"""
-        self.assertRaises(ValueError, Client.__init__, *args)
+        self.assertRaises(ValueError, task2.Client.__init__, *args)
 
     # def test_delete_client(self):
     #     """tests 'delete_client' method"""
@@ -72,7 +65,7 @@ class TestClient(unittest.TestCase):
     #     print(client.name)
 
 
-@ddt
+@ddt.ddt
 class TestReception(unittest.TestCase):
     """Tests Reception class
 
@@ -94,15 +87,15 @@ class TestReception(unittest.TestCase):
     def setUpClass(cls, _, mock_stdout):
         """creates 2 samples of a class for future testing"""
 
-        cls.person1 = Reception()
-        cls.person2 = Reception()
+        cls.person1 = task2.Reception()
+        cls.person2 = task2.Reception()
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_welcoming(self, mock_stdout):
         """Tests 'welcoming' function"""
 
-        Reception.welcoming()
-        expected = Reception.welcome_words + '\n' + Reception.get_info + '\n'
+        task2.Reception.welcoming()
+        expected = task2.Reception.welcome_words + '\n' + task2.Reception.get_info + '\n'
         self.assertEqual(expected, mock_stdout.getvalue())
 
     @patch('sys.stdout', new_callable=io.StringIO)
@@ -110,12 +103,12 @@ class TestReception(unittest.TestCase):
     def test_valid_init(self, _, mock_stdout):
         """tests valid cases of '__init__' method"""
         expected_room = 0
-        for room in Reception.rooms.keys():
-            if Reception.rooms[room] == 0:
+        for room in task2.Reception.rooms.keys():
+            if task2.Reception.rooms[room] == 0:
                 expected_room = room
                 break
-        visitor = Reception()
-        obj = Reception.rooms[visitor.room_number]
+        visitor = task2.Reception()
+        obj = task2.Reception.rooms[visitor.room_number]
         if obj.all_inclusive:
             money_debt_expected = obj.days * 150
         else:
@@ -131,25 +124,25 @@ class TestReception(unittest.TestCase):
         self.assertEqual(mock_stdout.getvalue(), expected_phrase)
         self.assertEqual(expected_room, obj.curr_room)
         self.assertEqual(obj.curr_room, visitor.room_number)
-        request_1 = Reception(visitor.room_number)
-        expected = f'Hello, {obj.name} {obj.surname}!\n' + Reception.offer_help_message + '\n'
-        self.assertEqual(expected_phrase + expected, mock_stdout.getvalue())
+        request_1 = task2.Reception(visitor.room_number)
+        expect = f'Hello, {obj.name} {obj.surname}!\n' + task2.Reception.offer_help_message + '\n'
+        self.assertEqual(expected_phrase + expect, mock_stdout.getvalue())
         self.assertEqual(request_1.room_number, visitor.room_number)
 
-    @data(100, 401, 9, -101)
+    @ddt.data(100, 401, 9, -101)
     def test_negative_init(self, room):
         """tests negative cases of '__init__' method"""
-        self.assertRaises(RoomNumberError, Reception, room)
+        self.assertRaises(task2.RoomNumberError, task2.Reception, room)
 
     def test_valid_get_client_info(self):
         """tests valid case of 'get_client_info' function"""
-        visitor = Reception.get_client_info(101)
-        self.assertEqual(Reception.rooms[101], visitor)
+        visitor = task2.Reception.get_client_info(101)
+        self.assertEqual(task2.Reception.rooms[101], visitor)
 
-    @data('s', [103], (201,), 99)
+    @ddt.data('s', [103], (201,), 99)
     def test_negative_get_client_info(self, room):
         """tests negative case of 'get_client_info' function"""
-        self.assertRaises(RoomNumberError, Reception.get_client_info, room)
+        self.assertRaises(task2.RoomNumberError, task2.Reception.get_client_info, room)
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_valid_ask_service(self, mock_stdout):
@@ -157,7 +150,7 @@ class TestReception(unittest.TestCase):
         request = TestReception.person1
         request.ask_service('cleaning')
         self.assertEqual(mock_stdout.getvalue(), 'We will help you as soon as possible!\n')
-        self.assertEqual('cleaning', Reception.pending_service[request.room_number])
+        self.assertEqual('cleaning', task2.Reception.pending_service[request.room_number])
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_valid_change_room(self, mock_stdout):
@@ -165,8 +158,8 @@ class TestReception(unittest.TestCase):
         client = TestReception.person1
         first_room = client.room_number
         expected_room = 0
-        for room in Reception.rooms.keys():
-            if Reception.rooms[room] == 0:
+        for room in task2.Reception.rooms.keys():
+            if task2.Reception.rooms[room] == 0:
                 expected_room = room
                 break
         client.change_room('Sun side')
@@ -174,30 +167,30 @@ class TestReception(unittest.TestCase):
         phrase2 = f'Now your room number is {expected_room}\n'
         expected_phrase = phrase1 + phrase2
         self.assertFalse(first_room == client.room_number)
-        self.assertIn('Sun side', Reception.problems_with_room)
+        self.assertIn('Sun side', task2.Reception.problems_with_room)
         self.assertEqual(expected_phrase, mock_stdout.getvalue())
 
     def test_negative_change_room(self):
         """tests negative 'change room' cases"""
         client = TestReception.person1
-        for room in Reception.rooms:
-            if Reception.rooms[room] == 0:
-                Reception.rooms[room] = 1
-        self.assertRaises(RoomNumberError, client.change_room)
-        for room in Reception.rooms:
-            if Reception.rooms[room] == 1:
-                Reception.rooms[room] = 0
+        for room in task2.Reception.rooms:
+            if task2.Reception.rooms[room] == 0:
+                task2.Reception.rooms[room] = 1
+        self.assertRaises(task2.RoomNumberError, client.change_room)
+        for room in task2.Reception.rooms:
+            if task2.Reception.rooms[room] == 1:
+                task2.Reception.rooms[room] = 0
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_valid_move_in(self, mock_stdout):
         """tests valid case of 'move_in' function"""
-        person = Client('Victor', 'Shem', 24, False)
+        person = task2.Client('Victor', 'Shem', 24, False)
         expected_room = 0
-        for room in Reception.rooms.keys():
-            if Reception.rooms[room] == 0:
+        for room in task2.Reception.rooms.keys():
+            if task2.Reception.rooms[room] == 0:
                 expected_room = room
                 break
-        Reception.move_in(person)
+        task2.Reception.move_in(person)
         if person.all_inclusive:
             money_debt_expected = person.days * 150
         else:
@@ -210,29 +203,29 @@ class TestReception(unittest.TestCase):
 
     def test_negative_move_in(self):
         """tests negative 'move in' cases"""
-        person = Client('Victoria', 'Shel', 20, True)
-        for room in Reception.rooms:
-            if Reception.rooms[room] == 0:
-                Reception.rooms[room] = 1
-        self.assertRaises(RoomNumberError, Reception.move_in, person)
-        for room in Reception.rooms:
-            if Reception.rooms[room] == 1:
-                Reception.rooms[room] = 0
+        person = task2.Client('Victoria', 'Shel', 20, True)
+        for room in task2.Reception.rooms:
+            if task2.Reception.rooms[room] == 0:
+                task2.Reception.rooms[room] = 1
+        self.assertRaises(task2.RoomNumberError, task2.Reception.move_in, person)
+        for room in task2.Reception.rooms:
+            if task2.Reception.rooms[room] == 1:
+                task2.Reception.rooms[room] = 0
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_zmoving_out(self, mock_stdout):
         """tests 'moving_out' function"""
         client = TestReception.person1
         client_room_number = client.room_number
-        debt = Reception.rooms[client_room_number].money_debt
+        debt = task2.Reception.rooms[client_room_number].money_debt
         client.moving_out()
-        self.assertTrue(Reception.rooms[client_room_number] == 0)
+        self.assertTrue(task2.Reception.rooms[client_room_number] == 0)
         phr1 = f'You have to pay {debt}$ for the duration\n'
         phr2 = 'Good Bye! Hope to see you next time at our Hotel!\nThank you for choosing us!\n'
         self.assertEqual(phr1 + phr2, mock_stdout.getvalue())
 
 
-@ddt
+@ddt.ddt
 class TestEntertainment(unittest.TestCase):
     """Tests Entertainment class
 
@@ -246,14 +239,14 @@ class TestEntertainment(unittest.TestCase):
     @patch('builtins.input', side_effect=['Vova', 'Bush', 14, True])
     @patch('sys.stdout', new_callable=io.StringIO)
     def setUpClass(cls, _, mock_stdout):
-        visitor = Reception()
-        cls.entertainment_visitor = Entertainment(visitor.room_number)
+        visitor = task2.Reception()
+        cls.entertainment_visitor = task2.Entertainment(visitor.room_number)
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_valid_swimming(self, mock_stdout):
         """tests valid case of 'swimming' function"""
 
-        Entertainment.swimming(4)
+        task2.Entertainment.swimming(4)
         s = time.strftime(time.ctime()).split()[3]
         if 7 < int(s[0]) * 10 + int(s[1]) < 22:
             self.assertEqual(
@@ -266,15 +259,15 @@ class TestEntertainment(unittest.TestCase):
                 'Unfortunately, swimming-pool is closed now,it opens at 7:00\n'
             )
 
-    @data(0, -3, -99)
+    @ddt.data(0, -3, -99)
     def test_negative_case_swimming_value_error(self, persons):
         """tests negative cases of 'swimming' function with ValueError"""
-        self.assertRaises(ValueError, Entertainment.swimming, persons)
+        self.assertRaises(ValueError, task2.Entertainment.swimming, persons)
 
-    @data('d', [4], (3,), {'person': 2})
+    @ddt.data('d', [4], (3,), {'person': 2})
     def test_negative_case_swimming_type_error(self, persons):
         """tests negative cases of 'swimming' function with TypeError"""
-        self.assertRaises(TypeError, Entertainment.swimming, persons)
+        self.assertRaises(TypeError, task2.Entertainment.swimming, persons)
 
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_valid_play_casino(self, mock_stdout):
@@ -289,7 +282,7 @@ class TestEntertainment(unittest.TestCase):
         else:
             self.assertEqual(player.client.money_debt, first_debt + 100)
 
-    @data(0, -100, [2999], '100')
+    @ddt.data(0, -100, [2999], '100')
     def test_negative_play_casino(self, deposit):
         """tests negative cases of 'play_casino' function"""
 
@@ -300,7 +293,7 @@ class TestEntertainment(unittest.TestCase):
             self.assertRaises(TypeError, player.play_casino, deposit)
 
 
-@ddt
+@ddt.ddt
 class TestRestaurant(unittest.TestCase):
     """Tests Restaurant class
 
@@ -316,16 +309,16 @@ class TestRestaurant(unittest.TestCase):
     ])
     @patch('sys.stdout', new_callable=io.StringIO)
     def setUpClass(cls, _, mock_stdout):
-        visitor1 = Reception()
-        cls.visitor2 = Reception()
-        cls.restaurant_visitor1 = Restaurant(visitor1.room_number)
+        visitor1 = task2.Reception()
+        cls.visitor2 = task2.Reception()
+        cls.restaurant_visitor1 = task2.Restaurant(visitor1.room_number)
 
     @patch('builtins.input', side_effect=['y', 'N'])
     @patch('sys.stdout', new_callable=io.StringIO)
     def test_init(self, _, mock_stdout):
         """tests '__init__ method'"""
-        first_debt = Reception.rooms[TestRestaurant.visitor2.room_number].money_debt
-        guest_1 = Restaurant(TestRestaurant.visitor2.room_number)
+        first_debt = task2.Reception.rooms[TestRestaurant.visitor2.room_number].money_debt
+        guest_1 = task2.Restaurant(TestRestaurant.visitor2.room_number)
         self.assertEqual(first_debt + 15, guest_1.client.money_debt)
 
     @patch('sys.stdout', new_callable=io.StringIO)
