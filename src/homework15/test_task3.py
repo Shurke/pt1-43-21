@@ -2,7 +2,8 @@
 
 import unittest
 
-from ddt import ddt, data
+from ddt import data
+from ddt import ddt
 from task3 import word_count
 
 
@@ -12,6 +13,7 @@ class TestWordCount(unittest.TestCase):
     @data(1000, [1, 2], ("string 1", "string 2"))
     def test_type_notation(self, value):
         """Checking the execution of the function (getting an exception)
+
         'word_count' when it is called with an argument of the wrong type.
         """
         self.assertRaises(AttributeError, word_count, value)

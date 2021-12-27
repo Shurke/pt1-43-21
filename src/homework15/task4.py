@@ -10,7 +10,7 @@ https://euler.jakumo.org/problems/view/71.html
 дробь представляется кортежом-парой (числитель, знаменатель)
 """
 
- 
+
 class StringWithoutSlash(Exception):
     def __init__(self, message):
         self.txt = message
@@ -37,8 +37,8 @@ def search_left_numerator(count: int, search_fraction: str) -> str:
     t = []
     prev_numerator = None
     result = None
-    for num in range(1, count+1):          # цикл по всем числителям
-        for den in range(num+1, count+1):  # цикл по всем знаменателям
+    for num in range(1, count + 1):          # цикл по всем числителям
+        for den in range(num + 1, count + 1):  # цикл по всем знаменателям
             pair = simplify((num, den))    # очередная дробь
             t.append(pair)                 # добавим к списку
     s = list(set(t))  # устраняем дубликаты - превращаем список во множество

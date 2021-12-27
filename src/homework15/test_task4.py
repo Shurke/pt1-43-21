@@ -3,8 +3,13 @@
 
 import unittest
 
-from ddt import ddt, data, unpack
-from task4 import gcd, simplify, search_left_numerator, StringWithoutSlash
+from ddt import data
+from ddt import ddt
+from ddt import unpack
+from task4 import gcd
+from task4 import simplify
+from task4 import search_left_numerator
+from task4 import StringWithoutSlash
 
 
 @ddt
@@ -14,15 +19,17 @@ class TestEuler71(unittest.TestCase):
     @unpack
     def test_gcd(self, first_value, second_value):
         """Checking that the gcd function returns a number
+
         by which both arguments can be divisible without a remainder
         """
         nod = gcd(first_value, second_value)
-        self.assertTrue(first_value/nod, first_value//nod)
-        self.assertTrue(second_value/nod, second_value//nod)
+        self.assertTrue(first_value / nod, first_value // nod)
+        self.assertTrue(second_value / nod, second_value // nod)
 
     @data((48, 80), (3, 9), (15, 75))
     def test_simplify(self, value):
         """Checking that the simplify function returns a tuple
+
         of two integers.
         """
         result = simplify(value)
@@ -35,7 +42,9 @@ class TestEuler71(unittest.TestCase):
     @unpack
     def test_fraction(self, first_value, second_value):
         """Testing that the second argument of the call
+
         to the search_left_numerator function should be a string of a fraction.
+
         Otherwise an exception will be thrown."""
         with self.assertRaises(StringWithoutSlash) as context:
             search_left_numerator(first_value, second_value)
@@ -46,6 +55,7 @@ class TestEuler71(unittest.TestCase):
     @unpack
     def test_type_notation_1(self, first_value, second_value):
         """Checking the type notation when calling functions
+
         with arguments of the wrong types.
         """
         self.assertRaises(TypeError, gcd, first_value, second_value)
@@ -53,6 +63,7 @@ class TestEuler71(unittest.TestCase):
     @data(100, "my string")
     def test_type_notation_2(self, value):
         """Checking the type notation when calling functions
+
         with arguments of the wrong types.
         """
         self.assertRaises(TypeError, simplify, value)
@@ -61,6 +72,7 @@ class TestEuler71(unittest.TestCase):
     @unpack
     def test_type_notation_3(self, first_value, second_value):
         """Checking the type notation when calling functions
+
         with arguments of the wrong types.
         """
         self.assertRaises(TypeError, search_left_numerator, first_value, second_value)
@@ -69,6 +81,7 @@ class TestEuler71(unittest.TestCase):
     @unpack
     def test_type_notation_4(self, first_value, second_value):
         """Checking the type notation when calling functions
+
         with arguments of the wrong types.
         """
         self.assertRaises(AttributeError, search_left_numerator, first_value, second_value)
@@ -77,6 +90,7 @@ class TestEuler71(unittest.TestCase):
     @unpack
     def test_type_notation_5(self, first_value, second_value):
         """Checking the type notation when calling functions
+
         with arguments of the wrong types.
         """
         self.assertRaises(StringWithoutSlash, search_left_numerator, first_value, second_value)
