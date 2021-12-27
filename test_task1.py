@@ -1,5 +1,5 @@
-import unittest
 import task1
+import unittest
 
 
 def test1():
