@@ -26,10 +26,7 @@ class TestClient(unittest.TestCase):
 
     """
 
-    @ddt.data(
-        ('Sergey', 'Ivanov', 23, True),
-        ('Polina', 'Smirnova', 10, 0)
-        )
+    @ddt.data(('Sergey', 'Ivanov', 23, True), ('Polina', 'Smirnova', 10, 0))
     @ddt.unpack
     def test_valid_init(self, name, surname, days, all_incl):
         """valid tests of creating prototype of Client class"""
