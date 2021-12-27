@@ -7,8 +7,8 @@ from ddt import data
 from ddt import ddt
 from ddt import unpack
 from task4 import gcd
-from task4 import simplify
 from task4 import search_left_numerator
+from task4 import simplify
 from task4 import StringWithoutSlash
 
 
@@ -44,8 +44,8 @@ class TestEuler71(unittest.TestCase):
         """Testing that the second argument of the call
 
         to the search_left_numerator function should be a string of a fraction.
-
-        Otherwise an exception will be thrown."""
+        Otherwise an exception will be thrown.
+        """
         with self.assertRaises(StringWithoutSlash) as context:
             search_left_numerator(first_value, second_value)
         self.assertTrue("Второй аргумент вызова функции search_left_numerator "
