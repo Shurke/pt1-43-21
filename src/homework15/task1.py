@@ -53,9 +53,12 @@ class School:
             'classes': self.classes,
             'total_students': self.total_students
         }
+        return school_info
+
+    def print_school_info(self):
+        school_info = self.get_school_info()
         print("\nИнформация о школе :")
         pprint(school_info)
-        return school_info
 
 
 class SchoolClass:
@@ -100,9 +103,12 @@ class SchoolClass:
             "students_qty": self.students_qty,
             "students": self.students
         }
+        return class_info
+
+    def print_class_info(self):
+        class_info = self.get_class_info()
         print("\nИнформация о классе", self.class_name, ":")
         pprint(class_info)
-        return class_info
 
 
 school = School()
@@ -122,6 +128,6 @@ class_b.set_student("Драко", "Малфой", 18)
 class_b.set_student("Маркус", "Флинт", 17)
 class_b.set_student("Винсент", "Крэбб", 17)
 
-school.get_school_info()
-class_a.get_class_info()
-class_b.get_class_info()
+school.print_school_info()
+class_a.print_class_info()
+class_b.print_class_info()

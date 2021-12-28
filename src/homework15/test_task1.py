@@ -7,28 +7,29 @@ import unittest
 
 class TestSchoolMethods(unittest.TestCase):
 
+    def setUp(self):
+        self.school = School()
+
     def test_school_instances(self):
         """singleton check"""
-        instance1 = School()
+        instance1 = self.school
         instance2 = School()
         self.assertIs(instance1, instance2)
 
     def test_school_address(self):
         """check for string"""
-        school_address = School().get_school_address()
+        school_address = self.school.get_school_address()
         self.assertIs(type(school_address), str)
-        self.assertIsNot(type(school_address), int)
 
     def test_director_name(self):
         """director's name in two words"""
-        director_name = School().get_director()
+        director_name = self.school.get_director()
         self.assertTrue(len(director_name.split()) == 2)
-        self.assertFalse(len(director_name.split()) != 2)
 
     def test_total_students(self):
-        """test total_students"""
-        total_students = School().total_students
-        classes = School().classes
+        """test total_students and the existence of classes"""
+        total_students = self.school.total_students
+        classes = self.school.classes
         self.assertIs(type(total_students), int)
         if total_students > 0:
             self.assertTrue(len(classes) > 0)
@@ -36,13 +37,16 @@ class TestSchoolMethods(unittest.TestCase):
 
 class TestSchoolClassMethods(unittest.TestCase):
 
+    def setUp(self):
+        self.school_class = SchoolClass("Test class name")
+
     def test_school_class_instances(self):
         """School singleton check"""
-        self.assertIs(SchoolClass("Test class name").school_instance, School())
+        self.assertIs(self.school_class.school_instance, School())
 
     def test_class_in_school(self):
-        """test class name"""
-        self.assertTrue(SchoolClass("Test class name").class_name in School().classes)
+        """testing the availability of a class at school"""
+        self.assertTrue(self.school_class.class_name in School().classes)
 
     def test_class_teacher(self):
         """test teacher"""
