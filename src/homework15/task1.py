@@ -22,6 +22,8 @@ class Item():
         pass
 
     def item_info(self):
+        'Информация о товаре'
+
         print(self.name)
         print(self.quantity)
         print(self.type_of)
@@ -99,18 +101,27 @@ class Customer():
         pass
 
     def top_up_current_account(self, top_up_summ):
+        '''Пополнение текущего баланса на сумму top_up_summ'''
+
         self.__current_account = self.__current_account + top_up_summ
 
     def top_down_current_account(self, top_down_summ):
+        '''Списание с текущего баланса на сумму top_down_summ'''
+
         if self.__current_account < top_down_summ:
             print('Пополните баланс')
             raise ValueError('Недостаточно средств')
         self.__current_account = self.__current_account - top_down_summ
 
     def top_up_loyalty(self, bonus_loyalty):
+        '''Начисление бонусных баллов'''
+
         self.loyalty = self.loyalty + bonus_loyalty
 
     def customer_info(self):
+        '''Информация о счете клиента'''
+
+        print(self.name)
         summ = round(self.__current_account, 2)
         print(f'Сумма на счете - {summ}')
         print(f'Сумма бонусных баллов - {self.loyalty}')
@@ -125,6 +136,8 @@ class Cart():
         self.current_quantity = 0
 
     def add_to_cart(self, item):
+        '''Добавление товара в корзину'''
+
         if not self.items_in_cart.get((item.name, item.type_of)):
             self.items_in_cart[(item.name, item.type_of)] = item.quantity
         else:
@@ -135,11 +148,15 @@ class Cart():
         self.cart_value += item.price * item.quantity
 
     def remove_from_cart(self, item):
+        '''Удаление товара из корзины'''
+
         del self.items_in_cart[item.type_of]
         self.quantity_in_cart -= item.quantity
         self.cart_value -= item.price * item.quantity
 
     def cart_info(self):
+        '''Отображение информации о заказе'''
+
         print('Ваш заказ составил:')
         for item in self.items_in_cart:
             print(f'{item[0]}  {item[1]} - {self.items_in_cart[item]} шт')
@@ -155,11 +172,15 @@ class Payment():
         pass
 
     def payment(self):
+        '''Операция оплаты'''
+
         print(f'С вашего счета будет снято {self.cart_to_pay.cart_value}')
         self.payer.top_down_current_account(self.cart_to_pay.cart_value)
         pass
 
     def bonus_loyalty_from_order(self):
+        '''Начисление бонусных балло в случае успешной оплаты'''
+
         bonus_loyalty = self.cart_to_pay.cart_value * 0.05
         self.payer.top_up_loyalty(bonus_loyalty)
         print(f'На ваш бонусный счет зачислено {bonus_loyalty} бонусных баллов!')

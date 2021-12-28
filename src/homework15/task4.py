@@ -41,15 +41,22 @@ def mutually_simple_list(n: int = 15) -> list:
 
 def modulo_inverse_list(lst: list, n: int) -> list:
     '''Создает урезанный список чисел обратных числам из lst по модулю n в диапазоне от 1 до n-1,
-    состоящий только из элементов равных себе же обратным по модулю'''
+
+    состоящий только из элементов равных себе же обратным по модулю
+    '''
 
     back_lst = [i for i in lst if (i * i) % n == 1 and i < n - 1]
     return back_lst
 
 
 def max_m(n):
-    '''находит наибольшее положительное число m, такое, что число обратное m по модулю n равно самому m'''
+    '''Yаходит наибольшее положительное число m,
 
+    такое, что число обратное m по модулю n равно самому m
+    '''
+
+    if n < 2:
+        return 1
     b = modulo_inverse_list(mutually_simple_list(n), n)
     m = b[-1]
     return m
@@ -62,10 +69,9 @@ def sum_func(ranges):
     summ = 0
     for i in ranges:
         summ += max_m(i)
-    print(summ)
     return summ
     pass
 
 
-#sum_func(range(3, 2 * 10**7))
-sum_func([1, 15, 100])
+# sum_func(range(3, 2 * 10**7))
+sum_func([7, 15, 100])

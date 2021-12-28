@@ -1,9 +1,11 @@
 '''Tests for task3'''
 
+from ddt import data
+from ddt import ddt
+from ddt import unpack
+from task3 import pair_counter_func
 import unittest
 from unittest.case import TestCase
-from task3 import pair_counter_func
-from ddt import ddt, data, unpack
 
 
 @ddt

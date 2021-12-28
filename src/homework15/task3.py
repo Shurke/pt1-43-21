@@ -13,7 +13,7 @@ import math
 
 def pair_counter_func(number_input: str = '1 1 1 1') -> int:
     '''counts pairs in num_list'''
-    #number_input = input('Enter numbers with spaces between them: ')
+
     number_input = number_input.replace(' ', '')
     counted_numbers = []
     pair_counter = 0

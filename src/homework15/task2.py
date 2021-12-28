@@ -11,7 +11,9 @@ class TooManyErrors(BaseException):
 
 def dec_too_many_errors(num):
     '''Вызывает задекорированную функцию, пока она не выполнится без исключений.
-    Если превышено кол-во попыток n - возбуждает исключение типа TooManyErrors'''
+
+    Если превышено кол-во попыток n - возбуждает исключение типа TooManyErrors
+    '''
 
     def dec(fun):
         def wrapper():
