@@ -2,9 +2,10 @@ from task3 import n
 import unittest
 
 
-def test1():
-    t1 = ['c', 'd', 'e']
-    assert t1 == n
+class t_test(unittest.TestCase):
+
+    def test_1(self):
+        self.assertTrue(n == ['c', 'd', 'e'])
 
 
 if __name__ == "__main__":
