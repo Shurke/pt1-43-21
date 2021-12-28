@@ -14,7 +14,7 @@ import random
 
 class Battle:
     """Класс хранит всю необходимую для соревнования информацию. """
-    all_actions = ["камень", "ножницы", "бумага"]
+    all_actions = {1: "камень", 2: "ножницы", 3: "бумага"}
 
 
 class Bot:
@@ -32,22 +32,22 @@ class Bot:
 
 
 class User:
-    """Класс User отвечает за взаисодействие с инроком.
+    """Класс User отвечает за взаимодействие с инроком.
 
-    В консрукторе происхрдит присвоение имент игроку и боту.
-    После выбора жеста игроком происходит сравнеие жестов игрока и бота.
+    В конструкторе происходит присвоение имени игроку и боту.
+    После выбора жеста игроком происходит сравнение жестов игрока и бота.
     Далее оглашается победитель.
     """
     def __init__(self):
         self.name = input("Как вас зовут? \n")
         self.botname = input("Придумайте имя вашему сопернику: \n")
 
-    def get_choice(self):
+    def play_game(self):
         try:
             choice = int(input(f"\nПривет, {self.name}!\n"
                                f"Сегодня ты сразишься с {self.botname}\n\nВыбери жест:"
                                f"\n1-Камень\n2-Ножницы\n3-Бумага\nВаш выбор: "))
-            user_choice = Battle.all_actions[choice - 1]
+            user_choice = Battle.all_actions.get(choice)
             bot_choice = Bot.bot_choice()
             print(f"{user_choice} VS {bot_choice}")
             if user_choice == bot_choice:
@@ -59,12 +59,12 @@ class User:
                     print(f"{self.botname} победил")
             elif user_choice == "бумага":
                 if bot_choice == "камень":
-                    print("f{self.name} победил!")
+                    print(f"{self.name} победил!")
                 else:
                     print(f"{self.botname} победил")
             elif user_choice == "ножницы":
                 if bot_choice == "бумага":
-                    print("f{self.name} победил!")
+                    print(f"{self.name} победил!")
                 else:
                     print(f"{self.botname} победил")
         except (TypeError, ValueError, SyntaxError, IndexError):
@@ -72,4 +72,4 @@ class User:
 
 
 p1 = User()
-p1.get_choice()
+p1.play_game()

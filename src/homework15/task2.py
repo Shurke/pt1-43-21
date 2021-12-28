@@ -12,7 +12,6 @@ class TooManyErrors(ValueError):
 def dec(num_rep):
     def execution(func):
         def wrapper():
-            nonlocal num_rep
             counter = 0
             while counter < num_rep:
                 try:
