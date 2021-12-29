@@ -11,7 +11,6 @@
 
 import random
 import sys
-# import time
 
 
 """
@@ -29,7 +28,7 @@ class NewYearTreePlace:
 
     def dimensions_tree(self):
         out_str = f'Так, в высоту елка должна быть {self.height} метра, в ширину - {self.width}'
-        return print(out_str)
+        print(out_str)
 
 
 class Car:
@@ -80,7 +79,7 @@ class NewYearTree(NewYearTreePlace):
         random_choose_tree = RandomChoose(type_tree_list, 1)
         self.type_tree = random_choose_tree.get_choice()
         out_type = f'Какую ель выбрать?..{self.type_tree}'
-        return print(out_type)
+        print(out_type)
 
     def get_tree(self):
         """Покупка ёлки на базаре."""
