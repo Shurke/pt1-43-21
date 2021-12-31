@@ -15,7 +15,7 @@ class TooManyErrors(Exception):
         return 'TooManyErrors!'
 
 
-def decorator_that_call_func_without_except(num_of_call: int = None):
+def decorator_that_call_func_without_except(num_of_call: int):
     """The decorator accepts as input the max number of function calls
 
     :param num_of_call:
@@ -25,8 +25,6 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
     exception;
     if the function has completed without exception, the decorator done its work.
     """
-    if num_of_call is None:
-        num_of_call = int(input('Enter nums of decorator calls: '))
 
     def dec(func):
         flag = True
@@ -52,12 +50,7 @@ def decorator_that_call_func_without_except(num_of_call: int = None):
     return dec
 
 
-@decorator_that_call_func_without_except()
+@decorator_that_call_func_without_except(3)
 def some_func(num):
     """Something function"""
     return 1 / num
-
-
-# print(some_func(0))
-# print(some_func(1))
-# print(some_func(1))

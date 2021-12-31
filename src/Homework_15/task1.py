@@ -39,18 +39,18 @@ class Character:
              4: ['Level 4', 8, 10],
              5: ['TOP level', 16, 16]}
 
-    def __init__(self, health, attack, defend, level=1):
+    def __init__(self, health, attack, defend):
         self.health = health
         self.attack = attack
         self.defend = defend
-        self.level = level
-        for characteristic in (health, attack, defend, level):
+        self.level = 1
+        for characteristic in (health, attack, defend, self.level):
             if type(characteristic).__name__ != 'int':
                 raise TypeError("Incorrect input: characteristic must be a integer!")
             if characteristic < 0:
                 raise TypeError("Characteristics can't be less than 0!")
 
-    def status(self):
+    def __str__(self):
         """This method return characteristics of the hero."""
         return f"The {self.__class__.__name__} status:\n" \
                f"Health: {self.health}\n" \
@@ -84,7 +84,10 @@ class Hero(Character):
 
     one unique method 'level_up'.
     """
-    EXPERIENCE = 0
+
+    def __init__(self, health, attack, defend, experience=0):
+        super().__init__(health, attack, defend)
+        self.experience = experience
 
     def level_up(self):
         """This method used for skills up hero's if points of hero's experience more
@@ -95,19 +98,19 @@ class Hero(Character):
 
         (distributed randomly) and health points are restored.
         """
-        if self.level == 5 and Hero.EXPERIENCE >= 16:
+        if self.level == 5 and self.experience >= 16:
             self.health = self.SKILL.get(self.level)[2]
             self.random_skill_up()
-            Hero.EXPERIENCE = 0
+            self.experience = 0
             print('*** You have the maximum level! ***')
-        elif Hero. EXPERIENCE >= self.SKILL.get(self.level + 1)[1]:
+        elif self. experience >= self.SKILL.get(self.level + 1)[1]:
             temp_level = self.SKILL.get(self.level + 1)
             print(f'*** You level UP! Now the hero is {temp_level[0]}! ***')
             self.health = temp_level[2]
             self.random_skill_up()
-            Hero.EXPERIENCE = 0
+            self.experience = 0
             self.level += 1
-            print(self.status())
+            print(self.__str__())
 
 
 class Enemy(Character):
@@ -117,7 +120,8 @@ class Enemy(Character):
 class SuperBoss(Enemy):
     """Inherited from Enemy class with high parameters"""
     def __init__(self, health=30, attack=10, defend=8):
-        super().__init__(health, attack, defend, level=99)
+        super().__init__(health, attack, defend)
+        self.level = 99
 
 
 class Action:
@@ -139,7 +143,7 @@ class Action:
         """
         if defender.health <= 0 and attacker.__class__.__name__ in ('Enemy', 'SuperBoss'):
             setattr(defender, 'health', 0)
-            print('You die!', 'Game Over', defender.status(), sep='\n')
+            print('You die!', 'Game Over', defender.__str__(), sep='\n')
         elif defender.health <= 0 and attacker.__class__.__name__ == 'Hero':
             setattr(defender, 'health', 0)
             if defender.__class__.__name__ == 'SuperBoss':
@@ -147,7 +151,7 @@ class Action:
                 print()
             else:
                 print(f'{defender.__class__.__name__} die! You win and get 2 exp point!')
-                Hero.EXPERIENCE += 2
+                attacker.experience += 2
                 attacker.level_up()
 
     @staticmethod
@@ -192,7 +196,7 @@ def run():
     """
     hero = Hero(2, 5, 10)
     enemy = Enemy(1, 1, 1)
-    print(hero.status(), '\n')
+    print(hero, '\n')
     kill_count = 0
     total_score = 0
     start_time = time()
@@ -207,7 +211,7 @@ def run():
             for _ in range(hero.level - 1):
                 enemy.random_skill_up()
             total_score += enemy.health
-            print(enemy.status())
+            print(enemy.__str__())
             print()
         else:
             Action.hit(enemy, hero)
@@ -221,8 +225,8 @@ def run():
         print('\n', "OMG, a huge evil Orc is heading towards you!!!", '\n')
         boss = SuperBoss()
         sleep(2)
-        print(hero.status(), '\n')
-        print(boss.status(), '\n')
+        print(hero.__str__(), '\n')
+        print(boss.__str__(), '\n')
         sleep(3)
         print('Let\'s fight!', '\n')
         while hero.health and boss.health:
@@ -239,7 +243,8 @@ def run():
             sleep(1)
             if boss.health == 0:
                 sleep(1)
-                print(hero.status())
+                print(hero)
+                kill_count += 1
                 total_score += 30
                 break
     print(f"{' ' * 15 + 5 * '*'}TOTAL SCORE{5 * '*'}")
