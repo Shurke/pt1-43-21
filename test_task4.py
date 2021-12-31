@@ -1,5 +1,5 @@
-from task4 import a_n
 from task4 import a
+from task4 import a_n
 import unittest
 
 

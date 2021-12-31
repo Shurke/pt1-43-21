@@ -30,3 +30,7 @@ def a(n):
 print(a(8))
 print(a(100))
 print(a(3**37))
+
+
+def a_n():
+    return None
