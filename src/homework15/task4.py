@@ -60,7 +60,6 @@ def max_m(n):
     b = modulo_inverse_list(mutually_simple_list(n), n)
     m = b[-1]
     return m
-    pass
 
 
 def sum_func(ranges):
@@ -70,8 +69,3 @@ def sum_func(ranges):
     for i in ranges:
         summ += max_m(i)
     return summ
-    pass
-
-
-# sum_func(range(3, 2 * 10**7))
-sum_func([7, 15, 100])

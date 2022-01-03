@@ -29,6 +29,3 @@ def pair_counter_func(number_input: str = '1 1 1 1') -> int:
             counted_numbers.append(item)  # Убираем числа, для которых пары посчитаны
 
     return pair_counter  # Количество пар элементов равных друг другу
-
-
-pair_counter_func()

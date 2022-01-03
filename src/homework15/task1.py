@@ -5,7 +5,6 @@
 оплата заказа(включая списание средств со счета и начисление бонусных баллов с каждого заказа)
 
 -реализовать возможность оплаты части заказа бонусными баллами?
--словарь с информацией о заказе перед оплатой?
 -пользовательский интерфейс?
 -бд с кол-вом товара доступным к заказу("на складе")?
 -история заказов?
@@ -19,7 +18,6 @@ class Item():
         self.quantity = quantity
         self.type_of = type_of
         self.price = price
-        pass
 
     def item_info(self):
         'Информация о товаре'
@@ -28,7 +26,6 @@ class Item():
         print(self.quantity)
         print(self.type_of)
         print(self.size)
-        pass
 
 
 class Pizza(Item):
@@ -45,7 +42,6 @@ class Pizza(Item):
                 self.price = 25
             case 'XL':
                 self.price = 30
-        pass
 
 
 class Potatoes(Item):
@@ -67,7 +63,6 @@ class Drink(Item):
                 self.price = 3
             case '1':
                 self.price = 4
-        pass
 
 
 class Salad(Item):
@@ -81,7 +76,6 @@ class Salad(Item):
                 self.price = 6
             case 'L':
                 self.price = 8
-        pass
 
 
 class Souce(Item):
@@ -90,7 +84,6 @@ class Souce(Item):
         self.type_of = type_of
         self.quantity = quantity
         self.price = 1
-        pass
 
 
 class Customer():
@@ -98,7 +91,6 @@ class Customer():
         self.__current_account = 0
         self.name = name
         self.loyalty = 0
-        pass
 
     def top_up_current_account(self, top_up_summ):
         '''Пополнение текущего баланса на сумму top_up_summ'''
@@ -118,13 +110,13 @@ class Customer():
 
         self.loyalty = self.loyalty + bonus_loyalty
 
-    def customer_info(self):
+    def __str__(self):
         '''Информация о счете клиента'''
 
-        print(self.name)
-        summ = round(self.__current_account, 2)
-        print(f'Сумма на счете - {summ}')
-        print(f'Сумма бонусных баллов - {self.loyalty}')
+        name = str(self.name)
+        current_account = 'Сумма на счете - ' + str(round(self.__current_account, 2))
+        loyalty_summ = 'Сумма бонусных баллов - ' + str(self.loyalty)
+        return name + current_account + loyalty_summ
 
 
 class Cart():
@@ -169,14 +161,12 @@ class Payment():
     def __init__(self, payer, cart_to_pay):
         self.payer = payer
         self.cart_to_pay = cart_to_pay
-        pass
 
     def payment(self):
         '''Операция оплаты'''
 
         print(f'С вашего счета будет снято {self.cart_to_pay.cart_value}')
         self.payer.top_down_current_account(self.cart_to_pay.cart_value)
-        pass
 
     def bonus_loyalty_from_order(self):
         '''Начисление бонусных балло в случае успешной оплаты'''
@@ -209,4 +199,4 @@ payment_1 = Payment(customer, cart_1)
 payment_1.payment()
 payment_1.bonus_loyalty_from_order()
 
-customer.customer_info()
+str(customer)
