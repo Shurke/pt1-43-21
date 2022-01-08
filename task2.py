@@ -3,8 +3,8 @@
 Если превышено количество попыток, должно быть возбуждено исключение типа TooManyErrors"""
 
 
-class TooManyErrors:
-    pass
+class TooManyErrors(Exception):
+    __module__ = Exception.__module__
 
 
 def func(int1):
