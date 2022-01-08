@@ -7,9 +7,12 @@
 в котором они встречаются в списке."""
 
 
-list1 = ['a', 'b', 'b', 'c', 'd', 'e', 'a']
-n = []
-for elem_list1 in list1:
-    if list1.count(elem_list1) == 1:
-        n = n + [elem_list1]
-print(n)
+def func(list1):
+    n = []
+    for elem_list1 in list1:
+        if list1.count(elem_list1) == 1:
+            n = n + [elem_list1]
+    print(n)
+
+
+func(['a', 'b', 'b', 'c', 'd', 'e', 'a'])
