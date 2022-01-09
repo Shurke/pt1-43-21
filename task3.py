@@ -16,3 +16,11 @@ def func(list1):
 
 
 func(['a', 'b', 'b', 'c', 'd', 'e', 'a'])
+
+
+def n():
+    return None
+
+
+def list1():
+    return None

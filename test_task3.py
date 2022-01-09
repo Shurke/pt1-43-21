@@ -1,11 +1,13 @@
 from task3 import n
+from task3 import list1
 import unittest
 
 
 class t_test(unittest.TestCase):
 
     def test_1(self):
-        self.assertTrue(n == ['c', 'd', 'e'])
+        if list1 == ['a', 'b', 'b', 'c', 'd', 'e', 'a']:
+            self.assertEqual(n == ['c', 'd', 'e'])
 
 
 if __name__ == "__main__":
