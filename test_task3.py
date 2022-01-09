@@ -1,5 +1,5 @@
-from task3 import n
 from task3 import list1
+from task3 import n
 import unittest
 
 
