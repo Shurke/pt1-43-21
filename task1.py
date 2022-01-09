@@ -10,17 +10,25 @@
 class Product:
     def __init__(self, pId, name, price, quantity):
         """Инициализирует атрибуты"""
+        self.price = price
         self.id = pId
         self.name = name
         self.price = price
         self.quantity = quantity
 
     def updatePrice(self, new_price):
-        """Обновляет цену товара"""
-        if new_price > 0:
-            print("Ошибка! Невозможно обновить цену до нуля или ниже")
+        self._new_price = new_price
+
+    @property
+    def new_price(self):
+        return self._new_price
+
+    @new_price.setter
+    def new_price(self, new_pricenew):
+        if new_pricenew <= 0:
+            self._new_price = new_pricenew
         else:
-            self.price = new_price
+            print("Ошибка! Невозможно обновить цену до нуля или ниже")
 
     def updateQuantity(self, new_quantity, isIncrement):
         """Позволяет обновлять коли товара путем увел или умен кол зависимости от isIncrement."""
@@ -38,7 +46,8 @@ class Product:
     def viewProduct(self):
         """Отображает информацию о продукте посредством печати"""
         print('Product ID: ' + str(self.id) + ", Name: " + self.name + ", "
-              "Price: " + str(self.price) + ', Quantity: ' + str(self.quantity))
+                                                                       "Price: " + str(
+            self.price) + ', Quantity: ' + str(self.quantity))
 
 
 class Inventory:
