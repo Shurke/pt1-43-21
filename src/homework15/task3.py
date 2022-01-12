@@ -26,4 +26,3 @@ def task_func(input_str):
                 cnt += 1
     print('Pairs num:', cnt)
     return cnt
-
