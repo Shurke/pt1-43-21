@@ -3,28 +3,37 @@
 Если превышено количество попыток, должно быть возбуждено исключение типа TooManyErrors"""
 
 
-class TooManyErrors(Exception):
-    __module__ = Exception.__module__
+class TooManyErrors(ValueError):
+    pass
 
 
-def func(int1):
-    int1_2 = int1
-
-    def wrapper():
-        nonlocal int1_2
-        try:
-            while int1_2 >= 1:
-                print(int1_2)
-                int1_2 = int1_2 - 1
-        finally:
-            raise TooManyErrors
-
-    return wrapper()
-
-
-@func(4)
-def a():
-    return
+def dec(num):
+    def dec2(func):
+        def wrapper():
+            n = 0
+            while n < num:
+                try:
+                    result = func()
+                    return result
+                except ValueError:
+                    n += 1
+            raise TooManyErrors("Превышено количество попыток!")
+        return wrapper
+    return dec2
 
 
-a()
+my_num = 2
+
+
+@dec(my_num)
+def my_func():
+    a = my_num
+    try:
+        while a >= 1:
+            print(a)
+            a = a - 1
+    finally:
+        raise ValueError
+
+
+my_func()
