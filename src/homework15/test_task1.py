@@ -2,7 +2,6 @@
 Tests for homework15 task1
 '''
 
-import pytest
 import task1
 
 
