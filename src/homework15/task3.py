@@ -5,8 +5,6 @@
 Не нужно переделывать функцию для того чтобы она ловила все возможные ситуации сама.
 """
 
-import unittest
-
 
 def task_func(input_str):
     """4.Пары элементов
@@ -29,21 +27,3 @@ def task_func(input_str):
     print('Pairs num:', cnt)
     return cnt
 
-
-class TestTask(unittest.TestCase):
-
-    def test_type(self):
-        """Test for function input type"""
-        self.assertRaises(TypeError, task_func, 2132131)
-        self.assertRaises(TypeError, task_func, 99.9293123)
-        self.assertRaises(TypeError, task_func, False)
-        self.assertRaises(TypeError, task_func, (123, 3213, 1231231))
-
-    def test_result(self):
-        """Test for result equality"""
-        self.assertEqual(task_func("1 1 1"), 2)
-        self.assertEqual(task_func("1 1 1 1"), 6)
-
-
-if __name__ == '__main__':
-    unittest.main()
