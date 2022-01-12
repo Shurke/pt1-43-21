@@ -12,13 +12,12 @@ class TooManyErrors(Exception):
         return 'TooManyErrors'
 
 
-def dec(fun):
+def dec(fun, num_calls=2):
     """Если превышено количество попыток {num_calls}, должно быть возбуждено исключение типа
 
     TooManyErrors
     """
 
-    num_calls = int(input("Please enter call amount:"))
 
     def wrapper(*args, **kwargs):
         nonlocal num_calls
