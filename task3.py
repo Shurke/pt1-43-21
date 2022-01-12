@@ -12,10 +12,10 @@ def func(list1):
     for elem_list1 in list1:
         if list1.count(elem_list1) == 1:
             n = n + [elem_list1]
-    print(n)
+    return n
 
 
-func(['a', 'b', 'b', 'c', 'd', 'e', 'a'])
+print(func(['a', 'b', 'b', 'c', 'd', 'e', 'a']))
 
 
 def n():

@@ -8,42 +8,42 @@
 
 
 class Product:
-    def __init__(self, pId, name, price, quantity):
+    def __init__(self, p_id, name, price, quantity):
         """Инициализирует атрибуты"""
         self.price = price
-        self.id = pId
+        self.id = p_id
         self.name = name
         self.price = price
         self.quantity = quantity
 
-    def updatePrice(self, new_price):
-        self._new_price = new_price
+    def update_price(self, new_price):
+        self.new_price = new_price
 
     @property
     def new_price(self):
-        return self._new_price
+        return self.new_price
 
     @new_price.setter
     def new_price(self, new_pricenew):
         if new_pricenew <= 0:
-            self._new_price = new_pricenew
+            self.new_price = new_pricenew
         else:
             print("Ошибка! Невозможно обновить цену до нуля или ниже")
 
-    def updateQuantity(self, new_quantity, isIncrement):
+    def update_quantity(self, new_quantity, is_increment):
         """Позволяет обновлять коли товара путем увел или умен кол зависимости от isIncrement."""
-        if isIncrement is True:
+        if is_increment is True:
             self.quantity += new_quantity
         elif (self.quantity - new_quantity) >= 0:
             self.quantity -= new_quantity
         else:
             print("Ошибка, дальнейшее сокращение невозможно!")
 
-    def getQuantity(self):
+    def get_quantity(self):
         """Возвращает текущее количество товара."""
         return self.quantity
 
-    def viewProduct(self):
+    def view_product(self):
         """Отображает информацию о продукте посредством печати"""
         print('Product ID: ' + str(self.id) + ", Name: " + self.name + ", "
                                                                        "Price: " + str(
@@ -53,29 +53,29 @@ class Product:
 class Inventory:
     def __init__(self):
         """Инициализирует атрибут"""
-        self.listProd = []
+        self.list_prod = []
 
-    def addProduct(self, pId):
+    def add_product(self, pId):
         """Добавить новый товар в список"""
-        self.listProd.append(pId)
+        self.list_prod.append(pId)
 
-    def removeProduct(self, pId):
+    def remove_product(self, pId):
         """удаляет товар из списка"""
-        if pId in self.listProd:
-            self.listProd.remove(pId)
+        if pId in self.list_prod:
+            self.list_prod.remove(pId)
         else:
             print("Ошибка. Товара нет на складе.")
 
-    def viewInventory(self):
+    def view_inventory(self):
         """Отображает список инвентаря через печать"""
-        print(self.listProd)
+        print(self.list_prod)
 
 
 if __name__ == '__main__':
     prod1 = Product(1, "colgate", 2.20, 10)
-    print(prod1.getQuantity(), prod1.updateQuantity(2, True), prod1.viewProduct())
+    print(prod1.get_quantity(), prod1.update_quantity(2, True), prod1.view_product())
 
     invent1 = Inventory()
-    invent1.addProduct(3)
-    invent1.removeProduct(2)
-    invent1.viewInventory()
+    invent1.add_product(3)
+    invent1.remove_product(2)
+    invent1.view_inventory()
