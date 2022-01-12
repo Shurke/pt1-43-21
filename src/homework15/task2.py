@@ -18,7 +18,6 @@ def dec(fun, num_calls=2):
     TooManyErrors
     """
 
-
     def wrapper(*args, **kwargs):
         nonlocal num_calls
         while num_calls > 0:
