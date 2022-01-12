@@ -2,8 +2,8 @@
 Tests for homework15 task1
 '''
 
-import task1
 import pytest
+import task1
 
 
 def test_npc_choice_positive():
@@ -62,4 +62,3 @@ def test_session_get_score_negative():
 
     test_class = task1.Session(1, 3)
     assert test_class.get_score() != (1, 5)
-
