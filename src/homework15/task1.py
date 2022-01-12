@@ -1,7 +1,6 @@
 '''
 Создайте  модель из жизни.
-Это может быть бронирование комнаты в отеле, покупка билета в транспортной компании,
-или простая РПГ.
+Это может быть бронирование комнаты в отеле, покупка билета в транспортной компании, или простая РПГ.
 Создайте несколько объектов классов, которые описывают ситуацию.
 Объекты должны содержать как атрибуты так и методы класса для симуляции различных действий.
 Программа должна инстанцировать объекты и эмулировать какую-либо ситуацию - вызывать методы,
@@ -52,7 +51,7 @@ class Gamer:
         print(f"Введите цифру соответствующую действию {Actions.actions}:")
         try:
             choice = int(input("Ваше действие:"))
-            if choice not in range(1, 3):
+            if choice not in range(1, 4):
                 print("Ошибка ввода")
             else:
                 return choice
@@ -73,10 +72,7 @@ class Session:
     def description():
         """Описание игры"""
         print("Привет! Я хочу сыграть с тобой в игру :) Камень, ножницы, бумага")
-        print("Камень, ножницы, бумага")
-        print("Правила просты.Камень тупит ножницы.")
-        print("Ножницы режут бумагу.")
-        print("Бумага накрывает камень.")
+        print("Правила просты. Камень тупит ножницы. Ножницы режут бумагу. Бумага накрывает камень.")
         print("Удачи!!!")
 
     def play_game(self, gamer, npc, npc_name, gamer_name):
@@ -99,6 +95,8 @@ class Session:
         elif npc == 2 and gamer == 3:
             print(f'Ножницы режут бумагу, {npc_name} выиграл раунд')
             self.win2 += 1
+        elif npc == gamer:
+            print("Ничья")
 
     def get_score(self):
         print(f'Текущий счет {self.win1} - {self.win2}')
@@ -108,21 +106,27 @@ class Session:
 def game():
     """Непосредственно игра"""
 
-    Session().description()
+    game_session = Session()
+    game_session.description()
     npc_name = Npc.name()
     gamer_name = Gamer().name
-    gamer_choice = Gamer.choice()
-
-    if gamer_choice is None:
-        return
-    npc_choice = Npc.choice()
-
     gamer_wins = 0
     npc_wins = 0
-    # while gamer_wins < 3 or npc_wins < 3:
-    gamer_wins, npc_wins = Session().get_score()
-    print(f'{npc_name} выбирает {Actions.actions[npc_choice]}')
-    Session().play_game(gamer_choice, npc_choice, npc_name, gamer_name)
+
+    while gamer_wins < 3 and npc_wins < 3:
+
+        gamer_choice = Gamer.choice()
+        if gamer_choice is None:
+            return
+        npc_choice = Npc.choice()
+        print(f'{npc_name} выбирает {Actions.actions[npc_choice]}')
+        game_session.play_game(gamer_choice, npc_choice, npc_name, gamer_name)
+        gamer_wins, npc_wins = game_session.get_score()
+
+    if gamer_wins > npc_wins:
+        print(f'{gamer_name} выйграл!')
+    else:
+        print(f'{npc_name} выйграл!')
 
 
 if __name__ == '__main__':
