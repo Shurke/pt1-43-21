@@ -12,12 +12,12 @@ def euler_task_69(n):
     """Totient maximum. Problem 69"""
     max_val = 0
     max_totient = 0
-    totient = [i for i in range(n+1)]
-    for item in range(2, n+1):
+    totient = [i for i in range(n + 1)]
+    for item in range(2, n + 1):
         if totient[item] == item:
-            for item2 in range(item, n+1, item):
+            for item2 in range(item, n + 1, item):
                 totient[item2] -= totient[item2] // item
-        val = item/totient[item]
+        val = item / totient[item]
         if max_val < val:
             max_val = val
             max_totient = item
