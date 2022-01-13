@@ -17,7 +17,7 @@ class TestPairCounterFunc(TestCase):
           (' 1 1 1 1 2 2', 7),
           ('1 1 1 2 2 2 ', 6)
           )
-    @ unpack
+    @unpack
     def test_positive_solo_numbers(self, value, expected):
         '''Тесты, покрывают положительные одноразрядные числа'''
 
@@ -47,7 +47,7 @@ class TestPairCounterFunc(TestCase):
           ('1 1 11', 1),
           ('1 1 1 2 2 2 ', 6)
           )
-    @ unpack
+    @unpack
     def test_no_pairs_numbers(self, value, expected):
         '''Тесты, рассчитанные на наличие беспарных элементов'''
 
@@ -57,7 +57,7 @@ class TestPairCounterFunc(TestCase):
           ('1 1 11 11 11', 4),
           (' 111 111 22 22', 2)
           )
-    @ unpack
+    @unpack
     def test_more_than_one_digit_numbers(self, value, expected):
         '''Тесты, рассчитанные на числа имеющие более одного разряда'''
 
