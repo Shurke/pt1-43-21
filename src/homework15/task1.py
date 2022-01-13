@@ -42,7 +42,7 @@ class Pizza(Item):
                 self.price = 25
             case 'XL':
                 self.price = 30
-        
+
 
 class Potatoes(Item):
 
