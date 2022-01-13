@@ -1,16 +1,21 @@
 '''Tests for task4'''
 
 import pytest
-from task4 import *
+from task4 import great_comm_divisor
+from task4 import mutually_simple_list
+from task4 import modulo_inverse_list
+from task4 import max_m
+from task4 import sum_func
 
 
 class TestGreatCommDivisor:
 
     @pytest.mark.parametrize("a, b, result", [(10, 20, 10),
-                                            (144, 136, 8),
-                                            (123, 1246, 1),
-                                            (-9, 8, 1),
-                                            (8, -9, 1)])
+                                              (144, 136, 8),
+                                              (123, 1246, 1),
+                                              (-9, 8, 1),
+                                              (8, -9, 1)
+                                              ])
     def test_great(self, a, b, result):
         '''positive tests for GCD'''
 

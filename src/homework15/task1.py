@@ -45,9 +45,12 @@ class Pizza(Item):
 
 
 class Potatoes(Item):
+
     pass
 
+
 class Drink(Item):
+
     def __init__(self, quantity, type_of, size):
         self.name = self.__class__.__name__
         self.type_of = type_of
@@ -63,6 +66,7 @@ class Drink(Item):
 
 
 class Salad(Item):
+
     def __init__(self, quantity, type_of, size):
         self.name = self.__class__.__name__
         self.type_of = type_of
@@ -76,6 +80,7 @@ class Salad(Item):
 
 
 class Souce(Item):
+
     def __init__(self, quantity, type_of):
         self.name = self.__class__.__name__
         self.type_of = type_of
@@ -84,6 +89,7 @@ class Souce(Item):
 
 
 class Customer:
+    
     def __init__(self, name='Unknown'):
         self.__current_account = 0
         self.name = name
@@ -148,7 +154,7 @@ class Cart:
 
         a = ""
         for item in self.items_in_cart:
-            a+=f'{item[0]}  {item[1]} - {self.items_in_cart[item]} шт\n'
+            a += f'{item[0]}  {item[1]} - {self.items_in_cart[item]} шт\n'
 
         return (f'Ваш заказ составил:\n\
             \r{{}}\
@@ -157,8 +163,6 @@ class Cart:
                                             self.quantity_in_cart,
                                             self.cart_value)
                 )
-
-
 
 class Payment:
 
