@@ -2,9 +2,9 @@
 
 import pytest
 from task4 import great_comm_divisor
-from task4 import mutually_simple_list
-from task4 import modulo_inverse_list
 from task4 import max_m
+from task4 import modulo_inverse_list
+from task4 import mutually_simple_list
 from task4 import sum_func
 
 

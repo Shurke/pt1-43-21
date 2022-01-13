@@ -42,7 +42,7 @@ class Pizza(Item):
                 self.price = 25
             case 'XL':
                 self.price = 30
-
+        
 
 class Potatoes(Item):
 
@@ -89,7 +89,7 @@ class Souce(Item):
 
 
 class Customer:
-    
+
     def __init__(self, name='Unknown'):
         self.__current_account = 0
         self.name = name
@@ -163,6 +163,7 @@ class Cart:
                                             self.quantity_in_cart,
                                             self.cart_value)
                 )
+
 
 class Payment:
 
