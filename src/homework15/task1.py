@@ -11,7 +11,7 @@
 '''
 
 
-class Item():
+class Item:
 
     def __init__(self, name, quantity, type_of, price):
         self.name = name
@@ -19,7 +19,7 @@ class Item():
         self.type_of = type_of
         self.price = price
 
-    def item_info(self):
+    def __str__(self):
         'Информация о товаре'
 
         print(self.name)
@@ -45,10 +45,7 @@ class Pizza(Item):
 
 
 class Potatoes(Item):
-    def __init__(self, ):
-
-        pass
-
+    pass
 
 class Drink(Item):
     def __init__(self, quantity, type_of, size):
@@ -86,7 +83,7 @@ class Souce(Item):
         self.price = 1
 
 
-class Customer():
+class Customer:
     def __init__(self, name='Unknown'):
         self.__current_account = 0
         self.name = name
@@ -116,10 +113,10 @@ class Customer():
         name = str(self.name)
         current_account = 'Сумма на счете - ' + str(round(self.__current_account, 2))
         loyalty_summ = 'Сумма бонусных баллов - ' + str(self.loyalty)
-        return name + current_account + loyalty_summ
+        return '{}, {}, {}'.format(self.name, current_account, loyalty_summ)
 
 
-class Cart():
+class Cart:
 
     def __init__(self):
         self.items_in_cart = {}
@@ -146,17 +143,24 @@ class Cart():
         self.quantity_in_cart -= item.quantity
         self.cart_value -= item.price * item.quantity
 
-    def cart_info(self):
+    def __str__(self):
         '''Отображение информации о заказе'''
 
-        print('Ваш заказ составил:')
+        a = ""
         for item in self.items_in_cart:
-            print(f'{item[0]}  {item[1]} - {self.items_in_cart[item]} шт')
-        print(f'Кол-во товаров в корзине - {self.quantity_in_cart}')
-        print(f'Сумма к оплате - {self.cart_value}')
+            a+=f'{item[0]}  {item[1]} - {self.items_in_cart[item]} шт\n'
+
+        return (f'Ваш заказ составил:\n\
+            \r{{}}\
+            \rКол-во товаров в корзине - {{}}\n\
+            \rСумма к оплате - {{}}'.format(a,
+                                            self.quantity_in_cart,
+                                            self.cart_value)
+                )
 
 
-class Payment():
+
+class Payment:
 
     def __init__(self, payer, cart_to_pay):
         self.payer = payer
@@ -190,13 +194,12 @@ cart_1.add_to_cart(pizza_2)
 cart_1.add_to_cart(pizza_2)
 cart_1.add_to_cart(drink_1)
 
-# cart_1.remove_from_cart(pizza_1)
 
-cart_1.cart_info()
+print(cart_1)
 
 payment_1 = Payment(customer, cart_1)
 
 payment_1.payment()
 payment_1.bonus_loyalty_from_order()
 
-str(customer)
+print(customer)
