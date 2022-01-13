@@ -1,16 +1,16 @@
 '''Tests for task4'''
 
-from _pytest.pytester import _pytest
 import pytest
 from task4 import *
 
+
 class TestGreatCommDivisor:
 
-    @pytest.mark.parametrize("a, b, result", [(10, 20, 10), 
+    @pytest.mark.parametrize("a, b, result", [(10, 20, 10),
                                             (144, 136, 8),
                                             (123, 1246, 1),
                                             (-9, 8, 1),
-                                            (8, -9, 1)])            
+                                            (8, -9, 1)])
     def test_great(self, a, b, result):
         '''positive tests for GCD'''
 
@@ -41,7 +41,7 @@ class TestGreatCommDivisor:
         with pytest.raises(TypeError):
             modulo_inverse_list(1)
 
-    @pytest.mark.parametrize('n, result', [(15, 11), (100, 51), (7, 1) ])
+    @pytest.mark.parametrize('n, result', [(15, 11), (100, 51), (7, 1)])
     def test_max_m(self, n, result):
         '''positive tests for max_m function'''
 
@@ -54,4 +54,3 @@ class TestGreatCommDivisor:
         '''positive test for sum_function'''
 
         assert sum_func(lst) == result
-    
