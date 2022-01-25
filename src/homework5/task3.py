@@ -35,5 +35,5 @@ def get_ranges(lst):
 
 
 get_ranges([0, 1, 2, 3, 4, 7, 8, 10])
-get_ranges([4,7,10])
+get_ranges([4, 7, 10])
 get_ranges([2, 3, 8, 9])
