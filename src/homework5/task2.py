@@ -16,9 +16,11 @@ def remember_everything(area_of_circle):
         return result
     return wrapper
 
+
 @remember_everything
 def area_of_circle(r):
     return round(pi, 5) * r ** 2
+
 
 print(area_of_circle(2))
 print(area_of_circle(3))
