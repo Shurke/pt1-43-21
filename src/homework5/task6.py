@@ -10,9 +10,9 @@ def max_div(n):
         div = div << 1
         i += 1
     div = 2 ** (i - 1)
-    return print(div)
+    return div
 
 
-max_div(10)
-max_div(16)
-max_div(12)
+print(max_div(10))
+print(max_div(16))
+print(max_div(12))

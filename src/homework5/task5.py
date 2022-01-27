@@ -10,13 +10,12 @@ def power_of_two(num):
         closest_power = closest_power >> 1
         i += 1
     if abs(num - (2 ** (i - 1))) <= abs(num - 2 ** i):
-        print(2 ** (i - 1))
+        return 2 ** (i - 1)
     else:
-        print(2 ** i)
-    return
+        return 2 ** i
 
 
-power_of_two(10)
-power_of_two(20)
-power_of_two(1)
-power_of_two(13)
+print(power_of_two(10))
+print(power_of_two(20))
+print(power_of_two(1))
+print(power_of_two(13))
